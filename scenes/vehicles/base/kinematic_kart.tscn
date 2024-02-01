@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4oyduyet7he0"]
+
+[ext_resource type="Script" path="res://scenes/vehicles/base/kinematic_kart.gd" id="1_i8ga0"]
+[ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_62nih"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0f12l"]
+
+[node name="KinematicKart" type="CharacterBody3D"]
+script = ExtResource("1_i8ga0")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.2)
+radius = 0.25
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0.2)
+radius = 0.25
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.567985, -0.221019)
+size = Vector3(0.180664, 0.434082, 0.103943)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.714445, -0.126237)
+size = Vector3(0.435303, 0.0467224, 0.0712891)
+
+[node name="GroundColShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_0f12l")
+
+[node name="WheelF" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.3)
+
+[node name="debug_model" type="CSGCylinder3D" parent="WheelF"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+radius = 0.1
+height = 0.1
+material = ExtResource("2_62nih")
+
+[node name="WheelB" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0.3)
+
+[node name="debug_model" type="CSGCylinder3D" parent="WheelB"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+radius = 0.1
+height = 0.1
+material = ExtResource("2_62nih")

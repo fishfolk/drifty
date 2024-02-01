@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bl2gw07jyexpp"]
+
+[ext_resource type="Material" uid="uid://cvk2wmgqvougc" path="res://resources/materials/prototype_textures/prototype_brick.material" id="1_stuc4"]
+[ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_s4suy"]
+[ext_resource type="PackedScene" uid="uid://c4oyduyet7he0" path="res://scenes/vehicles/base/kinematic_kart.tscn" id="3_6s4t2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8b2fs"]
+
+[sub_resource type="Sky" id="Sky_ikglc"]
+sky_material = SubResource("ProceduralSkyMaterial_8b2fs")
+
+[sub_resource type="Environment" id="Environment_dov0w"]
+background_mode = 2
+sky = SubResource("Sky_ikglc")
+ambient_light_color = Color(0.843137, 0.980392, 0.988235, 1)
+ambient_light_sky_contribution = 0.8
+tonemap_mode = 1
+
+[node name="TestPlayground" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_dov0w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="ground" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+material_override = ExtResource("1_stuc4")
+size = Vector3(100, 0.5, 100)
+material = ExtResource("2_s4suy")
+
+[node name="box" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = ExtResource("1_stuc4")
+material = ExtResource("1_stuc4")
+
+[node name="BaseVehicle" parent="." instance=ExtResource("3_6s4t2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.960794, 4.76837e-07, 1.93754)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.786914, 0.301081, -0.538625, 0, 0.872885, 0.487926, 0.617063, -0.383956, 0.686885, -1.18668, 2.31231, 5.10472)
