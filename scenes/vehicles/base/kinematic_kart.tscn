@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4oyduyet7he0"]
+[gd_scene load_steps=5 format=3 uid="uid://c4oyduyet7he0"]
 
 [ext_resource type="Script" path="res://scenes/vehicles/base/kinematic_kart.gd" id="1_i8ga0"]
 [ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_62nih"]
+[ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="2_yao61"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0f12l"]
 
-[node name="KinematicKart" type="CharacterBody3D"]
+[node name="KinematicKart" type="CharacterBody3D" node_paths=PackedStringArray("input")]
 script = ExtResource("1_i8ga0")
+input = NodePath("KartInput")
+
+[node name="KartInput" type="Node" parent="."]
+script = ExtResource("2_yao61")
 
 [node name="Model" type="Node3D" parent="."]
 
