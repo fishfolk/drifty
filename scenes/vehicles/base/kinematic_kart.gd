@@ -27,8 +27,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func get_speed() -> float:
 	return velocity.dot(-global_transform.basis.z)
 
-func get_sideways_velocity() -> float:
-	return velocity.dot(global_transform.basis.x)
+func get_ground_velocity() -> Vector3:
+	return velocity - velocity * global_transform.basis.y
 
 
 func set_input(new_input: KartInput) -> void:
@@ -53,7 +53,11 @@ func _physics_process(delta):
 	print(30*friction_multiplier*delta)
 	#velocity.move_toward(Vector3.ZERO, 300 * friction_multiplier * delta)
 	var friction_power = DECELERATION * friction_multiplier * delta
-	velocity -= global_transform.basis.x * sign(get_sideways_velocity()) * friction_power
+	#velocity -= global_transform.basis.x * sign(get_sideways_velocity()) * friction_power
+	var ground_velocity = get_ground_velocity()
+	var new_ground_velocity = ground_velocity.move_toward(-get_speed()*global_transform.basis.y, 1*delta)
+	velocity = velocity * global_transform.basis.y + new_ground_velocity
+	
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -93,4 +97,5 @@ func _update_drive(delta) -> void:
 func _update_steer(delta) -> void:
 	var steer = input.steering * STEER_SPEED * delta
 	global_rotate(-global_transform.basis.y, steer)
-	#velocity = velocity.rotated(-global_transform.basis.y, steer)
+	var rotated_velocity = velocity.rotated(-global_transform.basis.y, steer)
+

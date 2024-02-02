@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6yiolgvean8s"]
+
+[ext_resource type="Script" path="res://scenes/vehicles/base/rigidsphere_kart.gd" id="1_2i6vj"]
+[ext_resource type="Texture2D" uid="uid://owqw7yskihpp" path="res://resources/materials/prototype_textures/sky.png" id="2_bv6v6"]
+[ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="2_wae0r"]
+[ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="3_p17cm"]
+[ext_resource type="Script" path="res://scenes/vehicles/base/sphere_wheel.gd" id="4_olhhi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o5rwa"]
+rough = true
+absorbent = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0f12l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgvut"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.215686)
+albedo_texture = ExtResource("2_bv6v6")
+
+[node name="RigidSphereKart" type="Node3D" node_paths=PackedStringArray("input")]
+script = ExtResource("1_2i6vj")
+input = NodePath("KartInput")
+ball_position_offset = Vector3(0, -0.5, 0)
+
+[node name="KartInput" type="Node" parent="."]
+script = ExtResource("2_wae0r")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.2)
+radius = 0.25
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0.2)
+radius = 0.25
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.567985, -0.221019)
+size = Vector3(0.180664, 0.434082, 0.103943)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.714445, -0.126237)
+size = Vector3(0.435303, 0.0467224, 0.0712891)
+
+[node name="Sphere" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+physics_material_override = SubResource("PhysicsMaterial_o5rwa")
+linear_damp = 0.5
+angular_damp = 1.0
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Sphere"]
+shape = SubResource("SphereShape3D_0f12l")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Sphere"]
+material = SubResource("StandardMaterial3D_qgvut")
+
+[node name="WheelF" type="RayCast3D" parent="." node_paths=PackedStringArray("sphere")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.3)
+target_position = Vector3(0, -0.2, 0)
+script = ExtResource("4_olhhi")
+sphere = NodePath("../Sphere")
+
+[node name="debug_model" type="CSGCylinder3D" parent="WheelF"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+radius = 0.1
+height = 0.1
+material = ExtResource("3_p17cm")
+
+[node name="WheelB" type="RayCast3D" parent="." node_paths=PackedStringArray("sphere")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0.3)
+target_position = Vector3(0, -0.2, 0)
+script = ExtResource("4_olhhi")
+sphere = NodePath("../Sphere")
+
+[node name="debug_model" type="CSGCylinder3D" parent="WheelB"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+radius = 0.1
+height = 0.1
+material = ExtResource("3_p17cm")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45049, 2.77861)

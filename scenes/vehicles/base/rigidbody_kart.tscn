@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0gvd7x6k2r6w"]
+
+[ext_resource type="Script" path="res://scenes/vehicles/base/rigidbody_kart.gd" id="1_0rakh"]
+[ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="1_hvrh1"]
+[ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_8hbmj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tquho"]
+friction = 0.0
+rough = true
+absorbent = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0f12l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_put6l"]
+radius = 0.306685
+height = 1.00856
+
+[node name="RigidbodyKart" type="RigidBody3D" node_paths=PackedStringArray("input", "wheels")]
+physics_material_override = SubResource("PhysicsMaterial_tquho")
+angular_damp = 5.0
+script = ExtResource("1_0rakh")
+input = NodePath("KartInput")
+wheels = [NodePath("WheelF"), NodePath("WheelB")]
+
+[node name="KartInput" type="Node" parent="."]
+script = ExtResource("1_hvrh1")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.2)
+radius = 0.25
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0.2)
+radius = 0.25
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.567985, -0.221019)
+size = Vector3(0.180664, 0.434082, 0.103943)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.714445, -0.126237)
+size = Vector3(0.435303, 0.0467224, 0.0712891)
+
+[node name="GroundColShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_0f12l")
+disabled = true
+
+[node name="GroundColShape2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.306274, 0)
+shape = SubResource("CapsuleShape3D_put6l")
+
+[node name="WheelF" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.3)
+target_position = Vector3(0, -0.15, 0)
+
+[node name="debug_model" type="CSGCylinder3D" parent="WheelF"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+radius = 0.1
+height = 0.1
+material = ExtResource("2_8hbmj")
+
+[node name="WheelB" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0.3)
+target_position = Vector3(0, -0.15, 0)
+
+[node name="debug_model" type="CSGCylinder3D" parent="WheelB"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+radius = 0.1
+height = 0.1
+material = ExtResource("2_8hbmj")
+
+[node name="BottomRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+target_position = Vector3(0, -0.2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45049, 2.77861)
+current = true
