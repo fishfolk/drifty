@@ -41,7 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 material_override = ExtResource("1_stuc4")
 material = ExtResource("1_stuc4")
 
-[node name="BaseVehicle" parent="." instance=ExtResource("3_6s4t2")]
+[node name="KinematicKart" parent="." instance=ExtResource("3_6s4t2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.960794, 4.76837e-07, 1.93754)
 
 [node name="Camera3D" type="Camera3D" parent="."]

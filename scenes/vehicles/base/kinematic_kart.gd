@@ -4,11 +4,15 @@ extends CharacterBody3D
 @export var input: KartInput = null
 
 
+@export var FRICTION_CURVE: Curve
+
 #const SPEED = 5.0
-const MAX_SPEED = 30.0 # meters per second
+const MAX_SPEED = 10.0 # meters per second
 const ACCEL = 4.0 # (meters per second) per second 
 
 const STEER_SPEED = 4.0 # radians per second
+
+const DECELERATION = 10.0 # meters per second
 
 const JUMP_VELOCITY = 4.5
 
@@ -20,8 +24,11 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 ## Returns the speed along strictly the forward / backward axis of the vehicle.
 ## Sideways movement and falling movement is ignored.
-func get_speed() -> float :
+func get_speed() -> float:
 	return velocity.dot(-global_transform.basis.z)
+
+func get_sideways_velocity() -> float:
+	return velocity.dot(global_transform.basis.x)
 
 
 func set_input(new_input: KartInput) -> void:
@@ -37,8 +44,16 @@ func set_input(new_input: KartInput) -> void:
 
 
 func _physics_process(delta):
-	# natural deceleration
-	#velocity *= 0.95
+	# Natural deceleration
+	
+	# 1 if moving forward, -1 if moving backward, 0 is completely sideways.
+	var sideways_factor = 1 - abs(velocity.normalized().dot(-global_transform.basis.z))
+	var friction_multiplier = FRICTION_CURVE.sample(sideways_factor)
+	#print(sideways_factor)
+	print(30*friction_multiplier*delta)
+	#velocity.move_toward(Vector3.ZERO, 300 * friction_multiplier * delta)
+	var friction_power = DECELERATION * friction_multiplier * delta
+	velocity -= global_transform.basis.x * sign(get_sideways_velocity()) * friction_power
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -67,12 +82,15 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+
 func _update_drive(delta) -> void:
 	var engine_accel : float = 0
 	if get_speed() < MAX_SPEED:
 		engine_accel = input.throttle * ACCEL * delta
 	velocity += -global_transform.basis.z * engine_accel
 
+
 func _update_steer(delta) -> void:
 	var steer = input.steering * STEER_SPEED * delta
 	global_rotate(-global_transform.basis.y, steer)
+	#velocity = velocity.rotated(-global_transform.basis.y, steer)
