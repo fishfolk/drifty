@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cvk2wmgqvougc" path="res://resources/materials/prototype_textures/prototype_brick.material" id="1_stuc4"]
 [ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_s4suy"]
-[ext_resource type="PackedScene" uid="uid://b0gvd7x6k2r6w" path="res://scenes/vehicles/base/rigidbody_kart.tscn" id="3_6l748"]
+[ext_resource type="PackedScene" uid="uid://c6yiolgvean8s" path="res://scenes/vehicles/base/rigidsphere_kart.tscn" id="3_rymqf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8b2fs"]
 
@@ -50,5 +50,5 @@ sides = 32
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.786914, 0.301081, -0.538625, 0, 0.872885, 0.487926, 0.617063, -0.383956, 0.686885, -1.18668, 2.31231, 5.10472)
 
-[node name="RigidbodyKart" parent="." instance=ExtResource("3_6l748")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41025, 2.38419e-07, 0.640954)
+[node name="RigidSphereKart" parent="." instance=ExtResource("3_rymqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19254, -4.76837e-07, 2.34921)

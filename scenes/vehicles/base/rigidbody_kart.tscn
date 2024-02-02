@@ -78,4 +78,3 @@ target_position = Vector3(0, -0.2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45049, 2.77861)
-current = true

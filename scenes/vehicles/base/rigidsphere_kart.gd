@@ -27,7 +27,7 @@ func _update_drive(delta):
 
 
 func _update_steer(delta):
-	var steer = 2 * input.steering * delta
+	var steer = 4 * input.steering * delta
 	rotate(-global_basis.y, steer)
 	
 	pass

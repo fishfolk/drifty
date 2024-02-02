@@ -7,8 +7,8 @@ extends CharacterBody3D
 @export var FRICTION_CURVE: Curve
 
 #const SPEED = 5.0
-const MAX_SPEED = 10.0 # meters per second
-const ACCEL = 4.0 # (meters per second) per second 
+const MAX_SPEED = 20.0 # meters per second
+const ACCEL = 7.0 # (meters per second) per second 
 
 const STEER_SPEED = 4.0 # radians per second
 

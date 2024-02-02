@@ -4,7 +4,7 @@ extends RigidBody3D
 
 @export var wheels: Array[RayCast3D]
 
-var ENGINE_ACCEL = 30 # meters per second squared
+var ENGINE_ACCEL = 20 # meters per second squared
 var MAX_SPEED = 20
 
 
