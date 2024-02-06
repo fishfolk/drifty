@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl2gw07jyexpp"]
+[gd_scene load_steps=8 format=3 uid="uid://bl2gw07jyexpp"]
 
 [ext_resource type="Material" uid="uid://cvk2wmgqvougc" path="res://resources/materials/prototype_textures/prototype_brick.material" id="1_stuc4"]
 [ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_s4suy"]
 [ext_resource type="PackedScene" uid="uid://tgc7puqtj4fp" path="res://scenes/vehicles/raycast/SimpleRaycastKart.tscn" id="4_q51n2"]
+[ext_resource type="Script" path="res://scripts/camera/chase_cam.gd" id="4_utfo4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8b2fs"]
 
@@ -53,6 +54,11 @@ transform = Transform3D(0.786914, 0.301081, -0.538625, 0, 0.872885, 0.487926, 0.
 [node name="SimpleRaycastKart" parent="." instance=ExtResource("4_q51n2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.09228, 1.52321, -1.71612)
 
-[node name="Camera3D" type="Camera3D" parent="SimpleRaycastKart"]
-transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.22285, 1.71337)
+[node name="ChaseCamRoot" type="Node3D" parent="SimpleRaycastKart"]
+top_level = true
+script = ExtResource("4_utfo4")
+
+[node name="Camera3D" type="Camera3D" parent="SimpleRaycastKart/ChaseCamRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.72285, 2.71337)
 current = true
+fov = 90.0
