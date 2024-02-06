@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://dv7xwl5cpdyjj"]
+
+[ext_resource type="Script" path="res://scripts/car/RoadMaterialGroups.gd" id="1_lvpnj"]
+[ext_resource type="Resource" uid="uid://ef04pt77nkjr" path="res://scripts/car/road_materials/tarmac.tres" id="1_nohn5"]
+[ext_resource type="Resource" uid="uid://bw34m5l141c0t" path="res://scripts/car/road_materials/grass.tres" id="2_ke8ow"]
+[ext_resource type="Resource" uid="uid://cic3o5kk48ikw" path="res://scripts/car/road_materials/sand.tres" id="3_u6adp"]
+[ext_resource type="Resource" uid="uid://u5mstm6tk8eo" path="res://scripts/car/road_materials/path_dirt.tres" id="4_5210n"]
+[ext_resource type="Resource" uid="uid://d2uljyn3mthf4" path="res://scripts/car/road_materials/path_tiles.tres" id="5_44dhk"]
+
+[resource]
+script = ExtResource("1_lvpnj")
+materials = Array[Resource("res://scripts/car/RoadMaterial.gd")]([ExtResource("1_nohn5"), ExtResource("2_ke8ow"), ExtResource("3_u6adp"), ExtResource("4_5210n"), ExtResource("5_44dhk")])
+default_material = ExtResource("1_nohn5")

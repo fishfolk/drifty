@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RoadMaterial" load_steps=2 format=3 uid="uid://ef04pt77nkjr"]
+
+[ext_resource type="Script" path="res://scripts/car/RoadMaterial.gd" id="1_u36s5"]
+
+[resource]
+script = ExtResource("1_u36s5")
+group_name = "tarmac"
+is_offroad = false
+drag = 0.05
+slide_drag = 8.0
+bumpiness = 0.0

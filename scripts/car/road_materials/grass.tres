@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RoadMaterial" load_steps=2 format=3 uid="uid://bw34m5l141c0t"]
+
+[ext_resource type="Script" path="res://scripts/car/RoadMaterial.gd" id="1_uxh8s"]
+
+[resource]
+script = ExtResource("1_uxh8s")
+group_name = "grass"
+is_offroad = true
+drag = 0.5
+slide_drag = 1.0
+bumpiness = 1.2
