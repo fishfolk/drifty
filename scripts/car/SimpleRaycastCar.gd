@@ -13,6 +13,9 @@ signal area_entered(area:Area3D)
 @export var boost_power : float = 500
 
 @export_group("Node References")
+
+@export var input : KartInput
+
 ## Drag all your wheels here.
 @export var wheels : Array[SimpleWheel] = []
 
@@ -66,6 +69,8 @@ func _physics_process(delta):
 	
 	if not is_grounded:
 		_align_up_while_airborne(delta)
+	else:
+		_align_up_with_floor(delta)
 	
 	
 	_update_input()
@@ -85,9 +90,9 @@ func _physics_process(delta):
 	if speed < -8: braking_force = 0.0
 	
 	var temp_steer = input_steer
-	temp_steer *= clampf(abs(speed)/5, -1, 1) #TODO: improve turning while stopped
+	#temp_steer *= clampf(abs(speed)/5, -1, 1) #TODO: improve turning while stopped
 	steer_axis = lerp(steer_axis, temp_steer, delta*5)
-	if abs(speed) < 2: steer_axis = 0.0
+	if abs(speed) < 1: steer_axis = 0.0
 	
 	# complex brakes
 	#var force_pos = global_transform.basis.z*0.2 -global_transform.basis.y*0.1
@@ -122,7 +127,7 @@ func _physics_process(delta):
 	## drift steer
 	drift_angle = 0
 	
-	if (not is_drifting) and input_drift != 0.0 and input_steer != 0 and speed > 15.0:
+	if (not is_drifting) and input_drift != 0.0 and input_steer != 0 and speed > 5.0:
 		is_drifting = true
 		drift_dir = sign(input_steer) * 0.1
 	
@@ -168,7 +173,7 @@ func _physics_process(delta):
 	## update wheels
 	for child in get_children():
 		if not child is SimpleWheel: continue
-		var wheel : SimpleWheel = child
+		var wheel := child as SimpleWheel
 		
 		wheel._update_physics(delta)
 
@@ -176,12 +181,15 @@ func _physics_process(delta):
 # TODO: tie with custom input node to detect both player, AI and set inputs.
 func _update_input():
 	if can_input:
-		input_throttle = Input.get_action_strength("throttle")
-		input_brakes = Input.get_action_strength("brake")
-		input_steer = Input.get_axis("steer_left", "steer_right")
-		input_drift = Input.get_action_strength("drift")
-		input_drift_just_pressed = Input.is_action_just_pressed("drift")
+		input.query_input()
 		
+		input_throttle = input.throttle
+		input_brakes = input.brakes
+		input_steer = input.steering
+		#Input.get_action_strength("drift")
+		input_drift_just_pressed = input_drift == 0 and input.drift != 0 #Input.is_action_just_pressed("drift")
+		input_drift = input.drift
+		print(input.brakes, input_brakes)
 		#if Input.is_action_just_pressed("pause"):
 		#	Pause.pause()
 	else:
@@ -199,6 +207,29 @@ func _align_up_while_airborne(delta):
 	#var new_basis : Basis = Basis
 	pass
 
+func _align_up_with_floor(delta):
+	var floor_normal = get_floor_normal()
+	if floor_normal != Vector3.ZERO:
+		var new_up = lerp(-global_basis.y, floor_normal, delta*2)
+		basis.looking_at(-global_basis.z, new_up)
+	else:
+		_align_up_while_airborne(delta)
+		#global_basis = _align_up(global_basis, floor_normal)
+
+func _align_up(node_basis, normal):
+	var result = Basis()
+	var scale = node_basis.get_scale() # Only if your node might have a scale other than (1,1,1)
+	
+	result.x = normal.cross(node_basis.z)
+	result.y = normal
+	result.z = node_basis.x.cross(normal)
+	
+	result = result.orthonormalized()
+	result.x *= scale.x 
+	result.y *= scale.y 
+	result.z *= scale.z 
+	
+	return result
 
 func add_drift_charge(amount):
 	drift_charge += amount
@@ -210,6 +241,21 @@ func release_drift_charge(dt):
 		var final_power = boost_power * (1.5+floor(drift_charge)*1) / 100.0
 		apply_central_force(-global_transform.basis.z * mass * final_power / dt)
 	drift_charge = 0
+
+func get_floor_normal() -> Vector3:
+	var wheel_normal_sum = Vector3.ZERO
+	var wheel_contact_count : float = 0
+	for wheel : SimpleWheel in wheels:
+		if wheel.is_colliding():
+			wheel_contact_count += 1
+			var local_normal_sum = Vector3.ZERO
+			for i in range(wheel.get_collision_count()):
+				local_normal_sum += wheel.get_collision_normal(i)
+			local_normal_sum /= wheel.get_collision_count()
+			wheel_normal_sum += local_normal_sum
+	if wheel_contact_count == 0:
+		return Vector3.ZERO
+	return wheel_normal_sum / wheel_contact_count
 
 
 func get_speed() -> float :

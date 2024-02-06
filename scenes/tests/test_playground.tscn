@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cvk2wmgqvougc" path="res://resources/materials/prototype_textures/prototype_brick.material" id="1_stuc4"]
 [ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_s4suy"]
-[ext_resource type="PackedScene" uid="uid://c6yiolgvean8s" path="res://scenes/vehicles/base/rigidsphere_kart.tscn" id="3_rymqf"]
+[ext_resource type="PackedScene" uid="uid://tgc7puqtj4fp" path="res://scenes/vehicles/raycast/SimpleRaycastKart.tscn" id="4_q51n2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8b2fs"]
 
@@ -50,5 +50,9 @@ sides = 32
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.786914, 0.301081, -0.538625, 0, 0.872885, 0.487926, 0.617063, -0.383956, 0.686885, -1.18668, 2.31231, 5.10472)
 
-[node name="RigidSphereKart" parent="." instance=ExtResource("3_rymqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19254, -4.76837e-07, 2.34921)
+[node name="SimpleRaycastKart" parent="." instance=ExtResource("4_q51n2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.09228, 1.52321, -1.71612)
+
+[node name="Camera3D" type="Camera3D" parent="SimpleRaycastKart"]
+transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.22285, 1.71337)
+current = true

@@ -153,6 +153,7 @@ func _update_movement(dt):
 	#var braking_drag = 1 * car.input_brakes
 	#car.linear_velocity *= 1.0 - dt * braking_drag * factor
 	forward = -car.global_transform.basis.z
+	#print("throttle: ", car.engine_throttle)
 	var braking_force = -forward * car.braking_force * factor
 	car.apply_central_force(braking_force)
 

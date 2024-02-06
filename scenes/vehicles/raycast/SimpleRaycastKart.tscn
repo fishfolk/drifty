@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://tgc7puqtj4fp"]
+
+[ext_resource type="Script" path="res://scripts/car/SimpleRaycastCar.gd" id="1_7ljwh"]
+[ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="2_1ce3s"]
+[ext_resource type="Script" path="res://scripts/car/SimpleWheel.gd" id="2_1tjxg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvayr"]
+friction = 0.0
+absorbent = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oytxq"]
+radius = 0.233923
+height = 1.00251
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ve672"]
+margin = 0.0001
+radius = 0.1
+
+[node name="SimpleRaycastKart" type="RigidBody3D" node_paths=PackedStringArray("input", "wheels")]
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_cvayr")
+script = ExtResource("1_7ljwh")
+input = NodePath("KartInput")
+wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2")]
+
+[node name="KartInput" type="Node" parent="."]
+script = ExtResource("2_1ce3s")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.2)
+radius = 0.25
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0.2)
+radius = 0.25
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.567985, -0.221019)
+size = Vector3(0.180664, 0.434082, 0.103943)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.714445, -0.126237)
+size = Vector3(0.435303, 0.0467224, 0.0712891)
+
+[node name="solid_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.334927, 0)
+shape = SubResource("CapsuleShape3D_oytxq")
+
+[node name="SimpleWheel" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.3)
+shape = SubResource("SphereShape3D_ve672")
+target_position = Vector3(0, -0.2, 0)
+script = ExtResource("2_1tjxg")
+is_steer = true
+wheel_radius = 0.1
+spring_length = 0.2
+
+[node name="SimpleWheel2" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.3)
+shape = SubResource("SphereShape3D_ve672")
+target_position = Vector3(0, -0.2, 0)
+script = ExtResource("2_1tjxg")
+wheel_radius = 0.1
+spring_length = 0.2
