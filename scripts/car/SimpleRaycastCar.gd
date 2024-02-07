@@ -73,7 +73,7 @@ func _physics_process(delta):
 		_align_up_with_floor(delta)
 	
 	
-	_update_input()
+	_update_input(delta)
 	
 	var speed = get_speed()
 	## interpret inputs
@@ -179,9 +179,9 @@ func _physics_process(delta):
 
 
 # TODO: tie with custom input node to detect both player, AI and set inputs.
-func _update_input():
+func _update_input(delta):
 	if can_input:
-		input.query_input()
+		input.query_input(delta)
 		
 		input_throttle = input.throttle
 		input_brakes = input.brakes
@@ -270,6 +270,3 @@ func get_turning_radius() -> float:
 
 func _on_contact_area_area_entered(area):
 	area_entered.emit(area)
-
-func _f_turning_radius(speed, handling_degrees) -> float:
-	
