@@ -22,7 +22,7 @@ script = ExtResource("1_2i6vj")
 input = NodePath("KartInput")
 ball_position_offset = Vector3(0, -0.5, 0)
 
-[node name="KartInput" type="Node" parent="."]
+[node name="KartInput" type="Node3D" parent="."]
 script = ExtResource("2_wae0r")
 
 [node name="Model" type="Node3D" parent="."]

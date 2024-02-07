@@ -163,10 +163,10 @@ func _physics_process(delta):
 	
 	## simple steering
 	var d = 0.8 if is_drifting else 1 #steer less when drifting
-	var r = -2 if get_speed() < 0 else 1
-	global_rotate(global_transform.basis.y, -steer_axis*d*r * PI * handling_factor * delta)
+	var r = -2 if get_speed() < 0 else 1 #better steering on reverse
+	global_rotate(global_transform.basis.y, -steer_axis*d*r * deg_to_rad(handling_factor) * delta)
 	if not is_drifting:
-		linear_velocity *= (1 - 0.1*delta*abs(steer_axis)*handling_factor)
+		linear_velocity *= (1 - 0.01*delta*abs(steer_axis)*handling_factor)
 	#apply_torque(global_transform.basis.y * -steer_axis * mass)
 	
 	
@@ -189,7 +189,7 @@ func _update_input():
 		#Input.get_action_strength("drift")
 		input_drift_just_pressed = input_drift == 0 and input.drift != 0 #Input.is_action_just_pressed("drift")
 		input_drift = input.drift
-		print(input.brakes, input_brakes)
+		#print(input.brakes, input_brakes)
 		#if Input.is_action_just_pressed("pause"):
 		#	Pause.pause()
 	else:
@@ -261,6 +261,15 @@ func get_floor_normal() -> Vector3:
 func get_speed() -> float :
 	return linear_velocity.dot(-global_transform.basis.z)
 
+## As the formula for steering used is simply "rotate x degrees every second", ignoring drag,
+## the turn radius for the vehicle can be derived from the turning speed and the current velocity
+## circumference = 2PI*R = get_speed() / (deg_to_rad(handling_factor)/2*PI)
+## => R = get_speed() / deg_to_rad(handling_factor)
+func get_turning_radius() -> float:
+	return get_speed() / deg_to_rad(handling_factor)
 
 func _on_contact_area_area_entered(area):
 	area_entered.emit(area)
+
+func _f_turning_radius(speed, handling_degrees) -> float:
+	

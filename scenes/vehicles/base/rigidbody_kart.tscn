@@ -22,7 +22,7 @@ script = ExtResource("1_0rakh")
 input = NodePath("KartInput")
 wheels = [NodePath("WheelF"), NodePath("WheelB")]
 
-[node name="KartInput" type="Node" parent="."]
+[node name="KartInput" type="Node3D" parent="."]
 script = ExtResource("1_hvrh1")
 
 [node name="Model" type="Node3D" parent="."]

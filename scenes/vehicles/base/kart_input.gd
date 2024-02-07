@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 class_name KartInput
 ## Base input handler for controlling karts.
 ## [br]
@@ -7,6 +7,8 @@ class_name KartInput
 
 ## This variable can turn on or off the handler
 @export var enabled := true
+
+@export var car: SimpleRaycastCar
 
 var throttle: float = 0.0
 var brakes: float = 0.0
@@ -35,3 +37,5 @@ func _update_input() -> void:
 	brakes = Input.get_action_strength("ui_down")
 	drift = Input.get_action_strength("drift")
 	steering = Input.get_axis("ui_left", "ui_right")
+	print_debug(car.get_speed())
+	print_debug("turning diameter: ", 2*car.get_turning_radius())

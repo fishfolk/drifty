@@ -17,7 +17,7 @@ script = ExtResource("1_i8ga0")
 input = NodePath("KartInput")
 FRICTION_CURVE = SubResource("Curve_1etye")
 
-[node name="KartInput" type="Node" parent="."]
+[node name="KartInput" type="Node3D" parent="."]
 script = ExtResource("2_yao61")
 
 [node name="Model" type="Node3D" parent="."]
