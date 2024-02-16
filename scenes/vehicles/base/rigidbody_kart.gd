@@ -57,7 +57,7 @@ func _physics_process(delta):
 		gravity_scale = 1.0
 	
 	if input:
-		input.query_input()
+		input.query_input(delta)
 		if is_on_floor:
 			_update_steer(delta)
 			_update_drive(delta)

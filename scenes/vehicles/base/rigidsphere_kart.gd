@@ -16,7 +16,7 @@ func _physics_process(delta):
 	
 	
 	if input:
-		input.query_input()
+		input.query_input(delta)
 		_update_drive(delta)
 		_update_steer(delta)
 
