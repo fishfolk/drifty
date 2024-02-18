@@ -120,7 +120,7 @@ func _physics_process(delta):
 	
 	#jump
 	if input_drift_just_pressed and is_grounded:
-		#apply_central_force(global_transform.basis.y * mass * 500)
+		apply_central_force(global_transform.basis.y * mass * 50)
 		pass
 	
 	
@@ -135,10 +135,10 @@ func _physics_process(delta):
 		is_drifting = false
 		drift_dir = 0.0
 	
-	if is_drifting and (input_throttle == 0.0 or speed < 0.01): #lose drift, lose charge
-		is_drifting = false
-		drift_dir = 0.0
-		drift_charge = 0.0
+	#if is_drifting and (input_throttle == 0.0 or speed < 0.01): #lose drift, lose charge
+		#is_drifting = false
+		#drift_dir = 0.0
+		#drift_charge = 0.0
 	
 	if is_drifting and input_drift == 0.0: #lose drift, release charge
 		is_drifting = false
@@ -150,7 +150,7 @@ func _physics_process(delta):
 	if is_drifting:
 		drift_dir = lerp(drift_dir, sign(drift_dir), delta * speed/5.0)
 		
-		global_rotate(global_transform.basis.y, -drift_dir * PI * handling_factor * 1.2 * delta)
+		global_rotate(global_transform.basis.y, -drift_dir * PI * deg_to_rad(handling_factor) * 0.5 * delta)
 		var ground_velocity = linear_velocity - linear_velocity*global_transform.basis.y
 		var drift_slip = ground_velocity.normalized().dot(-global_transform.basis.z)
 		drift_angle = acos(clamp(drift_slip, -1, 1))
@@ -166,9 +166,8 @@ func _physics_process(delta):
 	var r = -2 if get_speed() < 0 else 1 #better steering on reverse
 	global_rotate(global_transform.basis.y, -steer_axis*d*r * deg_to_rad(handling_factor) * delta)
 	if not is_drifting:
-		linear_velocity *= (1 - 0.01*delta*abs(steer_axis)*handling_factor)
+		linear_velocity *= (1 - 0.01*delta*abs(steer_axis)*deg_to_rad(handling_factor))
 	#apply_torque(global_transform.basis.y * -steer_axis * mass)
-	
 	
 	## update wheels
 	for child in get_children():
@@ -189,6 +188,8 @@ func _update_input(delta):
 		#Input.get_action_strength("drift")
 		input_drift_just_pressed = input_drift == 0 and input.drift != 0 #Input.is_action_just_pressed("drift")
 		input_drift = input.drift
+		if input_drift_just_pressed:
+			print_debug("jump!")
 		#print(input.brakes, input_brakes)
 		#if Input.is_action_just_pressed("pause"):
 		#	Pause.pause()

@@ -37,5 +37,5 @@ func _update_input(delta) -> void:
 	brakes = Input.get_action_strength("ui_down")
 	drift = Input.get_action_strength("drift")
 	steering = Input.get_axis("ui_left", "ui_right")
-	print_debug(car.get_speed())
-	print_debug("turning diameter: ", 2*car.get_turning_radius())
+	#print_debug(car.get_speed())
+	#print_debug("turning diameter: ", 2*car.get_turning_radius())

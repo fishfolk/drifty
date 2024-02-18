@@ -86,6 +86,9 @@ sides = 32
 
 [node name="SimpleRaycastKart" parent="." instance=ExtResource("4_q51n2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.09228, 1.52321, -1.71612)
+drift_grip_factor = 0.9
+drift_speed = 3.0
+boost_power = 200.0
 
 [node name="ChaseCamRoot" type="Node3D" parent="SimpleRaycastKart"]
 top_level = true
@@ -93,6 +96,7 @@ script = ExtResource("4_utfo4")
 
 [node name="Camera3D" type="Camera3D" parent="SimpleRaycastKart/ChaseCamRoot"]
 transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.72285, 2.71337)
+current = true
 fov = 90.0
 
 [node name="AIControlledKart" parent="." node_paths=PackedStringArray("input") instance=ExtResource("4_q51n2")]
@@ -106,7 +110,22 @@ script = ExtResource("5_1lgps")
 debug_enabled = true
 chase_target = NodePath("../../SimpleRaycastKart")
 chase_path = NodePath("../../Path3D")
-nav_refresh_interval = 0.2
+nav_refresh_interval = 0.1
+chase_mode = 2
+car = NodePath("..")
+
+[node name="AIControlledKart2" parent="." node_paths=PackedStringArray("input") instance=ExtResource("4_q51n2")]
+transform = Transform3D(0.759884, 0, -0.650058, 0, 1, 0, 0.650058, 0, 0.759884, -21.0065, 0.424259, 1.60943)
+top_speed = 12.0
+handling_factor = 180.0
+input = NodePath("SimpleAIKartInput")
+
+[node name="SimpleAIKartInput" type="Node3D" parent="AIControlledKart2" node_paths=PackedStringArray("chase_target", "chase_path", "car")]
+script = ExtResource("5_1lgps")
+debug_enabled = true
+chase_target = NodePath("../../SimpleRaycastKart")
+chase_path = NodePath("../../Path3D")
+nav_refresh_interval = 0.1
 chase_mode = 2
 car = NodePath("..")
 

@@ -19,6 +19,7 @@ extends KartInput
 @export var chase_path: Path3D
 
 @export var nav_refresh_interval : float = 0.5
+@export var intelligence_rate : float = 0.9
 
 enum AIChaseMode {
 	POSITION, NODE3D, PATH3D
@@ -29,12 +30,13 @@ var nav_agent: NavigationAgent3D
 var nav_refresh_timer: float = 0
 
 func set_target_position(target_position):
+	if randf() > intelligence_rate: return
 	nav_agent.target_position = target_position
 	#print("ok!")
 
 func refresh_navigation_target():
 	if chase_mode == AIChaseMode.NODE3D and chase_target:
-		nav_agent.target_position = chase_target.global_position
+		set_target_position(chase_target.global_position)
 	
 	if chase_mode == AIChaseMode.PATH3D and chase_path:
 		var closest_offset = chase_path.curve.get_closest_offset(global_position)
@@ -45,7 +47,7 @@ func refresh_navigation_target():
 		closest_offset += 1.5 # always look forward 2 meters
 		closest_offset += speed * 0.7 # increasing this will make AI cut corners more often
 		var target_position: Vector3 = chase_path.curve.sample_baked(closest_offset)
-		nav_agent.target_position = target_position
+		set_target_position(target_position)
 
 
 func _ready():
@@ -113,6 +115,7 @@ func _setup_navigation():
 
 func _follow_nav_path(delta):
 	nav_agent.velocity = car.linear_velocity # why?
+	
 	
 	var distance: Vector3 = nav_agent.get_next_path_position() - car.global_position
 	var direction: Vector3 = Vector3(distance)
