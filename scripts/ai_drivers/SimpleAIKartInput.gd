@@ -8,7 +8,8 @@ extends KartInput
 ##
 ##
 
-
+@export var path_follow_preview : PathFollow3D
+@export var path_follow_preview2 : PathFollow3D
 
 @export var debug_enabled := false :
 	set(value):
@@ -46,14 +47,18 @@ func refresh_navigation_target():
 		set_target_position(chase_target.global_position)
 	
 	if chase_mode == AIChaseMode.PATH3D and chase_path:
-		var closest_offset = chase_path.curve.get_closest_offset(global_position)
+		var closest_offset = chase_path.curve.get_closest_offset(car.global_position)
+		if path_follow_preview:
+			path_follow_preview.progress = closest_offset
 		
 		var speed = max(0, car.get_speed())
 		# offset increases with speed as we want the AI to have time to respond. 
 		# these are magic numbers that should be tweaked (in spatial units, here they are meters)
 		closest_offset += 4 # always look forward 2 meters
 		closest_offset += speed * 0.9 # increasing this will make AI cut corners more often
-		var target_position: Vector3 = chase_path.curve.sample_baked(closest_offset)
+		if path_follow_preview2:
+			path_follow_preview2.progress = closest_offset
+		var target_position: Vector3 = chase_path.curve.sample_baked(closest_offset, true)
 		set_target_position(target_position)
 
 
@@ -117,6 +122,7 @@ func _setup_navigation():
 	nav_agent = NavigationAgent3D.new()
 	nav_agent.debug_enabled = debug_enabled
 	nav_agent.max_speed = 30
+	nav_agent.path_max_distance = 0.5
 	add_child(nav_agent)
 
 

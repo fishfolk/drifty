@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://whi55x7fiwps"
+path="res://.godot/imported/sky.obj-f49f2891a80e5f5f7afca874ec82644f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sky.obj-f49f2891a80e5f5f7afca874ec82644f.mesh"]
+
+source_file="res://temporary/DS Mario Circuit/assets/sky.obj"
+dest_files=["res://.godot/imported/sky.obj-f49f2891a80e5f5f7afca874ec82644f.mesh", "res://.godot/imported/sky.obj-f49f2891a80e5f5f7afca874ec82644f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
