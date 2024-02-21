@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bmqhm2ocn1wsw"
+path="res://.godot/imported/car_tire.obj-d9706fb099d6f8dd82d007ef76e9e5d7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/car_tire.obj-d9706fb099d6f8dd82d007ef76e9e5d7.mesh"]
+
+source_file="res://temporary/Mushroom Bridge/MapObj/car_tire.obj"
+dest_files=["res://.godot/imported/car_tire.obj-d9706fb099d6f8dd82d007ef76e9e5d7.mesh", "res://.godot/imported/car_tire.obj-d9706fb099d6f8dd82d007ef76e9e5d7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

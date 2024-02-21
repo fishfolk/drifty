@@ -1,0 +1,8 @@
+newmtl Obj_Car
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka Obj_Car.png
+map_Kd Obj_Car.png
+map_d Obj_Car.png

@@ -29,10 +29,17 @@ enum AIChaseMode {
 var nav_agent: NavigationAgent3D
 var nav_refresh_timer: float = 0
 
+var aiming_position := Vector3.ZERO
+
 func set_target_position(target_position):
 	if randf() > intelligence_rate: return
+	aiming_position = target_position
 	nav_agent.target_position = target_position
 	#print("ok!")
+
+func get_aiming_position():
+	return nav_agent.get_next_path_position()
+	#return aiming_position
 
 func refresh_navigation_target():
 	if chase_mode == AIChaseMode.NODE3D and chase_target:
@@ -44,8 +51,8 @@ func refresh_navigation_target():
 		var speed = max(0, car.get_speed())
 		# offset increases with speed as we want the AI to have time to respond. 
 		# these are magic numbers that should be tweaked (in spatial units, here they are meters)
-		closest_offset += 1.5 # always look forward 2 meters
-		closest_offset += speed * 0.7 # increasing this will make AI cut corners more often
+		closest_offset += 4 # always look forward 2 meters
+		closest_offset += speed * 0.9 # increasing this will make AI cut corners more often
 		var target_position: Vector3 = chase_path.curve.sample_baked(closest_offset)
 		set_target_position(target_position)
 
@@ -117,7 +124,7 @@ func _follow_nav_path(delta):
 	nav_agent.velocity = car.linear_velocity # why?
 	
 	
-	var distance: Vector3 = nav_agent.get_next_path_position() - car.global_position
+	var distance: Vector3 = get_aiming_position() - car.global_position
 	var direction: Vector3 = Vector3(distance)
 	direction.y = 0
 	direction = direction.normalized()

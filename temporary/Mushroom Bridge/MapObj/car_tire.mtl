@@ -1,0 +1,8 @@
+newmtl cartire_ob
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka cartire_ob.png
+map_Kd cartire_ob.png
+map_d cartire_ob.png

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dr05dtfk6wrlp"
+path="res://.godot/imported/bus_a.obj-17c9aa4f29145c1db6864b531be19f3a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bus_a.obj-17c9aa4f29145c1db6864b531be19f3a.mesh"]
+
+source_file="res://temporary/Mushroom Bridge/MapObj/bus_a.obj"
+dest_files=["res://.godot/imported/bus_a.obj-17c9aa4f29145c1db6864b531be19f3a.mesh", "res://.godot/imported/bus_a.obj-17c9aa4f29145c1db6864b531be19f3a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

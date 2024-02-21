@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dpoegkkqdp5y2"
+path="res://.godot/imported/KinoHouse 2.obj-a84157b00d4aeface8d252b5decec914.mesh"
+
+[deps]
+
+files=["res://.godot/imported/KinoHouse 2.obj-a84157b00d4aeface8d252b5decec914.mesh"]
+
+source_file="res://temporary/Mushroom Bridge/MapObj/KinoHouse 2.obj"
+dest_files=["res://.godot/imported/KinoHouse 2.obj-a84157b00d4aeface8d252b5decec914.mesh", "res://.godot/imported/KinoHouse 2.obj-a84157b00d4aeface8d252b5decec914.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

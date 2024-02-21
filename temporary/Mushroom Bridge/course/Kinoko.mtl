@@ -1,0 +1,112 @@
+newmtl Highwaykakidasi
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka Highwaykakidasi.png
+map_Kd Highwaykakidasi.png
+map_d Highwaykakidasi.png
+newmtl MH_iwa
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka MH_iwa.png
+map_Kd MH_iwa.png
+map_d MH_iwa.png
+newmtl MH_road
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka MH_road.png
+map_Kd MH_road.png
+map_d MH_road.png
+newmtl castle
+Ka 0 0 0
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka castle.png
+map_Kd castle.png
+map_d castle.png
+newmtl lambert204
+Ka 0 0 0
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka lambert204.png
+map_Kd lambert204.png
+map_d lambert204.png
+newmtl lambert205
+Ka 0 0 0
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka lambert205.png
+map_Kd lambert205.png
+map_d lambert205.png
+newmtl lambert206
+Ka 0 0 0
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka lambert206.png
+map_Kd lambert206.png
+map_d lambert206.png
+newmtl lambert207
+Ka 0 0 0
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka lambert207.png
+map_Kd lambert207.png
+map_d lambert207.png
+newmtl lambert222
+Ka 0 0 0
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka lambert222.png
+map_Kd lambert222.png
+map_d lambert222.png
+newmtl mh_
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka mh_.png
+map_Kd mh_.png
+map_d mh_.png
+newmtl mh_kusa
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka mh_kusa.png
+map_Kd mh_kusa.png
+map_d mh_kusa.png
+newmtl mh_ten
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka mh_ten.png
+map_Kd mh_ten.png
+map_d mh_ten.png
+newmtl newroad
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka newroad.png
+map_Kd newroad.png
+map_d newroad.png
+newmtl siro1_green1
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka siro1_green1.png
+map_Kd siro1_green1.png
+map_d siro1_green1.png

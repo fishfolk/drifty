@@ -1,0 +1,8 @@
+newmtl balloon1
+Ka 0 0 0
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka balloon1.png
+map_Kd balloon1.png
+map_d balloon1.png

@@ -1,0 +1,8 @@
+newmtl bus_a_ob
+Ka 0 0 0
+Kd 0.972549 0.972549 0.972549
+d 1
+Tr 1
+map_Ka bus_a_ob.png
+map_Kd bus_a_ob.png
+map_d bus_a_ob.png
