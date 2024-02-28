@@ -39,8 +39,12 @@ func set_target_position(target_position):
 	#print("ok!")
 
 func get_aiming_position():
-	return nav_agent.get_next_path_position()
-	#return aiming_position
+	## This will use A-star to find a path towards the racing line,
+	## and try to follow that.
+	#return nav_agent.get_next_path_position() 
+	
+	## This will tightly follow the racing line as defined in the engine.
+	return aiming_position
 
 func refresh_navigation_target():
 	if chase_mode == AIChaseMode.NODE3D and chase_target:
@@ -78,7 +82,7 @@ func _physics_process(delta):
 	
 	pass
 
-## Private function. This is the function to override in subclasses.
+
 func _update_input(delta) -> void:
 	#throttle = Input.get_action_strength("ui_up")
 	#brakes = Input.get_action_strength("ui_down")
@@ -147,8 +151,8 @@ func _follow_nav_path(delta):
 		throttle = min(1, 0.5+dot) # throttle = max(0, dot) # throttle = 1 
 		# if target is 45° or more to the side, apply the brakes a little
 		brakes = 0.5 if dot < 0.5 else 0
-		
 	
 	steering = sign(-cross.y) #* sign(dot)
-	#throttle = max(0, dot)
+	
+	# TODO: implement reverse behavior
 

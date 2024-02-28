@@ -154,16 +154,6 @@ handling_factor = 60.0
 drift_speed = 3.0
 boost_power = 200.0
 
-[node name="ChaseCamRoot" type="Node3D" parent="SimpleRaycastKart"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.43, 25.5708, 70.6733)
-top_level = true
-script = ExtResource("15_u7fi1")
-
-[node name="Camera3D" type="Camera3D" parent="SimpleRaycastKart/ChaseCamRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.72285, 2.71337)
-current = true
-fov = 90.0
-
 [node name="AIControlledKart" parent="." node_paths=PackedStringArray("input") instance=ExtResource("14_s658o")]
 transform = Transform3D(-0.0534861, 0, -0.998568, 0, 1, 0, 0.998568, 0, -0.0534861, 84.9252, 19.1676, 54.7482)
 engine_power = 6.0
@@ -195,3 +185,13 @@ nav_refresh_interval = 0.1
 intelligence_rate = 0.8
 chase_mode = 2
 car = NodePath("..")
+
+[node name="ChaseCamRoot" type="Node3D" parent="AIControlledKart2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.43, 25.5708, 70.6733)
+top_level = true
+script = ExtResource("15_u7fi1")
+
+[node name="Camera3D" type="Camera3D" parent="AIControlledKart2/ChaseCamRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.72285, 2.71337)
+current = true
+fov = 90.0
