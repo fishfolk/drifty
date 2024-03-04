@@ -51,7 +51,7 @@ func refresh_navigation_target():
 		set_target_position(chase_target.global_position)
 	
 	if chase_mode == AIChaseMode.PATH3D and chase_path:
-		var closest_offset = chase_path.curve.get_closest_offset(car.global_position)
+		var closest_offset = chase_path.curve.get_closest_offset(chase_path.to_local(car.global_position))
 		if path_follow_preview:
 			path_follow_preview.progress = closest_offset
 		
