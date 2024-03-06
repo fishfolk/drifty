@@ -8,7 +8,7 @@ class_name KartInput
 ## This variable can turn on or off the handler
 @export var enabled := true
 
-@export var car: SimpleRaycastCar
+@onready var car: SimpleRaycastCar = get_parent()
 
 var throttle: float = 0.0
 var brakes: float = 0.0

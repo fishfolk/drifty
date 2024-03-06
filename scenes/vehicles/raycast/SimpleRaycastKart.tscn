@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://tgc7puqtj4fp"]
+[gd_scene load_steps=9 format=3 uid="uid://tgc7puqtj4fp"]
 
 [ext_resource type="Script" path="res://scripts/car/SimpleRaycastCar.gd" id="1_7ljwh"]
 [ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="2_1ce3s"]
 [ext_resource type="Script" path="res://scripts/car/SimpleWheel.gd" id="2_1tjxg"]
+[ext_resource type="Script" path="res://scenes/vehicles/combat/kart_balance_component.gd" id="3_da5jg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvayr"]
 friction = 0.0
@@ -11,6 +12,10 @@ absorbent = true
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oytxq"]
 radius = 0.233923
 height = 1.00251
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ndbuc"]
+radius = 0.373522
+height = 1.23436
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ve672"]
 margin = 0.0001
@@ -27,9 +32,11 @@ boost_power = 100.0
 input = NodePath("KartInput")
 wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2")]
 
-[node name="KartInput" type="Node3D" parent="." node_paths=PackedStringArray("car")]
+[node name="KartInput" type="Node3D" parent="."]
 script = ExtResource("2_1ce3s")
-car = NodePath("..")
+
+[node name="KartBalanceComponent" type="Node3D" parent="."]
+script = ExtResource("3_da5jg")
 
 [node name="Model" type="Node3D" parent="."]
 
@@ -52,6 +59,15 @@ size = Vector3(0.435303, 0.0467224, 0.0712891)
 [node name="solid_collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.334927, 0)
 shape = SubResource("CapsuleShape3D_oytxq")
+
+[node name="item_collision" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item_collision"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ndbuc")
 
 [node name="SimpleWheel" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.3)
