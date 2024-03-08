@@ -16,6 +16,8 @@ var balance : float = 100 :
 		if balance == 0:
 			_on_balance_lost_completely()
 			balance_lost_completely.emit()
+		if hud:
+			hud.set_balance(balance)
 
 var balance_regen_speed : float = 100.0 / 3.0 # regen 100 in three seconds.
 
@@ -27,15 +29,24 @@ var hud
 func _ready():
 	hud = hud_packed.instantiate()
 	add_child(hud)
+	
+	if collision_area:
+		collision_area.area_entered.connect(_on_item_area_entered)
 
 
 func _physics_process(delta):
 	balance += balance_regen_speed * delta
-	hud.set_balance(balance)
+
+
+func _on_item_area_entered(area: Area3D) -> void:
+	var p = area.get_parent()
+	if p is PowerUp:
+		var powerup = p as PowerUp
+		powerup.on_touched(self)
 
 
 func _on_balance_lost_completely() -> void:
-	#car.spin_out()
+	car.spin_out()
 	pass
 
 #### DEBUG

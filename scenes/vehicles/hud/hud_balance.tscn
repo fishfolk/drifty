@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/vehicles/hud/hud_balance.gd" id="1_a8j7o"]
 
 [node name="HudBalance" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_a8j7o")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

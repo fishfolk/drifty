@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bitfhdqx6vgg7"]
+
+[ext_resource type="Script" path="res://scenes/powerups/power_up_banana.gd" id="1_fmyg2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjt7w"]
+albedo_color = Color(0.854902, 0.847059, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j5kdv"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y3yrk"]
+radius = 0.176521
+
+[node name="PowerUpBanana" type="CharacterBody3D"]
+collision_layer = 0
+script = ExtResource("1_fmyg2")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128323, 0)
+material_override = SubResource("StandardMaterial3D_jjt7w")
+radius = 0.108563
+height = 0.250632
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0500989, 0)
+shape = SubResource("BoxShape3D_j5kdv")
+
+[node name="ContactArea" type="Area3D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContactArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0992228, 0)
+shape = SubResource("SphereShape3D_y3yrk")

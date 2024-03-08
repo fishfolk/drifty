@@ -38,6 +38,8 @@ var drift_charge : float = 0
 
 var is_grounded := false
 
+var spun_out_timer: float = 0.0 #
+
 func _ready():
 	if Engine.is_editor_hint(): 
 		return
@@ -54,6 +56,8 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	if spun_out_timer > 0: spun_out_timer -= delta
+	
 	## update if car is grounded or not
 	#only not grounded if all 4 wheels aren't grounded
 	#only grounded if all 4 wheels are grounded
@@ -74,12 +78,19 @@ func _physics_process(delta):
 	
 	
 	_update_input(delta)
+	if spun_out_timer > 0: 
+		input_throttle = 0
+		input_brakes = 0
+		var falling_velocity = Vector3(0,linear_velocity.y,0)
+		linear_velocity = (linear_velocity - falling_velocity) * 0.98 + falling_velocity
 	
 	var speed = get_speed()
 	## interpret inputs
 	engine_throttle = input_throttle * engine_power * mass
 	if speed > top_speed: engine_throttle = 0.0
 	if speed < 0.1 : engine_throttle *= 2
+	
+
 	
 	if linear_velocity.length_squared() < 0.2:
 		angular_damp = 100
@@ -88,6 +99,7 @@ func _physics_process(delta):
 	
 	braking_force = input_brakes * engine_power*1.5 * mass
 	if speed < -8: braking_force = 0.0
+	
 	
 	var temp_steer = input_steer
 	#temp_steer *= clampf(abs(speed)/5, -1, 1) #TODO: improve turning while stopped
@@ -131,9 +143,9 @@ func _physics_process(delta):
 		is_drifting = true
 		drift_dir = sign(input_steer) * 0.1
 	
-	if is_drifting and not is_grounded: #lose drift, dont lose charge
-		is_drifting = false
-		drift_dir = 0.0
+	#if is_drifting and not is_grounded: #lose drift, dont lose charge
+		#is_drifting = false
+		#drift_dir = 0.0
 	
 	#if is_drifting and (input_throttle == 0.0 or speed < 0.01): #lose drift, lose charge
 		#is_drifting = false
@@ -268,6 +280,12 @@ func get_speed() -> float :
 ## => R = get_speed() / deg_to_rad(handling_factor)
 func get_turning_radius() -> float:
 	return get_speed() / deg_to_rad(handling_factor)
+
+func spin_out():
+	spun_out_timer = 2.0
+	#play animation from anim tree
+	pass
+
 
 func _on_contact_area_area_entered(area):
 	area_entered.emit(area)

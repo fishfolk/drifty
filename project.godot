@@ -30,6 +30,10 @@ drift={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_12="PowerUp"
+
 [navigation]
 
 3d/default_cell_size=0.1

@@ -22,6 +22,8 @@ margin = 0.0001
 radius = 0.1
 
 [node name="SimpleRaycastKart" type="RigidBody3D" node_paths=PackedStringArray("input", "wheels")]
+collision_layer = 2
+collision_mask = 3
 mass = 100.0
 physics_material_override = SubResource("PhysicsMaterial_cvayr")
 script = ExtResource("1_7ljwh")
@@ -35,8 +37,9 @@ wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2")]
 [node name="KartInput" type="Node3D" parent="."]
 script = ExtResource("2_1ce3s")
 
-[node name="KartBalanceComponent" type="Node3D" parent="."]
+[node name="KartBalanceComponent" type="Node3D" parent="." node_paths=PackedStringArray("collision_area")]
 script = ExtResource("3_da5jg")
+collision_area = NodePath("../ItemCollisionArea")
 
 [node name="Model" type="Node3D" parent="."]
 
@@ -60,12 +63,14 @@ size = Vector3(0.435303, 0.0467224, 0.0712891)
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.334927, 0)
 shape = SubResource("CapsuleShape3D_oytxq")
 
-[node name="item_collision" type="Area3D" parent="."]
+[node name="ItemCollisionArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+collision_layer = 2048
+collision_mask = 2048
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="item_collision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemCollisionArea"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_ndbuc")
 
