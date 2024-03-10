@@ -6,26 +6,39 @@ extends CharacterBody3D
 
 ## You need to create an Area3D named "ContactArea" as a child of this node.
 var contact_area: Area3D
+var floor_raycast: RayCast3D
 
 func _ready():
-	contact_area = get_node_or_null("ContactArea")
+	contact_area = $ContactArea
 	if contact_area == null:
 		printerr("ERROR: Couldn't find contact area for powerup: ", self)
+	
+	floor_raycast = $FloorRayCast3D
+	if floor_raycast == null:
+		printerr("ERROR: Couldn't find floor raycast for powerup: ", self)
 	else:
-		pass
+		floor_raycast.set_collision_mask_value(1, true) # ground is layer 1
 
 func _physics_process(delta):
-	velocity += Vector3.DOWN * 10 * delta;
+	if not check_is_on_floor():
+		velocity += Vector3.DOWN * 10 * delta;
 	do_movement(delta)
+	
+
+func check_is_on_floor() -> bool:
+	floor_raycast.force_raycast_update()
+	return floor_raycast.is_colliding()
 
 ## standard movement: bounce on walls and floor and lose velocity over time.
-func do_movement(delta):
+func do_movement(delta) -> KinematicCollision3D:
 	velocity *= 0.98 # drag
 	var collision_info = move_and_collide(velocity*delta)
 	if collision_info:
-		if velocity.length() > 5: # bounce
-			velocity.bounce(collision_info.get_normal())
-			velocity *= 0.6
+		if velocity.length() > 5: # bounce                      # restitution
+			velocity = velocity.bounce(collision_info.get_normal()) * 0.6
+		elif check_is_on_floor():
+			velocity.y = 0
+	return collision_info
 
 
 ## virtual.

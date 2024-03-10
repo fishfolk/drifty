@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://lcj0xrld41hp"]
+
+[ext_resource type="Script" path="res://scenes/powerups/power_up_green_shell.gd" id="1_og2pt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bf60s"]
+albedo_color = Color(0.0470588, 0.780392, 0.235294, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dcce6"]
+radius = 0.17
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y62px"]
+height = 0.225452
+radius = 0.223236
+
+[node name="PowerUpGreenShell" type="CharacterBody3D"]
+collision_layer = 0
+floor_constant_speed = true
+script = ExtResource("1_og2pt")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, 0.138474, 0)
+material_override = SubResource("StandardMaterial3D_bf60s")
+radius = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.169026, 0)
+shape = SubResource("SphereShape3D_dcce6")
+
+[node name="ContactArea" type="Area3D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContactArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.132677, 0)
+shape = SubResource("CylinderShape3D_y62px")
+
+[node name="FloorRayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.01, 0)

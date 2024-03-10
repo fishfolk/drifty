@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d38jws4nfc8ck"]
+[gd_scene load_steps=39 format=3 uid="uid://d38jws4nfc8ck"]
 
 [ext_resource type="ArrayMesh" uid="uid://ddh674dv8o413" path="res://temporary/Mushroom Bridge/course/Kinoko.obj" id="1_njgv7"]
 [ext_resource type="Texture2D" uid="uid://cpcyo8ga78gud" path="res://temporary/Mushroom Bridge/course/Highwaykakidasi.png" id="2_s4m25"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://tgc7puqtj4fp" path="res://scenes/vehicles/raycast/SimpleRaycastKart.tscn" id="14_s658o"]
 [ext_resource type="Script" path="res://scripts/camera/chase_cam.gd" id="15_u7fi1"]
 [ext_resource type="PackedScene" uid="uid://bitfhdqx6vgg7" path="res://scenes/powerups/power_up_banana.tscn" id="17_ute2f"]
+[ext_resource type="PackedScene" uid="uid://lcj0xrld41hp" path="res://scenes/powerups/power_up_green_shell.tscn" id="18_mn7ep"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ddq8n"]
 sky_top_color = Color(0.905882, 0.596078, 0.360784, 1)
@@ -155,16 +156,6 @@ handling_factor = 60.0
 drift_speed = 3.0
 boost_power = 200.0
 
-[node name="ChaseCamRoot" type="Node3D" parent="SimpleRaycastKart"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.43, 25.5708, 70.6733)
-top_level = true
-script = ExtResource("15_u7fi1")
-
-[node name="Camera3D" type="Camera3D" parent="SimpleRaycastKart/ChaseCamRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.72285, 2.71337)
-current = true
-fov = 90.0
-
 [node name="AIControlledKart" parent="." node_paths=PackedStringArray("input") instance=ExtResource("14_s658o")]
 transform = Transform3D(-0.0534861, 0, -0.998568, 0, 1, 0, 0.998568, 0, -0.0534861, 84.9252, 19.1676, 54.7482)
 engine_power = 6.0
@@ -181,7 +172,7 @@ intelligence_rate = 0.8
 chase_mode = 2
 
 [node name="AIControlledKart2" parent="." node_paths=PackedStringArray("input") instance=ExtResource("14_s658o")]
-transform = Transform3D(-0.0534861, 0, -0.998568, 0, 1, 0, 0.998568, 0, -0.0534861, 72.7927, 19.1676, 51.0462)
+transform = Transform3D(-0.0534861, 0, -0.998568, 0, 1, 0, 0.998568, 0, -0.0534861, 71.7927, 19.1676, 52.4548)
 engine_power = 6.0
 top_speed = 25.0
 handling_factor = 80.0
@@ -195,5 +186,18 @@ nav_refresh_interval = 0.1
 intelligence_rate = 0.8
 chase_mode = 2
 
+[node name="ChaseCamRoot" type="Node3D" parent="AIControlledKart2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.43, 25.5708, 70.6733)
+top_level = true
+script = ExtResource("15_u7fi1")
+
+[node name="Camera3D" type="Camera3D" parent="AIControlledKart2/ChaseCamRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.72285, 2.71337)
+current = true
+fov = 90.0
+
 [node name="PowerUpBanana" parent="." instance=ExtResource("17_ute2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89, 30.7129, 47)
+
+[node name="PowerUpGreenShell" parent="." instance=ExtResource("18_mn7ep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.4872, 17.8816, 52.5234)

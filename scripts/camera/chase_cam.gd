@@ -7,7 +7,7 @@ enum MODE { OLD }
 
 @onready var car : SimpleRaycastCar = get_parent()
 @onready var camera_3d : Camera3D = $Camera3D
-@onready var look_at : Vector3 = car.global_position
+@onready var look_at_dir : Vector3 = car.global_position
 
 
 func _ready():
@@ -42,8 +42,8 @@ func _process_old(delta):
 	
 	var ground_velocity = car.linear_velocity - car.linear_velocity.project(car.global_transform.basis.y)
 	ground_velocity *= 0.01
-	look_at = look_at.lerp(car.global_position + ground_velocity.normalized()*0 + Vector3.UP*1, delta * 100.0)# + ground_velocity.normalized()
-	camera_3d.look_at(look_at)
+	look_at_dir = look_at_dir.lerp(car.global_position + ground_velocity.normalized()*0 + Vector3.UP*1, delta * 100.0)# + ground_velocity.normalized()
+	camera_3d.look_at(look_at_dir)
 	
 	#speed shake
 	if speed > 5:
