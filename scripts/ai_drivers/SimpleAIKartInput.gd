@@ -58,7 +58,7 @@ func refresh_navigation_target():
 		var speed = max(0, car.get_speed())
 		# offset increases with speed as we want the AI to have time to respond. 
 		# these are magic numbers that should be tweaked (in spatial units, here they are meters)
-		closest_offset += 4 # always look forward 2 meters
+		closest_offset += 4 # always look forward a few meters
 		closest_offset += speed * 0.9 # increasing this will make AI cut corners more often
 		if path_follow_preview2:
 			path_follow_preview2.progress = closest_offset

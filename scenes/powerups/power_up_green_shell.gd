@@ -26,12 +26,11 @@ func do_movement(delta) -> KinematicCollision3D:
 		if absf(collision_info.get_normal().y) < 0.5: # vertical limit for ricochet is 45°
 			if ricochet_counter < max_ricochets:
 				ricochet_counter += 1
-				print("shell ricochet!")
+				#print("shell ricochet!")
 				velocity = velocity.bounce(collision_info.get_normal())
 				velocity *= 0.6
 			else:
 				queue_free() # put destroy func with animations here
-	print(velocity)
 	return collision_info
 
 

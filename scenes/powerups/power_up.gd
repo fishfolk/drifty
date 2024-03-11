@@ -8,6 +8,9 @@ extends CharacterBody3D
 var contact_area: Area3D
 var floor_raycast: RayCast3D
 
+## Use this for items that shouldn't damage their parent (homing, mine)
+var parent_kart 
+
 func _ready():
 	contact_area = $ContactArea
 	if contact_area == null:
