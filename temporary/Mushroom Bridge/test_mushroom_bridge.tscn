@@ -167,7 +167,7 @@ navigation_mesh = SubResource("NavigationMesh_ph6p4")
 [node name="SimpleRaycastKart" parent="." instance=ExtResource("14_s658o")]
 transform = Transform3D(0.0610659, 0, -0.998134, 0, 1, 0, 0.998134, 0, 0.0610659, 83.4271, 18.3959, 53.1632)
 engine_power = 10.0
-top_speed = 28.0
+top_speed = 26.0
 handling_factor = 60.0
 drift_speed = 3.0
 boost_power = 200.0
@@ -185,7 +185,7 @@ fov = 90.0
 [node name="AIControlledKart" parent="." node_paths=PackedStringArray("input") instance=ExtResource("14_s658o")]
 transform = Transform3D(-0.0534861, 0, -0.998568, 0, 1, 0, 0.998568, 0, -0.0534861, 84.9252, 19.1676, 54.7482)
 engine_power = 6.0
-top_speed = 0.0
+top_speed = 25.0
 handling_factor = 80.0
 input = NodePath("SimpleAIKartInput")
 
@@ -200,7 +200,7 @@ chase_mode = 2
 [node name="AIControlledKart2" parent="." node_paths=PackedStringArray("input") instance=ExtResource("14_s658o")]
 transform = Transform3D(-0.0534861, 0, -0.998568, 0, 1, 0, 0.998568, 0, -0.0534861, 87.326, 19.1676, 52.4548)
 engine_power = 6.0
-top_speed = 0.0
+top_speed = 25.0
 handling_factor = 80.0
 input = NodePath("SimpleAIKartInput")
 
