@@ -165,17 +165,27 @@ visible = false
 navigation_mesh = SubResource("NavigationMesh_ph6p4")
 
 [node name="SimpleRaycastKart" parent="." instance=ExtResource("14_s658o")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.3496, 18.3443, -25.763)
-engine_power = 8.0
-top_speed = 29.0
+transform = Transform3D(0.0610659, 0, -0.998134, 0, 1, 0, 0.998134, 0, 0.0610659, 83.4271, 18.3959, 53.1632)
+engine_power = 10.0
+top_speed = 28.0
 handling_factor = 60.0
 drift_speed = 3.0
 boost_power = 200.0
 
+[node name="ChaseCamRoot" type="Node3D" parent="SimpleRaycastKart"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.43, 25.5708, 70.6733)
+top_level = true
+script = ExtResource("15_u7fi1")
+
+[node name="Camera3D" type="Camera3D" parent="SimpleRaycastKart/ChaseCamRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.72285, 2.71337)
+current = true
+fov = 90.0
+
 [node name="AIControlledKart" parent="." node_paths=PackedStringArray("input") instance=ExtResource("14_s658o")]
 transform = Transform3D(-0.0534861, 0, -0.998568, 0, 1, 0, 0.998568, 0, -0.0534861, 84.9252, 19.1676, 54.7482)
 engine_power = 6.0
-top_speed = 25.0
+top_speed = 0.0
 handling_factor = 80.0
 input = NodePath("SimpleAIKartInput")
 
@@ -188,9 +198,9 @@ intelligence_rate = 0.8
 chase_mode = 2
 
 [node name="AIControlledKart2" parent="." node_paths=PackedStringArray("input") instance=ExtResource("14_s658o")]
-transform = Transform3D(-0.0534861, 0, -0.998568, 0, 1, 0, 0.998568, 0, -0.0534861, 64.326, 19.1676, 52.4548)
+transform = Transform3D(-0.0534861, 0, -0.998568, 0, 1, 0, 0.998568, 0, -0.0534861, 87.326, 19.1676, 52.4548)
 engine_power = 6.0
-top_speed = 25.0
+top_speed = 0.0
 handling_factor = 80.0
 input = NodePath("SimpleAIKartInput")
 
@@ -202,16 +212,6 @@ nav_refresh_interval = 0.1
 intelligence_rate = 0.8
 chase_mode = 2
 
-[node name="ChaseCamRoot" type="Node3D" parent="AIControlledKart2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.43, 25.5708, 70.6733)
-top_level = true
-script = ExtResource("15_u7fi1")
-
-[node name="Camera3D" type="Camera3D" parent="AIControlledKart2/ChaseCamRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.72285, 2.71337)
-current = true
-fov = 90.0
-
 [node name="PowerUpBanana" parent="." instance=ExtResource("17_ute2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89, 30.7129, 47)
 
@@ -219,8 +219,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89, 30.7129, 47)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.4872, 17.8816, 52.5234)
 
 [node name="PowerUpRedShell" parent="." instance=ExtResource("21_ap3qe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.5474, 17.4999, 51.8069)
-
-[node name="Camera3D" type="Camera3D" parent="PowerUpRedShell"]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1.45393, 0.476055, 0)
-current = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.5474, 16.6833, 51.8069)

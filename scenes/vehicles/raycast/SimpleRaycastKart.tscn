@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://tgc7puqtj4fp"]
+[gd_scene load_steps=10 format=3 uid="uid://tgc7puqtj4fp"]
 
 [ext_resource type="Script" path="res://scripts/car/SimpleRaycastCar.gd" id="1_7ljwh"]
 [ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="2_1ce3s"]
 [ext_resource type="Script" path="res://scripts/car/SimpleWheel.gd" id="2_1tjxg"]
 [ext_resource type="Script" path="res://scenes/vehicles/combat/kart_balance_component.gd" id="3_da5jg"]
+[ext_resource type="Script" path="res://scenes/vehicles/combat/kart_item_use_component.gd" id="5_56qin"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvayr"]
 friction = 0.0
@@ -40,6 +41,9 @@ script = ExtResource("2_1ce3s")
 [node name="KartBalanceComponent" type="Node3D" parent="." node_paths=PackedStringArray("collision_area")]
 script = ExtResource("3_da5jg")
 collision_area = NodePath("../ItemCollisionArea")
+
+[node name="KartItemUseComponent" type="Node3D" parent="."]
+script = ExtResource("5_56qin")
 
 [node name="Model" type="Node3D" parent="."]
 

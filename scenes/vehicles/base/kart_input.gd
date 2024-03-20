@@ -13,6 +13,7 @@ class_name KartInput
 var throttle: float = 0.0
 var brakes: float = 0.0
 var drift: float = 0.0 # or handbrake
+var item: float = 0.0
 
 ## ranging from -1.0 for left to 1.0 for right.
 var steering: float = 0.0 
@@ -24,8 +25,9 @@ func query_input(delta) -> void:
 	if not enabled:
 		throttle = 0
 		brakes = 0
-		drift = 0
 		steering = 0
+		drift = 0
+		item = 0
 		
 		return
 	_update_input(delta)
@@ -35,7 +37,8 @@ func query_input(delta) -> void:
 func _update_input(delta) -> void:
 	throttle = Input.get_action_strength("ui_up")
 	brakes = Input.get_action_strength("ui_down")
-	drift = Input.get_action_strength("drift")
 	steering = Input.get_axis("ui_left", "ui_right")
+	drift = Input.get_action_strength("drift")
+	item = Input.get_action_strength("item")
 	#print_debug(car.get_speed())
 	#print_debug("turning diameter: ", 2*car.get_turning_radius())

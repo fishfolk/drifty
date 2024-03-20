@@ -37,12 +37,16 @@ func _ready():
 func _physics_process(delta):
 	balance += balance_regen_speed * delta
 
-
+# will also be used for melee
 func _on_item_area_entered(area: Area3D) -> void:
 	var p = area.get_parent()
 	if p is PowerUp:
 		var powerup = p as PowerUp
 		powerup.on_touched(self)
+	else:
+		if area is Hitbox:
+			var hitbox = area as Hitbox
+			hitbox.on_touched(self)
 
 
 func _on_balance_lost_completely() -> void:

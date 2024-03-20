@@ -26,6 +26,8 @@ var input_brakes : float = 0
 var input_steer : float = 0
 var input_drift : float = 0
 var input_drift_just_pressed : bool = false
+var input_item : float = 0
+var input_item_just_pressed : bool = false
 
 var engine_throttle : float = 0.0
 var braking_force : float = 0.0
@@ -200,8 +202,12 @@ func _update_input(delta):
 		#Input.get_action_strength("drift")
 		input_drift_just_pressed = input_drift == 0 and input.drift != 0 #Input.is_action_just_pressed("drift")
 		input_drift = input.drift
-		if input_drift_just_pressed:
-			print_debug("jump!")
+		#if input_drift_just_pressed:
+		#	print_debug("jump!")
+		input_item_just_pressed = input_item == 0 and input.item != 0 #Input.is_action_just_pressed("drift")
+		input_item = input.item
+		#if input_item_just_pressed:
+		#	print_debug("hit!")
 		#print(input.brakes, input_brakes)
 		#if Input.is_action_just_pressed("pause"):
 		#	Pause.pause()
@@ -211,6 +217,8 @@ func _update_input(delta):
 		input_steer = 0
 		input_drift = 0
 		input_drift_just_pressed = false
+		input_item = 0
+		input_item_just_pressed = false
 
 
 
