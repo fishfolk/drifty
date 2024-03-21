@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ph3ftpj0a8do"]
+
+[ext_resource type="Texture2D" uid="uid://cspatpmwj5dkx" path="res://scenes/tracks/paulo_2/Artboard_1.png" id="1_6fv82"]
+
+[resource]
+resource_name = "wood"
+cull_mode = 2
+albedo_texture = ExtResource("1_6fv82")
+roughness = 0.5
