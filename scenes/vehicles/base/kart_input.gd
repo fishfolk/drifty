@@ -18,7 +18,8 @@ var item: float = 0.0
 ## ranging from -1.0 for left to 1.0 for right.
 var steering: float = 0.0 
 
-
+var melee_left: bool = false
+var melee_right: bool = false
 
 ## Public function to gather input. It's best called every physics frame.
 func query_input(delta) -> void:
@@ -28,6 +29,8 @@ func query_input(delta) -> void:
 		steering = 0
 		drift = 0
 		item = 0
+		melee_left = false
+		melee_right = false
 		
 		return
 	_update_input(delta)
@@ -40,5 +43,7 @@ func _update_input(delta) -> void:
 	steering = Input.get_axis("ui_left", "ui_right")
 	drift = Input.get_action_strength("drift")
 	item = Input.get_action_strength("item")
+	melee_left = Input.is_action_pressed("melee_left")
+	melee_right = Input.is_action_pressed("melee_right")
 	#print_debug(car.get_speed())
 	#print_debug("turning diameter: ", 2*car.get_turning_radius())

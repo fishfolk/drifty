@@ -93,7 +93,8 @@ curve = SubResource("Curve3D_g5bhh")
 transform = Transform3D(0.053486, 0, 0.998568, 0, 1, 0, -0.998568, 0, 0.053486, 6.17931, 1.15761, 168.84)
 engine_power = 8.0
 top_speed = 28.0
-handling_factor = 80.0
+handling_factor = 60.0
+boost_power = 500.0
 
 [node name="SimpleAIKartInput" type="Node3D" parent="AIControlledKart2" node_paths=PackedStringArray("chase_path")]
 script = ExtResource("3_mufvd")
