@@ -38,9 +38,20 @@ var drift_dir : float = 0.0 #1.0 or -1.0
 var drift_angle : float = 0
 var drift_charge : float = 0
 
+var boost_extra_speed : float = 0 # to add to your top speed
+var boost_timer : float = 0
+
 var is_grounded := false
 
 var spun_out_timer: float = 0.0 #
+
+
+func _input(event):
+	if event is InputEventKey:
+		if event.keycode == KEY_A:
+			print_debug("boooooost")
+			boost(1.5)
+
 
 func _ready():
 	if Engine.is_editor_hint(): 
@@ -50,15 +61,17 @@ func _ready():
 		wheel.car = self
 
 
-
-
 func _process(delta):
 	if Engine.is_editor_hint(): return
 
 
-
 func _physics_process(delta):
 	if spun_out_timer > 0: spun_out_timer -= delta
+	
+	if boost_timer > 0: boost_timer -= delta
+	else: #reset_boost()
+		boost_extra_speed = lerpf(boost_extra_speed, 0, delta*2)
+	
 	
 	## update if car is grounded or not
 	#only not grounded if all 4 wheels aren't grounded
@@ -89,10 +102,9 @@ func _physics_process(delta):
 	var speed = get_speed()
 	## interpret inputs
 	engine_throttle = input_throttle * engine_power * mass
-	if speed > top_speed: engine_throttle = 0.0
+	if speed > get_top_speed(): engine_throttle = 0.0
 	if speed < 0.1 : engine_throttle *= 2
-	
-
+	if boost_timer > 0: engine_throttle *= 1.5
 	
 	if linear_velocity.length_squared() < 0.2:
 		angular_damp = 100
@@ -137,7 +149,6 @@ func _physics_process(delta):
 		apply_central_force(global_transform.basis.y * mass * 50)
 		pass
 	
-	
 	## drift steer
 	drift_angle = 0
 	
@@ -176,9 +187,10 @@ func _physics_process(delta):
 	
 	
 	## simple steering
-	var d = 0.8 if is_drifting else 1 #steer less when drifting
-	var r = -2 if get_speed() < 0 else 1 #better steering on reverse
-	global_rotate(global_transform.basis.y, -steer_axis*d*r * deg_to_rad(handling_factor) * delta)
+	var b = 1.2 if boost_timer > 0 else 1 # extra steering from boost
+	var d = 0.8 if is_drifting else 1 # steer less when drifting
+	var r = -2 if get_speed() < 0 else 1 # better steering on reverse
+	global_rotate(global_transform.basis.y, -steer_axis*b*d*r * deg_to_rad(handling_factor) * delta)
 	if not is_drifting:
 		linear_velocity *= (1 - 0.01*delta*abs(steer_axis)*deg_to_rad(handling_factor))
 	#apply_torque(global_transform.basis.y * -steer_axis * mass)
@@ -252,15 +264,30 @@ func _align_up(node_basis, normal):
 	
 	return result
 
+func boost(duration:float, speed_increase:float = 7) -> void:
+	boost_extra_speed = max(boost_extra_speed, speed_increase)
+	boost_timer = max(boost_timer, duration)
+	# add extra impulse for fun :)
+	apply_central_impulse(-global_transform.basis.z * mass * 10)
+
+#func reset_boost():
+#	boost_extra_speed = 0
+
 func add_drift_charge(amount):
 	drift_charge += amount
 	drift_charge = clamp(drift_charge, 0, 3.5)
 
 func release_drift_charge(dt):
 	#print("a")
+	#if drift_charge >= 1: 
+	#	var final_power = boost_power * (1.5+floor(drift_charge)*1) / 100.0
+	#	apply_central_force(-global_transform.basis.z * mass * final_power / dt)
+	#drift_charge = 0
 	if drift_charge >= 1: 
-		var final_power = boost_power * (1.5+floor(drift_charge)*1) / 100.0
-		apply_central_force(-global_transform.basis.z * mass * final_power / dt)
+		var charge_level = floor(drift_charge)
+		var extra_speed = 0 + 5+charge_level
+		var duration = 1 + 0.5 * (charge_level-1)
+		boost(duration, extra_speed)
 	drift_charge = 0
 
 func get_floor_normal() -> Vector3:
@@ -281,6 +308,9 @@ func get_floor_normal() -> Vector3:
 
 func get_speed() -> float :
 	return linear_velocity.dot(-global_transform.basis.z)
+
+func get_top_speed() -> float:
+	return top_speed + boost_extra_speed
 
 ## As the formula for steering used is simply "rotate x degrees every second", ignoring drag,
 ## the turn radius for the vehicle can be derived from the turning speed and the current velocity
