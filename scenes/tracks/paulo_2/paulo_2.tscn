@@ -17,8 +17,8 @@ sky_material = SubResource("ProceduralSkyMaterial_kw7f3")
 [sub_resource type="Environment" id="Environment_wt3ks"]
 background_mode = 2
 sky = SubResource("Sky_ny6sw")
+ambient_light_source = 3
 tonemap_mode = 2
-sdfgi_enabled = true
 glow_enabled = true
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yt6hu"]

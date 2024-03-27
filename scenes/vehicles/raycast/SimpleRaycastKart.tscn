@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://tgc7puqtj4fp"]
+[gd_scene load_steps=12 format=3 uid="uid://tgc7puqtj4fp"]
 
 [ext_resource type="Script" path="res://scripts/car/SimpleRaycastCar.gd" id="1_7ljwh"]
 [ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="2_1ce3s"]
 [ext_resource type="Script" path="res://scripts/car/SimpleWheel.gd" id="2_1tjxg"]
 [ext_resource type="Script" path="res://scenes/vehicles/combat/kart_balance_component.gd" id="3_da5jg"]
+[ext_resource type="Script" path="res://scenes/vehicles/base/kart_animation_component.gd" id="5_0fn4j"]
 [ext_resource type="Script" path="res://scenes/vehicles/combat/kart_item_use_component.gd" id="5_56qin"]
+[ext_resource type="PackedScene" uid="uid://lnd35jxtfjj" path="res://scenes/effects/bubble_emote_scene.tscn" id="6_c4f5d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvayr"]
 friction = 0.0
@@ -44,6 +46,11 @@ collision_area = NodePath("../ItemCollisionArea")
 
 [node name="KartItemUseComponent" type="Node3D" parent="."]
 script = ExtResource("5_56qin")
+
+[node name="KartAnimationComponent" type="Node3D" parent="."]
+script = ExtResource("5_0fn4j")
+
+[node name="ParticleEmoteBubbles" parent="KartAnimationComponent" instance=ExtResource("6_c4f5d")]
 
 [node name="Model" type="Node3D" parent="."]
 

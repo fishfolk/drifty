@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://m03va274borj"
+path="res://.godot/imported/bubble_texture.png-306d54c2580f52189276a7e691778c3f.image"
+
+[deps]
+
+source_file="res://scenes/effects/bubble_texture.png"
+dest_files=["res://.godot/imported/bubble_texture.png-306d54c2580f52189276a7e691778c3f.image"]
+
+[params]
+

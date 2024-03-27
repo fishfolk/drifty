@@ -21,7 +21,9 @@ var steering: float = 0.0
 var melee_left: bool = false
 var melee_right: bool = false
 
-## Public function to gather input. It's best called every physics frame.
+var emote: bool = false
+
+## Public function to gather input. It's best called every physics frame by the parent.
 func query_input(delta) -> void:
 	if not enabled:
 		throttle = 0
@@ -31,6 +33,7 @@ func query_input(delta) -> void:
 		item = 0
 		melee_left = false
 		melee_right = false
+		emote = false
 		
 		return
 	_update_input(delta)
@@ -45,5 +48,6 @@ func _update_input(delta) -> void:
 	item = Input.get_action_strength("item")
 	melee_left = Input.is_action_pressed("melee_left")
 	melee_right = Input.is_action_pressed("melee_right")
+	emote = Input.is_action_pressed("emote")
 	#print_debug(car.get_speed())
 	#print_debug("turning diameter: ", 2*car.get_turning_radius())

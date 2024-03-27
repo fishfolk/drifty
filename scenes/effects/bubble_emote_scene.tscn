@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://lnd35jxtfjj"]
+
+[ext_resource type="SphereMesh" uid="uid://dp0dfllfxua6x" path="res://scenes/effects/bubble_mesh.tres" id="1_tnt73"]
+
+[sub_resource type="Curve" id="Curve_a1sy0"]
+_data = [Vector2(0, 0.181871), 0.0, 0.0, 0, 0, Vector2(0.767647, 1), -0.311216, -0.311216, 0, 0, Vector2(0.85, 0.6097), -11.4838, -11.4838, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_1l6ku"]
+curve = SubResource("Curve_a1sy0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vq5if"]
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 2.0
+gravity = Vector3(0, 3, 0)
+attractor_interaction_enabled = false
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_1l6ku")
+
+[node name="ParticleEmoteBubbles" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.918063, 0)
+emitting = false
+one_shot = true
+explosiveness = 0.2
+fixed_fps = 15
+local_coords = true
+draw_order = 1
+process_material = SubResource("ParticleProcessMaterial_vq5if")
+draw_pass_1 = ExtResource("1_tnt73")

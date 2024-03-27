@@ -68,7 +68,7 @@ size = Vector3(100, 0.5, 100)
 material = ExtResource("2_s4suy")
 
 [node name="box" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.459248, 0)
 material_override = ExtResource("1_stuc4")
 material = ExtResource("1_stuc4")
 

@@ -1,0 +1,10 @@
+[gd_resource type="SphereMesh" load_steps=2 format=3 uid="uid://dp0dfllfxua6x"]
+
+[ext_resource type="Material" uid="uid://b4ie3y3f0rw0o" path="res://scenes/effects/bubble_material2.tres" id="1_q8a0k"]
+
+[resource]
+material = ExtResource("1_q8a0k")
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
