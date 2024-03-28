@@ -17,8 +17,8 @@ radius = 0.233923
 height = 1.00251
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ndbuc"]
-radius = 0.373522
-height = 1.23436
+radius = 0.282611
+height = 1.02206
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ve672"]
 margin = 0.0001
@@ -44,8 +44,11 @@ script = ExtResource("2_1ce3s")
 script = ExtResource("3_da5jg")
 collision_area = NodePath("../ItemCollisionArea")
 
-[node name="KartItemUseComponent" type="Node3D" parent="."]
+[node name="KartItemUseComponent" type="Node3D" parent="." node_paths=PackedStringArray("collision_area", "item_spawn_front", "item_spawn_behind")]
 script = ExtResource("5_56qin")
+collision_area = NodePath("../ItemCollisionArea")
+item_spawn_front = NodePath("../ItemSpawnFront")
+item_spawn_behind = NodePath("../ItemSpawnBehind")
 
 [node name="KartAnimationComponent" type="Node3D" parent="."]
 script = ExtResource("5_0fn4j")
@@ -101,3 +104,9 @@ target_position = Vector3(0, -0.2, 0)
 script = ExtResource("2_1tjxg")
 wheel_radius = 0.1
 spring_length = 0.2
+
+[node name="ItemSpawnFront" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.7)
+
+[node name="ItemSpawnBehind" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.7)

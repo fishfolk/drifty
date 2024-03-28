@@ -101,7 +101,6 @@ fov = 90.0
 
 [node name="Camera3D" type="Camera3D" parent="SimpleRaycastKart"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.08785, -1.11169)
-current = true
 
 [node name="AIControlledKart" parent="." node_paths=PackedStringArray("input") instance=ExtResource("4_q51n2")]
 transform = Transform3D(0.759884, 0, -0.650058, 0, 1, 0, 0.650058, 0, 0.759884, -15.3171, 0.424259, 2.61391)
