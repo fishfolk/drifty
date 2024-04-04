@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="FishKart"
+config/tags=PackedStringArray("4.0", "work")
 run/main_scene="res://scenes/tests/test_playground.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://project_icon.png"
 
 [autoload]
 
