@@ -11,7 +11,8 @@ func _ready():
 
 func _debug_start_random_direction():
 	#velocity = Vector3(randf_range(-1.0, 1.0), 0, randf_range(-1.0, 1.0)).normalized() * max_speed/2
-	velocity = Vector3(-1, 0, 1)
+	#velocity = Vector3(-1, 0, 1)
+	pass
 
 ## special movement: don't bounce on floor, but ricochet horizontally
 func do_movement(delta) -> KinematicCollision3D:

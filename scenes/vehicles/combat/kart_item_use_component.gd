@@ -26,7 +26,7 @@ var melee_sideways_direction : int = 1 # -1 left, 1 right
 
 func _ready():
 	collision_area.area_entered.connect(_on_collision_area_area_entered)
-	current_item = ItemBanana.new()
+	current_item = ItemRedShell.new()
 
 
 func use_melee() -> void:
