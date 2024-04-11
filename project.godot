@@ -27,6 +27,10 @@ window/size/viewport_height=720
 window/size/window_width_override=1280
 window/size/window_height_override=720
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Path3DEditor/plugin.cfg", "res://addons/better_path3d_handles/plugin.cfg")
+
 [input]
 
 drift={
