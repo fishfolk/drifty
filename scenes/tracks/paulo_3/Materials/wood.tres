@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://yw8iprphxl07"]
+
+[ext_resource type="Texture2D" uid="uid://c8els2x3oqbds" path="res://scenes/tracks/paulo_3/Textura 2V/Texture_Brok_Wood.png" id="1_vw535"]
+
+[resource]
+resource_name = "wood"
+cull_mode = 2
+albedo_texture = ExtResource("1_vw535")

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d1sue7q8jtb6i"]
+
+[ext_resource type="Texture2D" uid="uid://cdkvut70svy1o" path="res://scenes/tracks/paulo_3/Textura 2V/sand.png" id="1_445vy"]
+
+[resource]
+resource_name = "Sand"
+cull_mode = 2
+albedo_texture = ExtResource("1_445vy")
+roughness = 0.5
+texture_filter = 2
