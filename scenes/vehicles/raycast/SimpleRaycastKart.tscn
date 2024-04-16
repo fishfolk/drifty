@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://tgc7puqtj4fp"]
+[gd_scene load_steps=13 format=3 uid="uid://tgc7puqtj4fp"]
 
 [ext_resource type="Script" path="res://scripts/car/SimpleRaycastCar.gd" id="1_7ljwh"]
 [ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="2_1ce3s"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/vehicles/base/kart_animation_component.gd" id="5_0fn4j"]
 [ext_resource type="Script" path="res://scenes/vehicles/combat/kart_item_use_component.gd" id="5_56qin"]
 [ext_resource type="PackedScene" uid="uid://lnd35jxtfjj" path="res://scenes/effects/bubble_emote_scene.tscn" id="6_c4f5d"]
+[ext_resource type="Script" path="res://scripts/camera/chase_cam.gd" id="8_eci6i"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvayr"]
 friction = 0.0
@@ -30,10 +31,10 @@ collision_mask = 3
 mass = 100.0
 physics_material_override = SubResource("PhysicsMaterial_cvayr")
 script = ExtResource("1_7ljwh")
-engine_power = 12.0
-top_speed = 10.0
-handling_factor = 120.0
-boost_power = 100.0
+engine_power = 10.0
+top_speed = 26.0
+handling_factor = 60.0
+boost_power = 300.0
 input = NodePath("KartInput")
 wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2")]
 
@@ -110,3 +111,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.7)
 
 [node name="ItemSpawnBehind" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.7)
+
+[node name="ChaseCamRoot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.43, 25.5708, 70.6733)
+top_level = true
+script = ExtResource("8_eci6i")
+
+[node name="Camera3D" type="Camera3D" parent="ChaseCamRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.72285, 2.71337)
+fov = 90.0

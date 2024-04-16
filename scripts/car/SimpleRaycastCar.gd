@@ -46,13 +46,6 @@ var is_grounded := false
 var spun_out_timer: float = 0.0 #
 
 
-func _input(event):
-	if event is InputEventKey:
-		if event.keycode == KEY_A:
-			print_debug("boooooost")
-			boost(1.5)
-
-
 func _ready():
 	if Engine.is_editor_hint(): 
 		return
@@ -324,6 +317,10 @@ func spin_out():
 	#play animation from anim tree
 	pass
 
+func set_input_node(input_node:KartInput):
+	remove_child(input)
+	input = input_node
+	add_child(input)
 
 func _on_contact_area_area_entered(area):
 	area_entered.emit(area)

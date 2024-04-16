@@ -18,6 +18,11 @@ func _ready():
 	pass
 
 
+func set_current(val:bool):
+	await ready
+	camera_3d.current = val
+
+
 func _on_end_intro_camera_flydown():
 	get_viewport().get_camera_3d().clear_current(false)
 	camera_3d.make_current()

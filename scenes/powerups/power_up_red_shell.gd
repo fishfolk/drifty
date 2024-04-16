@@ -18,8 +18,8 @@ func _ready():
 	
 	# find track to home onto
 	await get_tree().create_timer(0.5, false, true).timeout
-	if RaceManager.item_path:
-		item_path = RaceManager.item_path
+	if RaceManager.race_path:
+		item_path = RaceManager.race_path
 
 
 func _debug_start_random_direction():

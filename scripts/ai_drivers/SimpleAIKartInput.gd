@@ -17,15 +17,15 @@ extends KartInput
 		if nav_agent: nav_agent.debug_enabled = value
 
 @export var chase_target: Node3D
-@export var chase_path: Path3D
+#@export var chase_path: Path3D
 
-@export var nav_refresh_interval : float = 0.5
+@export var nav_refresh_interval : float = 0.1
 @export var intelligence_rate : float = 0.9
 
 enum AIChaseMode {
 	POSITION, NODE3D, PATH3D
 }
-@export var chase_mode: AIChaseMode = AIChaseMode.POSITION
+@export var chase_mode: AIChaseMode = AIChaseMode.PATH3D
 
 var nav_agent: NavigationAgent3D
 var nav_refresh_timer: float = 0
@@ -50,7 +50,8 @@ func refresh_navigation_target():
 	if chase_mode == AIChaseMode.NODE3D and chase_target:
 		set_target_position(chase_target.global_position)
 	
-	if chase_mode == AIChaseMode.PATH3D and chase_path:
+	if chase_mode == AIChaseMode.PATH3D and RaceManager.race_path:
+		var chase_path = RaceManager.race_path
 		var closest_offset = chase_path.curve.get_closest_offset(chase_path.to_local(car.global_position))
 		if path_follow_preview:
 			path_follow_preview.progress = closest_offset
