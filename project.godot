@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="FishKart"
+config/name="Fish Folk: Drifty"
 config/tags=PackedStringArray("4.0", "work")
 run/main_scene="res://scenes/tests/test_playground.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
