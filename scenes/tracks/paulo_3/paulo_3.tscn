@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjxe7bcve0iki"]
+[gd_scene load_steps=17 format=3 uid="uid://bjxe7bcve0iki"]
 
+[ext_resource type="Script" path="res://scripts/level/track.gd" id="1_f3q2x"]
 [ext_resource type="PackedScene" uid="uid://wblefin1vqlx" path="res://scenes/tracks/paulo_3/pista.gltf" id="1_hsnfv"]
 [ext_resource type="Script" path="res://scripts/race/track_starting_grid_simple.gd" id="2_b43mv"]
 [ext_resource type="Script" path="res://scripts/level/race_path.gd" id="3_l7rmm"]
@@ -50,6 +51,7 @@ _data = {
 point_count = 100
 
 [node name="Paulo3" type="Node3D"]
+script = ExtResource("1_f3q2x")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -60,6 +62,32 @@ directional_shadow_max_distance = 400.0
 environment = SubResource("Environment_ucts1")
 
 [node name="pista" parent="." instance=ExtResource("1_hsnfv")]
+
+[node name="Skeleton3D" parent="pista/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.499372, -0.500634, 0.499365, 0.500627)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(-9.02219e-09, -4.66826e-08, 0.0012615, 0.999999)
+bones/4/rotation = Quaternion(1.0799e-08, -0.707112, -1.78899e-08, 0.707102)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(1.2846e-08, -0.707112, -1.78487e-08, 0.707102)
+
+[node name="Skeleton3D" parent="pista/Armature_001" index="0"]
+bones/0/rotation = Quaternion(-0.499372, -0.500634, 0.499365, 0.500627)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(-1.25729e-08, -5.68107e-08, 0.0012615, 0.999999)
+bones/3/rotation = Quaternion(-4.65661e-10, 1.86265e-09, -1.44355e-08, 1)
+bones/4/rotation = Quaternion(1.64635e-08, -0.707112, 1.97562e-09, 0.707102)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(2.30489e-08, -0.707112, 6.58539e-10, 0.707102)
+
+[node name="Skeleton3D" parent="pista/Armature_002" index="0"]
+bones/1/rotation = Quaternion(0.695469, -4.32898e-07, -4.21233e-07, 0.718557)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(-0.716536, 8.44842e-08, -7.66856e-08, 0.69755)
+bones/3/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.012248, -2.79418e-09, -9.31393e-10, 0.999925)
+bones/7/rotation = Quaternion(-0.0363883, -1.16492e-07, 7.45552e-09, 0.999338)
+bones/8/rotation = Quaternion(0.260669, -2.2911e-07, -1.19619e-07, 0.965428)
 
 [node name="collisions" type="Node3D" parent="."]
 
