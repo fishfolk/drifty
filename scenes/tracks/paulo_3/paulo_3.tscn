@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://bjxe7bcve0iki"]
+[gd_scene load_steps=29 format=3 uid="uid://bjxe7bcve0iki"]
 
 [ext_resource type="Script" path="res://scripts/level/track.gd" id="1_f3q2x"]
 [ext_resource type="PackedScene" uid="uid://wblefin1vqlx" path="res://scenes/tracks/paulo_3/pista.gltf" id="1_hsnfv"]
 [ext_resource type="Script" path="res://scripts/race/track_starting_grid_simple.gd" id="2_b43mv"]
+[ext_resource type="Shader" path="res://scripts/shaders/SEAWEED_Mov.tres" id="3_fxlpa"]
 [ext_resource type="Script" path="res://scripts/level/race_path.gd" id="3_l7rmm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3hqdo"]
@@ -18,6 +19,10 @@ sky_material = SubResource("ProceduralSkyMaterial_3hqdo")
 background_mode = 2
 sky = SubResource("Sky_ovtg8")
 tonemap_mode = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3hp7"]
+render_priority = 0
+shader = ExtResource("3_fxlpa")
 
 [sub_resource type="Animation" id="Animation_kdh2d"]
 resource_name = "Idle_Tentacle"
@@ -555,41 +560,134 @@ environment = SubResource("Environment_ucts1")
 [node name="pista" parent="." instance=ExtResource("1_hsnfv")]
 
 [node name="Skeleton3D" parent="pista/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.539083, -0.488852, 0.508187, 0.460607)
+bones/0/rotation = Quaternion(-0.402511, -0.539768, 0.458763, 0.579804)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.00222033, -0.00225913, 0.0128611, 0.999912)
-bones/2/rotation = Quaternion(0.0779818, -0.0125855, -0.0306654, 0.996404)
-bones/3/rotation = Quaternion(-0.0897218, -0.323185, 0.283105, 0.898528)
+bones/1/rotation = Quaternion(-0.00703241, 0.00403125, 0.100386, 0.994916)
+bones/2/rotation = Quaternion(-0.0626857, 0.0159517, 0.339719, 0.9383)
+bones/3/rotation = Quaternion(-0.159929, -0.0614622, 0.0908473, 0.981016)
 bones/4/rotation = Quaternion(1.0799e-08, -0.707112, -1.78899e-08, 0.707102)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(2.7735, -8.50244, -49.3404)
+bones/5/position = Vector3(1.26483, -8.8575, -44.9984)
 bones/5/rotation = Quaternion(1.2846e-08, -0.707112, -1.78487e-08, 0.707102)
 
 [node name="Skeleton3D" parent="pista/Armature_001" index="0"]
-bones/0/rotation = Quaternion(-0.455277, -0.556238, 0.440336, 0.537983)
+bones/0/rotation = Quaternion(-0.537218, -0.490964, 0.506328, 0.462583)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(-6.39792e-07, -4.09933e-08, 0.0678326, 0.997697)
-bones/2/rotation = Quaternion(-2.567e-06, -5.18984e-08, 0.249444, 0.968389)
-bones/3/rotation = Quaternion(-1.71868e-06, 2.06083e-09, 0.179563, 0.983746)
+bones/1/rotation = Quaternion(0.00235998, -0.00221249, 0.0141377, 0.999895)
+bones/2/rotation = Quaternion(0.0773788, -0.0122507, -0.0241342, 0.996634)
+bones/3/rotation = Quaternion(-0.0870304, -0.318907, 0.286236, 0.899329)
 bones/4/rotation = Quaternion(1.64635e-08, -0.707112, 1.97562e-09, 0.707102)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(1.57223, -7.87058, -47.0183)
+bones/5/position = Vector3(2.75598, -8.53643, -49.2839)
 bones/5/rotation = Quaternion(2.30489e-08, -0.707112, 6.58539e-10, 0.707102)
 
 [node name="Skeleton3D" parent="pista/Armature_002" index="0"]
-bones/0/position = Vector3(4.76837e-07, -0.294633, -0.21587)
-bones/0/rotation = Quaternion(0.716474, -9.18348e-05, -0.00022415, 0.697614)
-bones/1/position = Vector3(-3.66494e-07, 1.45894, -0.566671)
-bones/1/rotation = Quaternion(0.695404, -0.000224844, 9.07695e-05, 0.718619)
+bones/0/position = Vector3(-0.165851, -0.416585, -0.121777)
+bones/0/rotation = Quaternion(0.704056, -0.0170668, -0.0416566, 0.708716)
+bones/1/position = Vector3(-0.477031, 1.68523, 0.0950988)
+bones/1/rotation = Quaternion(0.682662, -0.0417064, 0.0169455, 0.729347)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.716599, -9.17518e-05, -0.000224236, 0.697485)
-bones/3/rotation = Quaternion(-0.0227311, 1.44468e-14, -3.00108e-16, 0.999742)
+bones/2/rotation = Quaternion(-0.727363, -0.0170667, -0.0416567, 0.684774)
+bones/3/rotation = Quaternion(-0.0869516, -0.069098, -0.0117479, 0.993744)
 bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.4796, -4.27083e-07, -8.19784e-07, 0.877487)
-bones/5/rotation = Quaternion(0.375307, -8.76643e-12, -1.32169e-11, 0.926901)
-bones/6/rotation = Quaternion(0.425843, 3.16353e-10, 1.13914e-08, 0.904797)
-bones/7/rotation = Quaternion(-0.354428, -0.000360057, -0.0833897, 0.931358)
-bones/8/rotation = Quaternion(0.210236, -0.0143161, -0.00524268, 0.977532)
+bones/4/rotation = Quaternion(0.282633, 0.063969, 0.202056, 0.935521)
+bones/5/rotation = Quaternion(0.0021049, -0.0611604, -0.000114945, 0.998126)
+bones/6/rotation = Quaternion(0.000278773, -0.0411725, 0.000188847, 0.999152)
+bones/7/rotation = Quaternion(-0.498409, 0.364383, 0.488196, 0.616829)
+bones/8/rotation = Quaternion(0.529872, 0.00836796, -0.0528608, 0.846387)
+
+[node name="SEAWEED_001" parent="pista" index="19"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_002" parent="pista" index="20"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_003" parent="pista" index="21"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_004" parent="pista" index="22"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_005" parent="pista" index="23"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_006" parent="pista" index="24"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_007" parent="pista" index="25"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_008" parent="pista" index="26"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_009" parent="pista" index="27"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_010" parent="pista" index="28"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_011" parent="pista" index="29"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_012" parent="pista" index="30"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_013" parent="pista" index="31"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_016" parent="pista" index="32"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_017" parent="pista" index="33"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_018" parent="pista" index="34"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_019" parent="pista" index="35"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_020" parent="pista" index="36"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_023" parent="pista" index="37"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_024" parent="pista" index="38"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_026" parent="pista" index="39"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_027" parent="pista" index="40"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_028" parent="pista" index="41"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_029" parent="pista" index="42"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_030" parent="pista" index="43"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_031" parent="pista" index="44"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_032" parent="pista" index="45"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_033" parent="pista" index="46"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_034" parent="pista" index="47"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_035" parent="pista" index="48"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
+
+[node name="SEAWEED_036" parent="pista" index="49"]
+surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")
 
 [node name="TrackAnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../pista")
