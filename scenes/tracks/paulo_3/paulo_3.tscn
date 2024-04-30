@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/level/track.gd" id="1_f3q2x"]
 [ext_resource type="PackedScene" uid="uid://wblefin1vqlx" path="res://scenes/tracks/paulo_3/pista.gltf" id="1_hsnfv"]
 [ext_resource type="Script" path="res://scripts/race/track_starting_grid_simple.gd" id="2_b43mv"]
-[ext_resource type="Shader" path="res://scripts/shaders/SEAWEED_Mov.tres" id="3_fxlpa"]
+[ext_resource type="Shader" uid="uid://diqn84xvijllt" path="res://scripts/shaders/SEAWEED_Mov.tres" id="3_fxlpa"]
 [ext_resource type="Script" path="res://scripts/level/race_path.gd" id="3_l7rmm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3hqdo"]
@@ -560,41 +560,41 @@ environment = SubResource("Environment_ucts1")
 [node name="pista" parent="." instance=ExtResource("1_hsnfv")]
 
 [node name="Skeleton3D" parent="pista/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.402511, -0.539768, 0.458763, 0.579804)
+bones/0/rotation = Quaternion(-0.394897, -0.509721, 0.489471, 0.587077)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(-0.00703241, 0.00403125, 0.100386, 0.994916)
-bones/2/rotation = Quaternion(-0.0626857, 0.0159517, 0.339719, 0.9383)
-bones/3/rotation = Quaternion(-0.159929, -0.0614622, 0.0908473, 0.981016)
+bones/1/rotation = Quaternion(-0.0114869, 0.00628405, 0.109669, 0.993882)
+bones/2/rotation = Quaternion(-0.0901314, 0.0245021, 0.342503, 0.934862)
+bones/3/rotation = Quaternion(-0.283469, -0.240046, 0.0873978, 0.924329)
 bones/4/rotation = Quaternion(1.0799e-08, -0.707112, -1.78899e-08, 0.707102)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(1.26483, -8.8575, -44.9984)
+bones/5/position = Vector3(1.26629, -10.0113, -43.9146)
 bones/5/rotation = Quaternion(1.2846e-08, -0.707112, -1.78487e-08, 0.707102)
 
 [node name="Skeleton3D" parent="pista/Armature_001" index="0"]
-bones/0/rotation = Quaternion(-0.537218, -0.490964, 0.506328, 0.462583)
+bones/0/rotation = Quaternion(-0.457303, -0.553628, 0.443193, 0.536609)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.00235998, -0.00221249, 0.0141377, 0.999895)
-bones/2/rotation = Quaternion(0.0773788, -0.0122507, -0.0241342, 0.996634)
-bones/3/rotation = Quaternion(-0.0870304, -0.318907, 0.286236, 0.899329)
+bones/1/rotation = Quaternion(1.7561e-05, -4.28939e-05, 0.0808905, 0.996723)
+bones/2/rotation = Quaternion(0.00140419, -0.000242605, 0.301822, 0.953363)
+bones/3/rotation = Quaternion(-0.000733394, -0.00597838, 0.20299, 0.979162)
 bones/4/rotation = Quaternion(1.64635e-08, -0.707112, 1.97562e-09, 0.707102)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(2.75598, -8.53643, -49.2839)
+bones/5/position = Vector3(1.39018, -11.1859, -44.8775)
 bones/5/rotation = Quaternion(2.30489e-08, -0.707112, 6.58539e-10, 0.707102)
 
 [node name="Skeleton3D" parent="pista/Armature_002" index="0"]
-bones/0/position = Vector3(-0.165851, -0.416585, -0.121777)
-bones/0/rotation = Quaternion(0.704056, -0.0170668, -0.0416566, 0.708716)
-bones/1/position = Vector3(-0.477031, 1.68523, 0.0950988)
-bones/1/rotation = Quaternion(0.682662, -0.0417064, 0.0169455, 0.729347)
+bones/0/position = Vector3(-0.187407, -0.432436, -0.109548)
+bones/0/rotation = Quaternion(0.702315, -0.0192823, -0.0470643, 0.710047)
+bones/1/position = Vector3(-0.539033, 1.6855, 0.108952)
+bones/1/rotation = Quaternion(0.680881, -0.0471205, 0.0191453, 0.730626)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.727363, -0.0170667, -0.0416567, 0.684774)
-bones/3/rotation = Quaternion(-0.0869516, -0.069098, -0.0117479, 0.993744)
+bones/2/rotation = Quaternion(-0.728648, -0.0192823, -0.0470644, 0.682998)
+bones/3/rotation = Quaternion(-0.095244, -0.0780364, -0.0132676, 0.992302)
 bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(0.282633, 0.063969, 0.202056, 0.935521)
-bones/5/rotation = Quaternion(0.0021049, -0.0611604, -0.000114945, 0.998126)
-bones/6/rotation = Quaternion(0.000278773, -0.0411725, 0.000188847, 0.999152)
-bones/7/rotation = Quaternion(-0.498409, 0.364383, 0.488196, 0.616829)
-bones/8/rotation = Quaternion(0.529872, 0.00836796, -0.0528608, 0.846387)
+bones/4/rotation = Quaternion(0.297522, 0.0708715, 0.223342, 0.925514)
+bones/5/rotation = Quaternion(0.00053512, -0.0690365, 2.60851e-06, 0.997614)
+bones/6/rotation = Quaternion(0.000269255, -0.0464956, 1.02478e-05, 0.998919)
+bones/7/rotation = Quaternion(-0.472747, 0.387931, 0.56004, 0.558905)
+bones/8/rotation = Quaternion(0.576302, 0.0138157, -0.0541577, 0.815323)
 
 [node name="SEAWEED_001" parent="pista" index="19"]
 surface_material_override/0 = SubResource("ShaderMaterial_v3hp7")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://tgc7puqtj4fp"]
+[gd_scene load_steps=14 format=3 uid="uid://tgc7puqtj4fp"]
 
 [ext_resource type="Script" path="res://scripts/car/SimpleRaycastCar.gd" id="1_7ljwh"]
 [ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="2_1ce3s"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/vehicles/base/kart_animation_component.gd" id="5_0fn4j"]
 [ext_resource type="Script" path="res://scenes/vehicles/combat/kart_item_use_component.gd" id="5_56qin"]
 [ext_resource type="PackedScene" uid="uid://lnd35jxtfjj" path="res://scenes/effects/bubble_emote_scene.tscn" id="6_c4f5d"]
+[ext_resource type="PackedScene" uid="uid://cxew0lyx0y7l7" path="res://scenes/vehicles/models/golden_fish/golden_fish.tscn" id="7_x132g"]
 [ext_resource type="Script" path="res://scripts/camera/chase_cam.gd" id="8_eci6i"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvayr"]
@@ -60,19 +61,26 @@ script = ExtResource("5_0fn4j")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.2)
+visible = false
 radius = 0.25
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0.2)
+visible = false
 radius = 0.25
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.567985, -0.221019)
+visible = false
 size = Vector3(0.180664, 0.434082, 0.103943)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.714445, -0.126237)
+visible = false
 size = Vector3(0.435303, 0.0467224, 0.0712891)
+
+[node name="BikeModel" parent="Model" instance=ExtResource("7_x132g")]
+transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0.2, 0)
 
 [node name="solid_collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.334927, 0)
