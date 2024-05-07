@@ -31,6 +31,8 @@ func spawn_cars() -> void:
 			car_instance.engine_power *= 0.9
 		
 		if drivers_list[current_position] == "PLAYER":
+			var player_input = PlayerKartInput.new()
+			car_instance.set_input_node(player_input)
 			car_instance.get_node("ChaseCamRoot").set_current(true)
 		
 		# test race types

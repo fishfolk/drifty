@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://w8fsio4xgm1y" path="res://temporary/Mushroom Bridge/course/MH_iwa.png" id="13_uqham"]
 [ext_resource type="Script" path="res://scripts/level/item_path.gd" id="14_1r86y"]
 [ext_resource type="Script" path="res://scripts/level/race_path.gd" id="14_2ia1b"]
-[ext_resource type="Script" path="res://scripts/ai_drivers/SimpleAIKartInput.gd" id="14_3x0vk"]
+[ext_resource type="Script" path="res://scripts/driver/simple_ai_kart_input.gd" id="14_3x0vk"]
 [ext_resource type="PackedScene" uid="uid://tgc7puqtj4fp" path="res://scenes/vehicles/raycast/SimpleRaycastKart.tscn" id="14_s658o"]
 [ext_resource type="Script" path="res://scripts/camera/chase_cam.gd" id="15_u7fi1"]
 [ext_resource type="PackedScene" uid="uid://bitfhdqx6vgg7" path="res://scenes/powerups/power_up_banana.tscn" id="17_ute2f"]

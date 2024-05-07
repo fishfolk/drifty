@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/vehicles/base/rigidsphere_kart.gd" id="1_2i6vj"]
 [ext_resource type="Texture2D" uid="uid://owqw7yskihpp" path="res://resources/materials/prototype_textures/sky.png" id="2_bv6v6"]
-[ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="2_wae0r"]
+[ext_resource type="Script" path="res://scripts/driver/kart_input.gd" id="2_wae0r"]
 [ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="3_p17cm"]
 [ext_resource type="Script" path="res://scenes/vehicles/base/sphere_wheel.gd" id="4_olhhi"]
 

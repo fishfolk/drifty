@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b0gvd7x6k2r6w"]
 
 [ext_resource type="Script" path="res://scenes/vehicles/base/rigidbody_kart.gd" id="1_0rakh"]
-[ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="1_hvrh1"]
+[ext_resource type="Script" path="res://scripts/driver/kart_input.gd" id="1_hvrh1"]
 [ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_8hbmj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tquho"]

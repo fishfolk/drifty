@@ -51,7 +51,7 @@ func refresh_navigation_target():
 		set_target_position(chase_target.global_position)
 	
 	if chase_mode == AIChaseMode.PATH3D and RaceManager.race_path:
-		var chase_path = RaceManager.race_path
+		var chase_path : RacePath3D = RaceManager.race_path
 		var closest_offset = chase_path.curve.get_closest_offset(chase_path.to_local(car.global_position))
 		if path_follow_preview:
 			path_follow_preview.progress = closest_offset
@@ -63,7 +63,8 @@ func refresh_navigation_target():
 		closest_offset += speed * 0.9 # increasing this will make AI cut corners more often
 		if path_follow_preview2:
 			path_follow_preview2.progress = closest_offset
-		var target_position: Vector3 = chase_path.curve.sample_baked(closest_offset, true)
+		#var target_position: Vector3 = chase_path.curve.sample_baked(closest_offset, true)
+		var target_position: Vector3 = chase_path.sample_looping(closest_offset, true)
 		set_target_position(target_position)
 
 

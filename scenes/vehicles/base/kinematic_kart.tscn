@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/vehicles/base/kinematic_kart.gd" id="1_i8ga0"]
 [ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_62nih"]
-[ext_resource type="Script" path="res://scenes/vehicles/base/kart_input.gd" id="2_yao61"]
+[ext_resource type="Script" path="res://scripts/driver/kart_input.gd" id="2_yao61"]
 
 [sub_resource type="Curve" id="Curve_1etye"]
 _data = [Vector2(0, 0.112113), 0.0, 0.0, 0, 0, Vector2(0.503226, 0.514175), 1.52217, 1.52217, 0, 0, Vector2(1, 1), 0.0209406, 0.0, 0, 0]

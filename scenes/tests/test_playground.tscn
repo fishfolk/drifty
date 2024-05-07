@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_s4suy"]
 [ext_resource type="PackedScene" uid="uid://tgc7puqtj4fp" path="res://scenes/vehicles/raycast/SimpleRaycastKart.tscn" id="4_q51n2"]
 [ext_resource type="Script" path="res://scripts/camera/chase_cam.gd" id="4_utfo4"]
-[ext_resource type="Script" path="res://scripts/ai_drivers/SimpleAIKartInput.gd" id="5_1lgps"]
+[ext_resource type="Script" path="res://scripts/driver/simple_ai_kart_input.gd" id="5_1lgps"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8b2fs"]
 

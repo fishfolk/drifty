@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://csxerovavc7h2" path="res://scenes/tracks/paulo_2/pista_old1.gltf" id="1_w4uk6"]
 [ext_resource type="PackedScene" uid="uid://tgc7puqtj4fp" path="res://scenes/vehicles/raycast/SimpleRaycastKart.tscn" id="2_p1usf"]
-[ext_resource type="Script" path="res://scripts/ai_drivers/SimpleAIKartInput.gd" id="3_mufvd"]
+[ext_resource type="Script" path="res://scripts/driver/simple_ai_kart_input.gd" id="3_mufvd"]
 [ext_resource type="Script" path="res://scripts/camera/chase_cam.gd" id="4_5vhar"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kw7f3"]
