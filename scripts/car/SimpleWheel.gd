@@ -134,7 +134,7 @@ func _update_suspension(dt):
 
 
 func _update_movement(dt):
-	if deform == 0: return
+	#if deform == 0: return # lets do air movement.
 	
 	var factor = 1.0 / car.wheels.size()
 	var forward = -car.global_transform.basis.z
@@ -146,7 +146,10 @@ func _update_movement(dt):
 		#forward *= 0.5
 	
 	var throttle_force = forward * car.engine_throttle * factor
-	#print(throttle_force)
+	# if in air
+	if deform == 0:
+		throttle_force *= 0.5
+	
 	car.apply_central_force(throttle_force)
 	
 	##braking
@@ -155,6 +158,9 @@ func _update_movement(dt):
 	forward = -car.global_transform.basis.z
 	#print("throttle: ", car.engine_throttle)
 	var braking_force = -forward * car.braking_force * factor
+	# if in air
+	if deform == 0:
+		braking_force *= 0.5
 	car.apply_central_force(braking_force)
 
 
@@ -166,10 +172,12 @@ func _update_drag(dt):
 	if deform == 0 or contact_material == null: #air
 		#var air_drag = 0
 		#car.linear_velocity *= 1.0 - dt * air_drag * factor
+		#print("in air")
 		return #no slip drag
+	#print("not in air")
 	#not air
 	var drag = contact_material.drag
-	car.linear_velocity *= 1.0 - dt * drag * factor
+	#car.linear_velocity *= 1.0 - dt * drag * factor
 	
 	#### steering drag ####
 	var slide_drag = contact_material.slide_drag
