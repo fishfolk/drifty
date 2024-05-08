@@ -2,6 +2,9 @@ class_name PlayerKartInput
 extends KartInput
 ##
 
+var kart_hud_packed = preload("res://scenes/vehicles/hud/hud_kart.tscn")
+var kart_hud = null
+
 @export var player_index : int = 0
 
 
@@ -23,5 +26,7 @@ func _update_input(delta) -> void:
 
 
 func _setup_hud():
-	return
+	kart_hud = kart_hud_packed.instantiate()
+	kart_hud.kart = car
+	add_child(kart_hud)
 

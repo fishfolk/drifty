@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://codneigsqwtuq"]
+
+[ext_resource type="Script" path="res://scenes/vehicles/hud/hud_kart.gd" id="1_ppsvx"]
+
+[node name="HudKart" type="CanvasLayer"]
+script = ExtResource("1_ppsvx")
+
+[node name="LabelSpeed" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 34.0
+offset_top = 663.0
+offset_right = 283.0
+offset_bottom = 686.0
+text = "SPEED: "
