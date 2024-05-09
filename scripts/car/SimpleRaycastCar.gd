@@ -320,7 +320,7 @@ func spin_out():
 func set_input_node(input_node:KartInput):
 	remove_child(input)
 	input = input_node
-	add_child(input)
+	add_child(input, true)
 
 func _on_contact_area_area_entered(area):
 	area_entered.emit(area)

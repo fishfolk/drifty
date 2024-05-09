@@ -1,2 +1,2 @@
-class_name RaceResults
+class_name RaceResultsData
 extends Resource

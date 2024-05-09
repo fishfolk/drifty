@@ -5,10 +5,67 @@
 [node name="HudKart" type="CanvasLayer"]
 script = ExtResource("1_ppsvx")
 
-[node name="LabelSpeed" type="Label" parent="."]
+[node name="SpeedLabel" type="Label" parent="."]
 unique_name_in_owner = true
 offset_left = 34.0
 offset_top = 663.0
 offset_right = 283.0
 offset_bottom = 686.0
 text = "SPEED: "
+
+[node name="SectionBalance" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -618.0
+offset_bottom = -618.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SectionBalance"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -84.0
+offset_right = 100.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="SectionBalance/VBoxContainer"]
+layout_mode = 2
+text = "Balance"
+horizontal_alignment = 1
+
+[node name="BalanceBar" type="ProgressBar" parent="SectionBalance/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SectionRank" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1121.0
+offset_top = 587.0
+offset_right = 1219.0
+offset_bottom = 690.0
+
+[node name="RankLabel" type="Label" parent="SectionRank"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -86.0
+offset_top = 18.0
+offset_right = 107.0
+offset_bottom = 94.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 55
+text = "Rank: 8"

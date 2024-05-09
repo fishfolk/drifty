@@ -41,7 +41,11 @@ func spawn_cars() -> void:
 		#var check_tracker = CarCheckpointTracker.new()
 		#car_instance.add_child(time_tracker)
 		#car_instance.add_child(check_tracker)
+		if RaceManager.current_race.race_type == RaceData.RACE_TYPE.NORMAL:
+			var progress_component = KartTrackProgressComponent.new()
+			car_instance.add_child(progress_component, true)
 		
 		# change to add to viewports
 		get_tree().current_scene.add_child.call_deferred(car_instance)
-		print("spawned", car_instance)
+		RaceManager.driver_karts.append(car_instance)
+		print("spawned and added to rank", car_instance)

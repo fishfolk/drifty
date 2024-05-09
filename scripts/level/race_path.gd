@@ -10,6 +10,10 @@ func get_closest_offset(to_point: Vector3):
 	return curve.get_closest_offset(to_point)
 
 
+func get_offset_length() -> float:
+	return curve.get_baked_length()
+
+
 func sample_looping(offset:float, cubic:bool=false) -> Vector3:
 	var length = curve.get_baked_length()
 	# looping clamp
