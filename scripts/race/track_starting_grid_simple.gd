@@ -14,6 +14,9 @@ func _ready():
 		RaceManager.race_setup_checks["starting_grid"] = true
 
 func spawn_cars() -> void:
+	for kart in RaceManager.driver_karts:
+		kart.queue_free()
+	
 	var markers = get_children()
 	var drivers_list = RaceManager.current_race.drivers.duplicate()
 	var position_count = min(drivers_list.size(), markers.size())
@@ -49,3 +52,9 @@ func spawn_cars() -> void:
 		get_tree().current_scene.add_child.call_deferred(car_instance)
 		RaceManager.driver_karts.append(car_instance)
 		print("spawned and added to rank", car_instance)
+
+
+func _clear_previous_components(kart:SimpleRaycastCar):
+	for child in kart.get_children():
+		if child is KartInput: child.free()
+		if child is KartTrackProgressComponent: child.free()

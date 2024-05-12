@@ -69,6 +69,10 @@ func rank_karts_by_position(array_to_sort:Array[SimpleRaycastCar]) -> Array[Simp
 		var tracker_a = kart_a.get_node("KartTrackProgressComponent")
 		var tracker_b = kart_b.get_node("KartTrackProgressComponent")
 		if not tracker_a or not tracker_b: return false
+		
+		if not tracker_a.invalid_lap and tracker_b.invalid_lap: return true
+		if tracker_a.invalid_lap and not tracker_b.invalid_lap: return false
+		
 		if tracker_a.current_lap > tracker_b.current_lap: return true
 		elif tracker_a.current_lap < tracker_b.current_lap: return false
 		else:
