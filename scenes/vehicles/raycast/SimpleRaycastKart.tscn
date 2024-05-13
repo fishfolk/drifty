@@ -245,7 +245,7 @@ transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 
 [node name="Skeleton3D" parent="Model/BikeModel/Root" index="0"]
 bones/3/rotation = Quaternion(-0.469221, -5.47546e-14, 1.11871e-07, 0.883081)
 bones/4/rotation = Quaternion(-0.261205, 2.76037e-14, 6.22761e-08, 0.965283)
-bones/6/rotation = Quaternion(-0.210045, 0.0315308, 0.145064, 0.966356)
+bones/6/rotation = Quaternion(-0.212025, 0.0125802, 0.0578775, 0.975468)
 
 [node name="solid_collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.334927, 0)
