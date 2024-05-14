@@ -46,11 +46,12 @@ func _process_old(delta):
 		transform = transform.interpolate_with(car.transform, delta*10.0)
 	
 	var ground_velocity = car.linear_velocity - car.linear_velocity.project(car.global_transform.basis.y)
-	ground_velocity *= 0.01
-	look_at_dir = look_at_dir.lerp(car.global_position + ground_velocity.normalized()*0 + Vector3.UP*1, delta * 100.0)# + ground_velocity.normalized()
+	ground_velocity *= 0.0
+	look_at_dir = look_at_dir.lerp(car.global_position + ground_velocity.normalized() + Vector3.UP*1, delta * 100.0)# + ground_velocity.normalized()
 	camera_3d.look_at(look_at_dir)
 	
 	#speed shake
+	if speed > car
 	if speed > 5:
 		global_position += speed * 0.01 * delta * Vector3(randf_range(-1.0,1.0),randf_range(-1.0,1.0),randf_range(-1.0,1.0))
 	

@@ -7,11 +7,14 @@ script = ExtResource("1_ppsvx")
 
 [node name="SpeedLabel" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 34.0
-offset_top = 663.0
-offset_right = 283.0
-offset_bottom = 686.0
-text = "SPEED: "
+offset_left = 1001.0
+offset_top = 626.0
+offset_right = 1227.0
+offset_bottom = 702.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 40
+text = "SPEED: 8"
 
 [node name="SectionBalance" type="Control" parent="."]
 layout_mode = 3
@@ -19,8 +22,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -618.0
-offset_bottom = -618.0
+offset_top = -13.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -53,10 +56,21 @@ layout_mode = 2
 [node name="SectionRank" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1121.0
-offset_top = 587.0
-offset_right = 1219.0
-offset_bottom = 690.0
+offset_left = 128.0
+offset_top = 591.0
+offset_right = 226.0
+offset_bottom = 694.0
+
+[node name="LapLabel" type="Label" parent="SectionRank"]
+unique_name_in_owner = true
+offset_left = -84.0
+offset_top = -14.0
+offset_right = 109.0
+offset_bottom = 62.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 26
+text = "LAP 3"
 
 [node name="RankLabel" type="Label" parent="SectionRank"]
 unique_name_in_owner = true
@@ -69,3 +83,12 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 55
 text = "Rank: 8"
+
+[node name="_debuginvalidlaplabel" type="Label" parent="SectionRank"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -89.0
+offset_top = -40.0
+offset_right = 181.0
+offset_bottom = 36.0
+text = "invalid lap"

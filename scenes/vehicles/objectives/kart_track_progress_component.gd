@@ -5,10 +5,10 @@ signal lap_changed(new_lap)
 
 @onready var kart : SimpleRaycastCar = get_parent()
 
-var current_lap : int = 0
+var current_lap : int = 1
 var progress_offset : float = 0
 
-var invalid_lap : bool = false
+var invalid_lap : bool = true
 
 const update_frequency := 0.1
 var update_timer := 0.0
