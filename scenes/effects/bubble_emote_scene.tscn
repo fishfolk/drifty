@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://lnd35jxtfjj"]
+[gd_scene load_steps=6 format=3 uid="uid://lnd35jxtfjj"]
 
 [ext_resource type="SphereMesh" uid="uid://dp0dfllfxua6x" path="res://scenes/effects/bubble_mesh.tres" id="1_tnt73"]
+[ext_resource type="Script" path="res://scenes/effects/bubble_emote_scene.gd" id="2_2r0gw"]
 
 [sub_resource type="Curve" id="Curve_a1sy0"]
 _data = [Vector2(0, 0.181871), 0.0, 0.0, 0, 0, Vector2(0.767647, 1), -0.311216, -0.311216, 0, 0, Vector2(0.85, 0.6097), -11.4838, -11.4838, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -28,3 +29,4 @@ local_coords = true
 draw_order = 1
 process_material = SubResource("ParticleProcessMaterial_vq5if")
 draw_pass_1 = ExtResource("1_tnt73")
+script = ExtResource("2_2r0gw")

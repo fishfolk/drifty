@@ -1,7 +1,8 @@
 class_name KartItemUseComponent
 extends Node3D
 
-
+signal used_melee_attack(direction)
+signal used_item(item)
 
 var current_item : Item = null
 #var current_item_charges = 0
@@ -32,15 +33,21 @@ func _ready():
 func use_melee() -> void:
 	#spawn hitbox
 	melee_hitbox = melee_hitbox_packed.instantiate()
+	var direction = 1
 	if input.melee_left and !input.melee_right:
-		melee_hitbox.scale.x *= -1
+		direction = -1
+	melee_hitbox.scale.x = direction
 	melee_hitbox.parent_car = car
 	add_child(melee_hitbox)
-	print(melee_hitbox)
+	#print(melee_hitbox)
+	used_melee_attack.emit(direction)
 
 
 func use_current_item() -> void:
+	#check if can actually use item
+	used_item.emit(current_item)
 	current_item.use_item(self)
+	
 	pass
 
 

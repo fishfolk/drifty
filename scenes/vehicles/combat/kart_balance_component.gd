@@ -11,8 +11,10 @@ signal balance_lost_completely
 ## Regens over time.
 var balance : float = 100 :
 	set(value):
+		var old_value = balance
 		balance = clampf(value, 0, 100)
-		balance_lost.emit(balance)
+		if old_value > balance:
+			balance_lost.emit(balance)
 		if balance == 0:
 			_on_balance_lost_completely()
 			balance_lost_completely.emit()
