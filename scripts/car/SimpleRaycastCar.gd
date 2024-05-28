@@ -167,8 +167,8 @@ func _physics_process(delta):
 	
 	if is_drifting:
 		drift_dir = lerp(drift_dir, sign(drift_dir), delta * speed/5.0)
-		
-		global_rotate(global_transform.basis.y, -drift_dir * PI * deg_to_rad(handling_factor) * 0.5 * delta)
+		var tightening_factor = 0.4
+		global_rotate(global_transform.basis.y, -drift_dir * PI * deg_to_rad(handling_factor) * tightening_factor * delta)
 		var ground_velocity = linear_velocity - linear_velocity*global_transform.basis.y
 		var drift_slip = ground_velocity.normalized().dot(-global_transform.basis.z)
 		drift_angle = acos(clamp(drift_slip, -1, 1))

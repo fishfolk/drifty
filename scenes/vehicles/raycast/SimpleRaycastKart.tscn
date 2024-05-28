@@ -5543,7 +5543,6 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_u2s1a")
 blend_point_2/pos = 0.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_in4j0"]
-graph_offset = Vector2(-563.836, -15.945)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_kvdta")
 nodes/Add2/position = Vector2(-480, 80)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_w3tjl")
@@ -5771,26 +5770,6 @@ bones/41/rotation = Quaternion(0.585479, -0.00729317, -0.00932315, 0.810601)
 bones/43/position = Vector3(-0.419901, 1.79282, -0.460493)
 bones/43/rotation = Quaternion(-1.18763e-05, 0.705806, 0.708405, -1.18327e-05)
 bones/43/scale = Vector3(1, 1, 1)
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.2)
-visible = false
-radius = 0.25
-
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0.2)
-visible = false
-radius = 0.25
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.567985, -0.221019)
-visible = false
-size = Vector3(0.180664, 0.434082, 0.103943)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 0, 0.714445, -0.126237)
-visible = false
-size = Vector3(0.435303, 0.0467224, 0.0712891)
 
 [node name="solid_collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.334927, 0)

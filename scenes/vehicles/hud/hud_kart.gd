@@ -22,6 +22,7 @@ func set_balance(value):
 
 
 func update_rank():
+	if not track_progress_component: return
 	var rank = RaceManager.get_kart_rank(kart)
 	# TODO: change to images
 	%RankLabel.text = "Rank: %d" % rank

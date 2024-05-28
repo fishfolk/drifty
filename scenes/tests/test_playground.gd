@@ -2,6 +2,10 @@ extends Node3D
 
 
 
+func _ready():
+	var player_input = PlayerKartInput.new()
+	$PictureBike.set_input_node(player_input)
+
 func on_click_nav_test():
 	var target_position = $AITarget.global_position
 	var ai_driver = $AIControlledKart/SimpleAIKartInput
