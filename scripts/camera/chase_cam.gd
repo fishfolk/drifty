@@ -59,7 +59,7 @@ func _process_old(delta):
 	
 	if car.input_brakes > 0:
 		camera_3d.fov -= car.input_brakes * 2 #lerp(camera_3d.fov, camera_3d.fov + car.braking_force*(-20), delta*50.0)
-	var target_fov = 60 + abs(speed)*0.5
+	var target_fov = 70 + abs(speed)*0.4
 	if car.boost_timer > 0:
 		target_fov += 15
 	camera_3d.fov = lerp(camera_3d.fov, target_fov, delta*10.0)

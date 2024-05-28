@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://tgc7puqtj4fp"]
+[gd_scene load_steps=71 format=3 uid="uid://tgc7puqtj4fp"]
 
 [ext_resource type="Script" path="res://scripts/car/SimpleRaycastCar.gd" id="1_7ljwh"]
 [ext_resource type="Script" path="res://scripts/car/SimpleWheel.gd" id="2_1tjxg"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scenes/vehicles/base/kart_animation_component.gd" id="5_0fn4j"]
 [ext_resource type="Script" path="res://scenes/vehicles/combat/kart_item_use_component.gd" id="5_56qin"]
 [ext_resource type="PackedScene" uid="uid://dw4hpk3jfxc37" path="res://scenes/vehicles/models/Motos/moto 1 .glb" id="7_al8my"]
-[ext_resource type="PackedScene" uid="uid://cxew0lyx0y7l7" path="res://scenes/vehicles/models/golden_fish/golden_fish.tscn" id="7_x132g"]
 [ext_resource type="Script" path="res://scripts/camera/chase_cam.gd" id="8_eci6i"]
 [ext_resource type="PackedScene" uid="uid://b3yw2i37mnw1n" path="res://scenes/vehicles/models/Pilotos/Piloto 5 .glb" id="8_h7tet"]
 
@@ -5564,7 +5563,14 @@ node_connections = [&"Add2", 0, &"drive_bspace", &"Add2", 1, &"steer_bspace", &"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oytxq"]
 radius = 0.233923
-height = 1.00251
+height = 1.0103
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4jgho"]
+absorbent = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qenpm"]
+radius = 0.233923
+height = 1.0103
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ndbuc"]
 radius = 0.282611
@@ -5666,7 +5672,6 @@ bones/14/rotation = Quaternion(-0.029048, 1.77712e-07, 0.345224, 0.938071)
 bones/15/rotation = Quaternion(0.113917, -0.767615, -0.24775, 0.580009)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/rotation = Quaternion(0.091032, -0.0115452, -0.23283, 0.968179)
-bones/16/scale = Vector3(1, 1, 1)
 bones/17/rotation = Quaternion(-0.0400915, 0.0113225, -0.411945, 0.910256)
 bones/18/rotation = Quaternion(0.891547, 0.428892, -0.12296, -0.0779574)
 bones/18/scale = Vector3(1, 1, 1)
@@ -5726,7 +5731,6 @@ bones/13/rotation = Quaternion(0.00187648, 0.0245597, 0.281965, 0.959109)
 bones/14/rotation = Quaternion(-0.0742393, -0.00265406, -0.169791, 0.982676)
 bones/15/rotation = Quaternion(-0.0355516, -0.00278702, 0.0113138, 0.9993)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/scale = Vector3(1, 1, 1)
 bones/18/rotation = Quaternion(-0.0118919, -0.000145329, -0.00799998, 0.999897)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(0.0992453, -0.0562168, -0.274712, 0.954737)
@@ -5788,51 +5792,21 @@ transform = Transform3D(1, 0, 0, 0, 0.839535, -0.543306, 0, 0.543306, 0.839535, 
 visible = false
 size = Vector3(0.435303, 0.0467224, 0.0712891)
 
-[node name="BikeModel" parent="Model" instance=ExtResource("7_x132g")]
-transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0.2, 0)
-visible = false
-
-[node name="Skeleton3D" parent="Model/BikeModel/Golden_fish" index="0"]
-bones/1/rotation = Quaternion(0.87407, 1.15824e-07, 4.16789e-07, 0.4858)
-bones/3/rotation = Quaternion(0.748137, 7.11915e-07, 8.02673e-07, 0.663545)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/5/rotation = Quaternion(0.0223839, 1.19179e-06, 2.66837e-08, 0.999749)
-bones/7/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/8/rotation = Quaternion(0.999084, 4.76524e-08, 4.72059e-08, -0.0427853)
-bones/9/rotation = Quaternion(-0.122604, 1.86576e-07, 3.35547e-08, 0.992456)
-bones/10/rotation = Quaternion(0.688931, 7.00909e-13, 1.64253e-07, 0.724827)
-bones/11/rotation = Quaternion(0.105304, -1.18547e-07, 1.25532e-08, 0.99444)
-bones/12/rotation = Quaternion(0.999084, -5.78159e-08, 1.90122e-07, -0.0427853)
-bones/13/rotation = Quaternion(-0.122604, -1.84077e-07, -5.3784e-08, 0.992456)
-bones/15/rotation = Quaternion(0.105304, 1.18547e-07, -1.25532e-08, 0.99444)
-bones/17/rotation = Quaternion(0.707107, 0.707107, 3.05114e-08, 1.37679e-07)
-bones/19/rotation = Quaternion(0.707107, -0.707107, 1.14805e-07, -5.33851e-08)
-bones/21/rotation = Quaternion(0.768641, 3.81278e-07, 6.41403e-07, 0.63968)
-bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/25/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/28/rotation = Quaternion(-0.707107, 8.42937e-08, -8.42937e-08, 0.707107)
-
-[node name="Skeleton3D" parent="Model/BikeModel/Root" index="0"]
-bones/0/rotation = Quaternion(-0.707107, 7.85046e-17, 7.85046e-17, 0.707107)
-bones/1/rotation = Quaternion(0.710915, -8.38372e-08, -8.47477e-08, 0.703278)
-bones/2/rotation = Quaternion(-0.710915, -3.03099e-14, 1.69495e-07, 0.703278)
-bones/3/rotation = Quaternion(-0.469221, -5.43117e-14, 1.11871e-07, 0.883081)
-bones/4/rotation = Quaternion(-0.261205, 2.94439e-14, 6.22761e-08, 0.965283)
-bones/5/rotation = Quaternion(-0.00540068, 1.19208e-07, 6.43812e-10, 0.999985)
-bones/5/scale = Vector3(1, 1, 1)
-bones/6/rotation = Quaternion(-0.212398, 1.16489e-07, 2.53198e-08, 0.977183)
-bones/8/rotation = Quaternion(0.182934, 0.132121, -0.570396, 0.789765)
-bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(0.182934, -0.132121, 0.570396, 0.789765)
-bones/9/scale = Vector3(1, 1, 1)
-
 [node name="solid_collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.334927, 0)
 shape = SubResource("CapsuleShape3D_oytxq")
 
+[node name="ground_bounce_absorber" type="StaticBody3D" parent="."]
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_4jgho")
+
+[node name="shape" type="CollisionShape3D" parent="ground_bounce_absorber"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.00025034, 0.279226, 3.81493e-05)
+shape = SubResource("CapsuleShape3D_qenpm")
+
 [node name="ItemCollisionArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+visible = false
 collision_layer = 2048
 collision_mask = 2048
 metadata/_edit_group_ = true
@@ -5843,7 +5817,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 shape = SubResource("CapsuleShape3D_ndbuc")
 
 [node name="SimpleWheel" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.4)
 shape = SubResource("SphereShape3D_ve672")
 target_position = Vector3(0, -0.2, 0)
 script = ExtResource("2_1tjxg")
@@ -5852,7 +5826,7 @@ wheel_radius = 0.1
 spring_length = 0.2
 
 [node name="SimpleWheel2" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.4)
 shape = SubResource("SphereShape3D_ve672")
 target_position = Vector3(0, -0.2, 0)
 script = ExtResource("2_1tjxg")
@@ -5870,9 +5844,8 @@ top_level = true
 script = ExtResource("8_eci6i")
 
 [node name="Camera3D" type="Camera3D" parent="ChaseCamRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.223, 2.271)
+transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.58664, 2.83471)
 fov = 90.0
 
 [editable path="Model/Moto 1 e 2 "]
 [editable path="Model/Moto 1 e 2 /Moto 1 e 2 "]
-[editable path="Model/BikeModel"]
