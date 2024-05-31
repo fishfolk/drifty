@@ -1,11 +1,13 @@
-class_name ItemRedShell
+class_name ItemGreenShell
 extends Item
 
 
-var powerup_greenshell_packed = preload("res://scenes/powerups/power_up_red_shell.tscn")
+var powerup_greenshell_packed = preload("res://scenes/powerups/power_up_green_shell.tscn")
 
+func get_item_name() -> String:
+	return "Green Shell"
 
-func use_item(item_component:KartItemUseComponent):
+func use_item(item_component:KartItemUseComponent) -> void:
 	var car = item_component.car
 	var spawn_position = item_component.item_spawn_front.global_position
 	
