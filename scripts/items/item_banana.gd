@@ -4,8 +4,8 @@ extends Item
 
 var powerup_banana_packed = preload("res://scenes/powerups/power_up_banana.tscn")
 
-func get_item_name() -> String:
-	return "Banana"
+#func get_item_data() -> ItemData:
+	#return preload("res://scenes/powerups/item_data/sea_mine.tres")
 
 func use_item(item_component:KartItemUseComponent) -> void:
 	var car = item_component.car

@@ -87,6 +87,7 @@ pause={
 [layer_names]
 
 3d_physics/layer_12="PowerUp"
+3d_physics/layer_13="ItemBox"
 
 [navigation]
 

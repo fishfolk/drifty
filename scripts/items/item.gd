@@ -3,17 +3,18 @@ extends Node
 ## These are the items you collect into your inventory.
 ## They can include weapons and boosters.
 
-#virtual
-func get_item_name() -> String:
-	assert(false, "This method must be overriden.")
-	return "Item"
+## Original info for this item; filled when this node is created.
+var item_data : ItemData = null
 
 #virtual
-func get_item_image() -> Texture2D:
-	assert(false, "This method must be overriden.")
-	return null
+#func get_item_data() -> ItemData:
+	#assert(false, "This method must be overriden.")
+	#return null
 
-#virtual
+func get_item_data() -> ItemData:
+	return item_data
+
+##virtual
 func use_item(item_component:KartItemUseComponent) -> void:
 	assert(false, "This method must be overriden.")
 	pass

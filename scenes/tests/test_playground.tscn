@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bl2gw07jyexpp"]
+[gd_scene load_steps=13 format=3 uid="uid://bl2gw07jyexpp"]
 
 [ext_resource type="Script" path="res://scenes/tests/test_playground.gd" id="1_0yeh2"]
 [ext_resource type="Material" uid="uid://cvk2wmgqvougc" path="res://resources/materials/prototype_textures/prototype_brick.material" id="1_stuc4"]
 [ext_resource type="Material" uid="uid://x3vgwj6i30t8" path="res://resources/materials/prototype_textures/prototype_dark.material" id="2_s4suy"]
 [ext_resource type="PackedScene" uid="uid://tgc7puqtj4fp" path="res://scenes/vehicles/raycast/SimpleRaycastKart.tscn" id="4_q51n2"]
 [ext_resource type="Script" path="res://scripts/driver/simple_ai_kart_input.gd" id="5_1lgps"]
+[ext_resource type="PackedScene" uid="uid://btul6nps53rua" path="res://scenes/powerups/box/item_box.tscn" id="6_flnhd"]
+[ext_resource type="Resource" uid="uid://bxwp70r4r68dk" path="res://scenes/powerups/tables/item_table_test2.tres" id="7_5sqwu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8b2fs"]
 
@@ -83,22 +85,15 @@ radius = 9.77
 height = 28.3156
 sides = 32
 
-[node name="SimpleRaycastKart" parent="." instance=ExtResource("4_q51n2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.09228, 1.52321, -1.71612)
-drift_grip_factor = 0.9
-drift_speed = 3.0
-boost_power = 200.0
-
 [node name="AIControlledKart" parent="." node_paths=PackedStringArray("input") instance=ExtResource("4_q51n2")]
 transform = Transform3D(0.759884, 0, -0.650058, 0, 1, 0, 0.650058, 0, 0.759884, -15.3171, 0.424259, 2.61391)
 top_speed = 12.0
 handling_factor = 180.0
 input = NodePath("SimpleAIKartInput")
 
-[node name="SimpleAIKartInput" type="Node3D" parent="AIControlledKart" node_paths=PackedStringArray("chase_target")]
+[node name="SimpleAIKartInput" type="Node3D" parent="AIControlledKart"]
 script = ExtResource("5_1lgps")
 debug_enabled = true
-chase_target = NodePath("../../SimpleRaycastKart")
 
 [node name="AIControlledKart2" parent="." node_paths=PackedStringArray("input") instance=ExtResource("4_q51n2")]
 transform = Transform3D(0.759884, 0, -0.650058, 0, 1, 0, 0.650058, 0, 0.759884, -21.0065, 0.424259, 1.60943)
@@ -106,10 +101,9 @@ top_speed = 12.0
 handling_factor = 180.0
 input = NodePath("SimpleAIKartInput")
 
-[node name="SimpleAIKartInput" type="Node3D" parent="AIControlledKart2" node_paths=PackedStringArray("chase_target")]
+[node name="SimpleAIKartInput" type="Node3D" parent="AIControlledKart2"]
 script = ExtResource("5_1lgps")
 debug_enabled = true
-chase_target = NodePath("../../SimpleRaycastKart")
 
 [node name="AITarget" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11225, 0.285188, -33.8883)
@@ -117,6 +111,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11225, 0.285188, -33.8883)
 [node name="PictureBike" parent="." instance=ExtResource("4_q51n2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9394, 5.72205e-06, 5.71344)
 
+[node name="Camera3D" parent="PictureBike/ChaseCamRoot" index="0"]
+current = true
+
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(-0.600357, -0.249843, 0.759704, 0, 0.949948, 0.312408, -0.799733, 0.187556, -0.570307, 12.2216, 0.881608, 4.79171)
-current = true
+
+[node name="ItemBox" parent="." instance=ExtResource("6_flnhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0583, 4.29153e-06, 1.43099)
+table = ExtResource("7_5sqwu")
+
+[editable path="PictureBike"]
+[editable path="PictureBike/Model/Moto 1 e 2 "]
+[editable path="PictureBike/Model/Moto 1 e 2 /Moto 1 e 2 "]

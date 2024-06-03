@@ -4,8 +4,8 @@ extends Item
 
 var powerup_greenshell_packed = preload("res://scenes/powerups/power_up_red_shell.tscn")
 
-func get_item_name() -> String:
-	return "Red Shell"
+#func get_item_name() -> String:
+	#return "Red Shell"
 
 func use_item(item_component:KartItemUseComponent) -> void:
 	var car = item_component.car

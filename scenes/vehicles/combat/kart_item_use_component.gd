@@ -4,7 +4,11 @@ extends Node3D
 signal used_melee_attack(direction)
 signal used_item(item)
 
-var current_item : Item = null
+var current_item : Item = null :
+	set(item):
+		current_item = item
+		if hud:
+			hud.set_item(item)
 #var current_item_charges = 0
 
 @export var melee_cooldown_time : float = 0.5 # seconds
@@ -24,10 +28,14 @@ var melee_sideways_direction : int = 1 # -1 left, 1 right
 @onready var car : SimpleRaycastCar = get_parent()
 @onready var input : KartInput = car.input
 
+## hud_kart.gd
+var hud = null
+
 
 func _ready():
 	collision_area.area_entered.connect(_on_collision_area_area_entered)
-	current_item = ItemRedShell.new()
+	car.input_node_changed.connect(_on_car_input_node_changed)
+	#current_item = ItemRedShell.new()
 
 
 func use_melee() -> void:
@@ -44,11 +52,12 @@ func use_melee() -> void:
 
 
 func use_current_item() -> void:
+	print("pressed to use item")
 	#check if can actually use item
 	used_item.emit(current_item)
 	current_item.use_item(self)
 	
-	pass
+	current_item = current_item # update hud
 
 
 func _physics_process(delta):
@@ -68,4 +77,13 @@ func _physics_process(delta):
 
 
 func _on_collision_area_area_entered(area:Area3D):
+	if area is ItemBoxArea:
+		var itembox : ItemBoxArea = area as ItemBoxArea
+		if not current_item:
+			var item_data = itembox.table.roll()
+			current_item = item_data.get_item()
+	
 	pass
+
+func _on_car_input_node_changed(new_input_node:KartInput):
+	input = new_input_node

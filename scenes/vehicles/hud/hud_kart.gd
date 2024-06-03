@@ -3,6 +3,7 @@ extends CanvasLayer
 
 var kart : SimpleRaycastCar = null
 var track_progress_component : KartTrackProgressComponent = null
+var item_use_component : KartItemUseComponent = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,12 +14,25 @@ func _ready():
 				child.hud = self
 			if child is KartTrackProgressComponent:
 				track_progress_component = child
-			
+			if child is KartItemUseComponent:
+				item_use_component = child
+				child.hud = self
 			#if child is kart rank component
 
 
 func set_balance(value):
 	%BalanceBar.value = value
+
+
+func set_item(item:Item):
+	if not item or item.is_queued_for_deletion():
+		%ItemImage.texture = null
+		%ItemName.text = "Melee"
+		return
+	
+	var item_data : ItemData = item.get_item_data()
+	%ItemImage.texture = item_data.texture
+	%ItemName.text = item_data.name
 
 
 func update_rank():

@@ -84,4 +84,5 @@ func rank_karts_by_position(array_to_sort:Array[SimpleRaycastCar]) -> Array[Simp
 
 
 func _physics_process(delta):
-	rank_karts()
+	if driver_karts != []: 
+		rank_karts()

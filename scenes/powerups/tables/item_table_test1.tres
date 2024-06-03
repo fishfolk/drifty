@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MultipleItemTable" load_steps=3 format=3 uid="uid://cp2y1byrhiprn"]
+
+[ext_resource type="Resource" uid="uid://b8rfooyffdg4f" path="res://scenes/powerups/item_data/nitrous_oxide.tres" id="1_5v0vx"]
+[ext_resource type="Script" path="res://scripts/items/tables/multiple_item_table.gd" id="1_ukmrx"]
+
+[resource]
+script = ExtResource("1_ukmrx")
+items = Array[Resource("res://scripts/items/data/item_data.gd")]([ExtResource("1_5v0vx")])

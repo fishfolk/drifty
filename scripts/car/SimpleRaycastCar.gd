@@ -1,6 +1,7 @@
 class_name SimpleRaycastCar
 extends RigidBody3D
 
+signal input_node_changed(new_input_node:KartInput)
 signal area_entered(area:Area3D)
 
 @export_group("Stats")
@@ -63,7 +64,7 @@ func _physics_process(delta):
 	
 	if boost_timer > 0: boost_timer -= delta
 	else: #reset_boost()
-		boost_extra_speed = lerpf(boost_extra_speed, 0, delta*2)
+		boost_extra_speed = lerpf(boost_extra_speed, 0, delta*1)
 	
 	
 	## update if car is grounded or not
@@ -278,7 +279,7 @@ func release_drift_charge(dt):
 	#drift_charge = 0
 	if drift_charge >= 1: 
 		var charge_level = floor(drift_charge)
-		var extra_speed = 0 + 5+charge_level
+		var extra_speed = 0 + 3 + charge_level
 		var duration = 1 + 0.5 * (charge_level-1)
 		boost(duration, extra_speed)
 	drift_charge = 0
@@ -321,6 +322,7 @@ func set_input_node(input_node:KartInput):
 	remove_child(input)
 	input = input_node
 	add_child(input, true)
+	input_node_changed.emit(input_node)
 
 func _on_contact_area_area_entered(area):
 	area_entered.emit(area)

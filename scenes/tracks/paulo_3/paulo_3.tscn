@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://bjxe7bcve0iki"]
+[gd_scene load_steps=31 format=3 uid="uid://bjxe7bcve0iki"]
 
 [ext_resource type="Script" path="res://scripts/level/track.gd" id="1_f3q2x"]
 [ext_resource type="PackedScene" uid="uid://wblefin1vqlx" path="res://scenes/tracks/paulo_3/pista.gltf" id="1_hsnfv"]
 [ext_resource type="Script" path="res://scripts/race/track_starting_grid_simple.gd" id="2_b43mv"]
 [ext_resource type="Shader" uid="uid://diqn84xvijllt" path="res://scripts/shaders/SEAWEED_Mov.tres" id="3_fxlpa"]
 [ext_resource type="Script" path="res://scripts/level/race_path.gd" id="3_l7rmm"]
+[ext_resource type="PackedScene" uid="uid://btul6nps53rua" path="res://scenes/powerups/box/item_box.tscn" id="6_der8e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3hqdo"]
 sky_top_color = Color(0.905882, 0.596078, 0.360784, 1)
@@ -563,41 +564,41 @@ environment = SubResource("Environment_ucts1")
 [node name="pista" parent="." instance=ExtResource("1_hsnfv")]
 
 [node name="Skeleton3D" parent="pista/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.471975, -0.494541, 0.502508, 0.529296)
+bones/0/rotation = Quaternion(-0.521817, -0.507285, 0.491785, 0.478033)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(-0.00506541, 0.00148296, 0.0563764, 0.998396)
-bones/2/rotation = Quaternion(-0.00434971, 0.00330596, 0.130052, 0.991492)
-bones/3/rotation = Quaternion(-0.232384, -0.30457, 0.243976, 0.890904)
+bones/1/rotation = Quaternion(0.00266487, -0.00184768, 0.0254669, 0.99967)
+bones/2/rotation = Quaternion(0.0706324, -0.0097103, 0.0314691, 0.996959)
+bones/3/rotation = Quaternion(-0.0661929, -0.28258, 0.298034, 0.909364)
 bones/4/rotation = Quaternion(1.0799e-08, -0.707112, -1.78899e-08, 0.707102)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(2.26218, -8.97224, -47.483)
+bones/5/position = Vector3(2.60115, -8.83677, -48.7844)
 bones/5/rotation = Quaternion(1.2846e-08, -0.707112, -1.78487e-08, 0.707102)
 
 [node name="Skeleton3D" parent="pista/Armature_001" index="0"]
-bones/0/rotation = Quaternion(-0.471997, -0.494528, 0.502484, 0.529312)
+bones/0/rotation = Quaternion(-0.521839, -0.50727, 0.491762, 0.478049)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(-0.00506539, 0.00148295, 0.0563763, 0.998396)
-bones/2/rotation = Quaternion(-0.00434948, 0.00330593, 0.130052, 0.991492)
-bones/3/rotation = Quaternion(-0.232384, -0.30457, 0.243976, 0.890904)
+bones/1/rotation = Quaternion(0.00266727, -0.00184742, 0.0254681, 0.99967)
+bones/2/rotation = Quaternion(0.0706324, -0.00971031, 0.031469, 0.996959)
+bones/3/rotation = Quaternion(-0.0661929, -0.28258, 0.298034, 0.909364)
 bones/4/rotation = Quaternion(1.64635e-08, -0.707112, 1.97562e-09, 0.707102)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(2.26218, -8.97224, -47.483)
+bones/5/position = Vector3(2.60115, -8.83677, -48.7844)
 bones/5/rotation = Quaternion(2.30489e-08, -0.707112, 6.58539e-10, 0.707102)
 
 [node name="Skeleton3D" parent="pista/Armature_002" index="0"]
 bones/0/position = Vector3(4.76837e-07, -0.294633, -0.21587)
-bones/0/rotation = Quaternion(0.716453, -0.000121917, -0.000297573, 0.697635)
-bones/1/position = Vector3(-3.25929e-07, 1.52395, -0.485175)
-bones/1/rotation = Quaternion(0.695383, -0.000298354, 0.000120638, 0.71864)
+bones/0/rotation = Quaternion(0.716536, 0, 0, 0.69755)
+bones/1/position = Vector3(-4.02601e-07, 1.56194, -0.452248)
+bones/1/rotation = Quaternion(0.695468, -4.28293e-07, -4.14531e-07, 0.718557)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.71662, -0.000121834, -0.000297659, 0.697464)
-bones/3/rotation = Quaternion(-0.0227311, 1.44468e-14, -3.00108e-16, 0.999742)
+bones/2/rotation = Quaternion(-0.716536, 8.31544e-08, -8.54178e-08, 0.69755)
+bones/3/rotation = Quaternion(-0.0227311, 1.44537e-14, -3.01843e-16, 0.999742)
 bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.401423, -4.071e-07, -8.89456e-07, 0.915893)
-bones/5/rotation = Quaternion(0.34525, -2.98208e-11, -4.81933e-11, 0.938511)
-bones/6/rotation = Quaternion(0.378967, 4.37806e-09, 1.72797e-08, 0.92541)
-bones/7/rotation = Quaternion(-0.38702, 0.00170437, -0.128063, 0.913133)
-bones/8/rotation = Quaternion(0.182358, -0.0218424, -0.00919993, 0.982947)
+bones/4/rotation = Quaternion(-0.353337, -8.42283e-07, -2.60026e-07, 0.935496)
+bones/5/rotation = Quaternion(0.311799, -4.76496e-11, -7.94261e-11, 0.950148)
+bones/6/rotation = Quaternion(0.351779, 1.34575e-08, 1.35744e-09, 0.936083)
+bones/7/rotation = Quaternion(-0.29347, -1.63681e-08, 4.61914e-07, 0.955968)
+bones/8/rotation = Quaternion(0.0258036, -1.17859e-07, 2.93581e-07, 0.999667)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="pista/Pista_percurso_Curv" index="0"]
 
@@ -800,5 +801,28 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 37, 0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0419464, 0.0461235, 0.0200806)
 curve = SubResource("Curve3D_6ipf4")
 script = ExtResource("3_l7rmm")
+
+[node name="item_boxes" type="Node3D" parent="."]
+
+[node name="ItemBox" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.686, 0.65414, 188.51)
+
+[node name="ItemBox2" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.844, 0.488665, 185.9)
+
+[node name="ItemBox3" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.822, 0.324775, 183.47)
+
+[node name="ItemBox4" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.927, 0.149298, 180.894)
+
+[node name="ItemBox5" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.089, -0.00412273, 178.376)
+
+[node name="ItemBox6" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.32, -0.15471, 175.805)
+
+[node name="ItemBox7" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.427, -0.311404, 173.023)
 
 [editable path="pista"]
