@@ -122,5 +122,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0583, 4.29153e-06, 1.43099
 table = ExtResource("7_5sqwu")
 
 [editable path="PictureBike"]
-[editable path="PictureBike/Model/Moto 1 e 2 "]
-[editable path="PictureBike/Model/Moto 1 e 2 /Moto 1 e 2 "]
+[editable path="PictureBike/Model/Bike"]
+[editable path="PictureBike/Model/Fish"]

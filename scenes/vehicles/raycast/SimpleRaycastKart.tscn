@@ -2865,7 +2865,7 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_v3rrk")
 blend_point_3/pos = 1.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m0epe"]
-graph_offset = Vector2(-776.446, 82.518)
+graph_offset = Vector2(-754.468, -7.4634)
 nodes/drive_bspace/node = SubResource("AnimationNodeBlendSpace1D_a6hfy")
 nodes/drive_bspace/position = Vector2(-600, 60)
 nodes/drive_steer_add/node = SubResource("AnimationNodeAdd2_055fc")
@@ -5605,18 +5605,19 @@ collision_area = NodePath("../ItemCollisionArea")
 item_spawn_front = NodePath("../ItemSpawnFront")
 item_spawn_behind = NodePath("../ItemSpawnBehind")
 
-[node name="KartAnimationComponent" type="Node3D" parent="." node_paths=PackedStringArray("kart_balance_component", "kart_itemuse_component")]
+[node name="KartAnimationComponent" type="Node3D" parent="." node_paths=PackedStringArray("kart_balance_component", "kart_itemuse_component", "kart_model_node")]
 script = ExtResource("5_0fn4j")
 kart_balance_component = NodePath("../KartBalanceComponent")
 kart_itemuse_component = NodePath("../KartItemUseComponent")
+kart_model_node = NodePath("../Model")
 
 [node name="BikeAnimationTree" type="AnimationTree" parent="KartAnimationComponent"]
-root_node = NodePath("../../Model/Moto 1 e 2 ")
+root_node = NodePath("../../Model/Bike")
 libraries = {
 "": SubResource("AnimationLibrary_pfa8x")
 }
 tree_root = SubResource("AnimationNodeBlendTree_m0epe")
-anim_player = NodePath("../../Model/Moto 1 e 2 /AnimationPlayer")
+anim_player = NodePath("../../Model/Bike/AnimationPlayer")
 parameters/drive_bspace/blend_position = 0.0
 parameters/drive_steer_add/add_amount = 1.0
 parameters/hit_oneshot/active = false
@@ -5628,14 +5629,14 @@ parameters/melee_oneshot/request = 0
 parameters/steer_bspace/blend_position = 0.0
 
 [node name="FishAnimationTree" type="AnimationTree" parent="KartAnimationComponent"]
-root_node = NodePath("../../Model/Moto 1 e 2 /Moto 1 e 2 ")
+root_node = NodePath("../../Model/Fish")
 libraries = {
 "": SubResource("AnimationLibrary_2mqsg")
 }
 tree_root = SubResource("AnimationNodeBlendTree_in4j0")
-anim_player = NodePath("../../Model/Moto 1 e 2 /Moto 1 e 2 /AnimationPlayer")
+anim_player = NodePath("../../Model/Fish/AnimationPlayer")
 parameters/Add2/add_amount = 1.0
-parameters/drive_bspace/blend_position = 0
+parameters/drive_bspace/blend_position = 0.0
 parameters/hit_oneshot/active = false
 parameters/hit_oneshot/internal_active = false
 parameters/hit_oneshot/request = 0
@@ -5648,9 +5649,9 @@ parameters/steer_bspace/blend_position = 0.0
 [node name="Model" type="Node3D" parent="."]
 transform = Transform3D(-0.17, 0, -1.48619e-08, 0, 0.17, 0, 1.48619e-08, 0, -0.17, 7.43094e-09, 0.17, 0.085)
 
-[node name="Moto 1 e 2 " parent="Model" instance=ExtResource("7_al8my")]
+[node name="Bike" parent="Model" instance=ExtResource("7_al8my")]
 
-[node name="Skeleton3D" parent="Model/Moto 1 e 2 /Esqueleto" index="0"]
+[node name="Skeleton3D" parent="Model/Bike/Esqueleto" index="0"]
 bones/0/rotation = Quaternion(-0.707107, -5.45556e-10, 1.11119e-19, 0.707107)
 bones/1/rotation = Quaternion(0.971067, -1.99276e-07, 8.10322e-07, -0.238807)
 bones/1/scale = Vector3(1, 1, 0.999999)
@@ -5710,9 +5711,9 @@ bones/38/rotation = Quaternion(0.971067, -1.99276e-07, 8.10321e-07, 0.238807)
 bones/38/scale = Vector3(1, 1, 1)
 bones/39/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
-[node name="Moto 1 e 2 " parent="Model/Moto 1 e 2 " instance=ExtResource("8_h7tet")]
+[node name="Fish" parent="Model" instance=ExtResource("8_h7tet")]
 
-[node name="Skeleton3D" parent="Model/Moto 1 e 2 /Moto 1 e 2 /CharacterArmature" index="0"]
+[node name="Skeleton3D" parent="Model/Fish/CharacterArmature" index="0"]
 bones/1/position = Vector3(0.419901, 1.79282, -0.460493)
 bones/1/rotation = Quaternion(1.18763e-05, 0.705806, 0.708405, 1.18327e-05)
 bones/1/scale = Vector3(1, 1, 1)
@@ -5826,5 +5827,5 @@ script = ExtResource("8_eci6i")
 transform = Transform3D(1, 0, 0, 0, 0.994037, 0.10904, 0, -0.10904, 0.994037, 0, 1.58664, 2.83471)
 fov = 90.0
 
-[editable path="Model/Moto 1 e 2 "]
-[editable path="Model/Moto 1 e 2 /Moto 1 e 2 "]
+[editable path="Model/Bike"]
+[editable path="Model/Fish"]

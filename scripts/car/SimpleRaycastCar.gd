@@ -43,7 +43,6 @@ var boost_extra_speed : float = 0 # to add to your top speed
 var boost_timer : float = 0
 
 var is_grounded := false
-
 var spun_out_timer: float = 0.0 #
 
 
@@ -323,6 +322,9 @@ func set_input_node(input_node:KartInput):
 	input = input_node
 	add_child(input, true)
 	input_node_changed.emit(input_node)
+
+
+
 
 func _on_contact_area_area_entered(area):
 	area_entered.emit(area)

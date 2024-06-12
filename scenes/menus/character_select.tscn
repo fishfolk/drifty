@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dleqywrtpgo4t"]
+
+[ext_resource type="PackedScene" uid="uid://tgc7puqtj4fp" path="res://scenes/vehicles/raycast/SimpleRaycastKart.tscn" id="1_kku04"]
+[ext_resource type="Script" path="res://scenes/menus/character_select.gd" id="1_lcmnh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_keph5"]
+
+[sub_resource type="Sky" id="Sky_xid88"]
+sky_material = SubResource("ProceduralSkyMaterial_keph5")
+
+[sub_resource type="Environment" id="Environment_y2qa5"]
+background_mode = 2
+sky = SubResource("Sky_xid88")
+
+[node name="CharacterSelect" type="Control" node_paths=PackedStringArray("kart_preview")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lcmnh")
+kart_preview = NodePath("World/SimpleRaycastKart")
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(-0.68955, 0.432722, -0.580751, -0.408227, 0.430128, 0.805196, 0.598223, 0.792302, -0.119947, 0, 0, 0)
+light_energy = 2.2
+shadow_enabled = true
+directional_shadow_max_distance = 10.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource("Environment_y2qa5")
+
+[node name="SimpleRaycastKart" parent="World" instance=ExtResource("1_kku04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.323401, 0.5, 0.82876)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World"]
+use_collision = true
+size = Vector3(9, 1, 8)
+
+[node name="Camera3D" type="Camera3D" parent="World"]
+transform = Transform3D(-0.557054, 0.0564544, -0.828556, 0, 0.997687, 0.0679783, 0.830477, 0.0378676, -0.555765, -0.597585, 1.01995, -0.534603)
+current = true
