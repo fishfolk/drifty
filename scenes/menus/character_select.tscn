@@ -20,26 +20,89 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lcmnh")
-kart_preview = NodePath("World/SimpleRaycastKart")
+kart_preview = NodePath("SubViewportContainer/World/SimpleRaycastKart")
 
-[node name="World" type="Node3D" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+[node name="World" type="SubViewport" parent="SubViewportContainer"]
+size = Vector2i(1280, 720)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/World"]
 transform = Transform3D(-0.68955, 0.432722, -0.580751, -0.408227, 0.430128, 0.805196, 0.598223, 0.792302, -0.119947, 0, 0, 0)
 light_energy = 2.2
 shadow_enabled = true
 directional_shadow_max_distance = 10.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/World"]
 environment = SubResource("Environment_y2qa5")
 
-[node name="SimpleRaycastKart" parent="World" instance=ExtResource("1_kku04")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.323401, 0.5, 0.82876)
+[node name="SimpleRaycastKart" parent="SubViewportContainer/World" instance=ExtResource("1_kku04")]
+transform = Transform3D(0.928382, 0, -0.371627, 0, 1, 0, 0.371627, 0, 0.928382, 0.323401, 0.5, 0.82876)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="World"]
+[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/World"]
 use_collision = true
 size = Vector3(9, 1, 8)
 
-[node name="Camera3D" type="Camera3D" parent="World"]
-transform = Transform3D(-0.557054, 0.0564544, -0.828556, 0, 0.997687, 0.0679783, 0.830477, 0.0378676, -0.555765, -0.597585, 1.01995, -0.534603)
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/World"]
+transform = Transform3D(-0.557054, 0.0564544, -0.828556, 0, 0.997687, 0.0679783, 0.830477, 0.0378676, -0.555765, -0.314106, 1.01009, -0.6975)
 current = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Change your Ride!"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Driver"
+
+[node name="SliderFish" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bike"
+
+[node name="SliderBike" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/SliderFish" to="." method="_on_slider_fish_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer2/SliderBike" to="." method="_on_slider_bike_value_changed"]

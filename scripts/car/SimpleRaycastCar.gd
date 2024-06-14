@@ -54,7 +54,7 @@ func _ready():
 		wheel.car = self
 
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint(): return
 
 
@@ -180,9 +180,9 @@ func _physics_process(delta):
 	
 	
 	## simple steering
-	var b = 1.2 if boost_timer > 0 else 1 # extra steering from boost
-	var d = 0.8 if is_drifting else 1 # steer less when drifting
-	var r = -2 if get_speed() < 0 else 1 # better steering on reverse
+	var b = 1.2 if boost_timer > 0 else 1.0 # extra steering from boost
+	var d = 0.8 if is_drifting else 1.0 # steer less when drifting
+	var r = -2 if get_speed() < 0 else 1.0 # better steering on reverse
 	global_rotate(global_transform.basis.y, -steer_axis*b*d*r * deg_to_rad(handling_factor) * delta)
 	if not is_drifting and is_grounded:
 		linear_velocity *= (1 - 0.01*delta*abs(steer_axis)*deg_to_rad(handling_factor))
