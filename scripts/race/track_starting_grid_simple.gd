@@ -37,6 +37,17 @@ func spawn_cars() -> void:
 		kart_animation_component.set_model_fish(driver_data.get_model_fish())
 		kart_animation_component.set_model_bike(driver_data.get_model_bike())
 		
+		## parts to add to player cars, maybe not here, but somewhere?
+		#var time_tracker = CarTimeTracker.new()
+		#var check_tracker = CarCheckpointTracker.new()
+		#car_instance.add_child(time_tracker)
+		#car_instance.add_child(check_tracker)
+		## test race types
+		if RaceManager.current_race.race_type == RaceData.RACE_TYPE.NORMAL:
+			var progress_component = KartTrackProgressComponent.new()
+			car_instance.add_child(progress_component, true)
+		
+		# set driver types
 		if driver_data.driver_type == DriverData.DriverType.SIMPLE_AI:
 			var ai_input = SimpleAIKartInput.new()
 			car_instance.set_input_node(ai_input)
@@ -48,16 +59,6 @@ func spawn_cars() -> void:
 			var player_input = PlayerKartInput.new()
 			car_instance.set_input_node(player_input)
 			car_instance.get_node("ChaseCamRoot").set_current(true)
-		
-		## parts to add to player cars, maybe not here, but somewhere?
-		#var time_tracker = CarTimeTracker.new()
-		#var check_tracker = CarCheckpointTracker.new()
-		#car_instance.add_child(time_tracker)
-		#car_instance.add_child(check_tracker)
-		## test race types
-		if RaceManager.current_race.race_type == RaceData.RACE_TYPE.NORMAL:
-			var progress_component = KartTrackProgressComponent.new()
-			car_instance.add_child(progress_component, true)
 		
 		print("spawned and added to rank", car_instance)
 

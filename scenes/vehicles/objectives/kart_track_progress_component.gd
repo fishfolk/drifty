@@ -10,7 +10,7 @@ var progress_offset : float = 0
 
 var invalid_lap : bool = true
 
-const update_frequency := 0.1
+const update_frequency := 0.01
 var update_timer := 0.0
 
 

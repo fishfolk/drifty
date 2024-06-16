@@ -39,7 +39,7 @@ func update_rank():
 	if not track_progress_component: return
 	var rank = RaceManager.get_kart_rank(kart)
 	# TODO: change to images
-	%RankLabel.text = "Rank: %d" % rank
+	%RankLabel.text = "Rank: %d progress %d" % [rank, track_progress_component.progress_offset]
 	%LapLabel.text = "LAP  %d" % track_progress_component.current_lap
 	%_debuginvalidlaplabel.visible = track_progress_component.invalid_lap
 
