@@ -7,6 +7,9 @@ extends Node3D
 @export var kart_model_node : Node3D
 @export var bike_anim_tree : AnimationTree
 @export var fish_anim_tree : AnimationTree
+@export var model_bike : Node3D = null
+@export var model_fish : Node3D = null
+
 
 var particle_bubble_packed = preload("res://scenes/effects/bubble_emote_scene.tscn")
 
@@ -15,8 +18,6 @@ var timer_emote : float = 0.0
 @onready var kart : SimpleRaycastCar = get_parent()
 
 
-var model_fish : Node3D = null
-var model_bike : Node3D = null
 
 
 func _ready():
@@ -49,6 +50,7 @@ func animate_hit(lost_balance_completely:bool=false):
 
 func set_model_fish(model_packed:PackedScene):
 	if model_fish: 
+		model_fish.name = "Fish_OLD"
 		kart_model_node.remove_child(model_fish)
 		model_fish.queue_free()
 	
@@ -61,6 +63,7 @@ func set_model_fish(model_packed:PackedScene):
 
 func set_model_bike(model_packed:PackedScene):
 	if model_bike: 
+		model_bike.name = "Bike_OLD"
 		kart_model_node.remove_child(model_bike)
 		model_bike.queue_free()
 	
