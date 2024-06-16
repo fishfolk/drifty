@@ -20,6 +20,7 @@ config/icon="res://project_icon.png"
 
 RaceManager="*res://scripts/autoloads/race_manager.gd"
 Pause="*res://scripts/autoloads/pause.gd"
+MenuManager="*res://scripts/autoloads/menu_manager.gd"
 
 [display]
 

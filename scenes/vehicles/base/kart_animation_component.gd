@@ -5,14 +5,15 @@ extends Node3D
 @export var kart_balance_component : KartBalanceComponent
 @export var kart_itemuse_component : KartItemUseComponent
 @export var kart_model_node : Node3D
+@export var bike_anim_tree : AnimationTree
+@export var fish_anim_tree : AnimationTree
 
 var particle_bubble_packed = preload("res://scenes/effects/bubble_emote_scene.tscn")
 
 var timer_emote : float = 0.0
 
 @onready var kart : SimpleRaycastCar = get_parent()
-@onready var bike_anim_tree : AnimationTree = $BikeAnimationTree
-@onready var fish_anim_tree : AnimationTree = $FishAnimationTree
+
 
 var model_fish : Node3D = null
 var model_bike : Node3D = null

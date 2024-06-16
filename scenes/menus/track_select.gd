@@ -8,9 +8,11 @@ var track_file_dict := {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	%ButtonReturn.pressed.connect(_on_button_pressed.bind("return"))
 	for button:Button in %ButtonsVBox.get_children():
 		## make the nodes named like the dict keys
 		button.pressed.connect(make_race.bind(button.name))
+	%ButtonsVBox.get_child(0).grab_focus()
 
 
 func make_race(chosen_track_entry:String):
@@ -21,7 +23,15 @@ func make_race(chosen_track_entry:String):
 	# TODO: change strings to RaceDriver object.
 	## assuming we have 3 AI drivers and one player driver,
 	for i in range(7):
-		race_data.drivers.append("AI")
-	race_data.drivers.append("PLAYER")
+		var data = DriverData.new() # defaults to AI
+		data.make_random_driver()
+		race_data.drivers.append(data)
+	race_data.drivers.append(MenuManager.player_driver_data)
 	
 	RaceManager.setup_race(race_data)
+
+
+func _on_button_pressed(type):
+	match type:
+		"return":
+			get_tree().change_scene_to_file("res://scenes/menus/character_select.tscn")

@@ -32,7 +32,9 @@ grow_vertical = 2
 stretch = true
 
 [node name="World" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
 size = Vector2i(1280, 720)
+render_target_update_mode = 4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/World"]
 transform = Transform3D(-0.68955, 0.432722, -0.580751, -0.408227, 0.430128, 0.805196, 0.598223, 0.792302, -0.119947, 0, 0, 0)
@@ -103,6 +105,17 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 4
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="ButtonNext" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Next"
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/SliderFish" to="." method="_on_slider_fish_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer2/SliderBike" to="." method="_on_slider_bike_value_changed"]

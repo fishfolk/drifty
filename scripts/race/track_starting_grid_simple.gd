@@ -26,32 +26,41 @@ func spawn_cars() -> void:
 		var car_instance : SimpleRaycastCar = kart_packed.instantiate()
 		car_instance.global_transform = markers[current_position].global_transform
 		
-		if drivers_list[current_position] == "AI":
+		# change this in the future to add to viewports for multiplayer
+		get_tree().current_scene.add_child.call_deferred(car_instance)
+		RaceManager.driver_karts.append(car_instance)
+		
+		var driver_data : DriverData = drivers_list[current_position]
+		
+		# set models
+		var kart_animation_component = car_instance.get_node("KartAnimationComponent")
+		kart_animation_component.set_model_fish(driver_data.get_model_fish())
+		kart_animation_component.set_model_bike(driver_data.get_model_bike())
+		
+		if driver_data.driver_type == DriverData.DriverType.SIMPLE_AI:
 			var ai_input = SimpleAIKartInput.new()
 			car_instance.set_input_node(ai_input)
 			# nerf AI drivers
-			car_instance.top_speed *= 0.95
-			car_instance.engine_power *= 0.9
+			car_instance.top_speed *= randf_range(0.9, 1.0)
+			car_instance.engine_power *= randf_range(0.9, 1.0)
 		
-		if drivers_list[current_position] == "PLAYER":
+		if driver_data.driver_type == DriverData.DriverType.PLAYER:
 			var player_input = PlayerKartInput.new()
 			car_instance.set_input_node(player_input)
 			car_instance.get_node("ChaseCamRoot").set_current(true)
 		
-		# test race types
-		# parts to add to player cars, maybe not here, but somewhere?
+		## parts to add to player cars, maybe not here, but somewhere?
 		#var time_tracker = CarTimeTracker.new()
 		#var check_tracker = CarCheckpointTracker.new()
 		#car_instance.add_child(time_tracker)
 		#car_instance.add_child(check_tracker)
+		## test race types
 		if RaceManager.current_race.race_type == RaceData.RACE_TYPE.NORMAL:
 			var progress_component = KartTrackProgressComponent.new()
 			car_instance.add_child(progress_component, true)
 		
-		# change to add to viewports
-		get_tree().current_scene.add_child.call_deferred(car_instance)
-		RaceManager.driver_karts.append(car_instance)
 		print("spawned and added to rank", car_instance)
+
 
 
 func _clear_previous_components(kart:SimpleRaycastCar):

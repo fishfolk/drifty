@@ -3,58 +3,40 @@ extends Control
 @export var kart_preview : Node3D
 var kart_animation_component : KartAnimationComponent
 
-
-var fish_model_list = [
-	load("res://scenes/vehicles/models/Pilotos/Piloto 1 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 2 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 3 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 4 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 5 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 6 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 7 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 8 .glb"),
-]
-var fish_index : int = 0
-
-var bike_model_list = [
-	load("res://scenes/vehicles/models/Motos/moto 1 .glb"),
-	load("res://scenes/vehicles/models/Motos/moto 2 .glb"),
-	load("res://scenes/vehicles/models/Motos/moto 3 .glb"),
-	load("res://scenes/vehicles/models/Motos/moto 4 .glb"),
-	load("res://scenes/vehicles/models/Motos/moto 5 .glb"),
-	load("res://scenes/vehicles/models/Motos/moto 6 .glb"),
-]
-var bike_index : int = 0
-
-
 func _ready():
 	kart_animation_component = kart_preview.get_node("KartAnimationComponent")
-	%SliderFish.max_value = fish_model_list.size()-1
-	%SliderBike.max_value = bike_model_list.size()-1
-	await get_tree().create_timer(0.5).timeout
+	
+	%ButtonNext.pressed.connect(_on_button_pressed.bind("next"))
+	
+	%SliderFish.max_value = DriverData.fish_model_list.size()-1
+	%SliderBike.max_value = DriverData.bike_model_list.size()-1
+	
+	load_fish_from_configs()
+	
+	%SliderFish.grab_focus()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#if Input.is_action_just_pressed("ui_left"):
-		#fish_index = clamp(fish_index - 1, 0, fish_model_list.size()-1)
-		#change_fish(fish_index)
-	#elif Input.is_action_just_pressed("ui_right"):
-		#fish_index = clamp(fish_index + 1, 0, fish_model_list.size()-1)
-		#change_fish(fish_index)
-	#if Input.is_action_just_pressed("ui_up"):
-		#bike_index = clamp(bike_index - 1, 0, bike_model_list.size()-1)
-		#change_bike(bike_index)
-	#elif Input.is_action_just_pressed("ui_down"):
-		#bike_index = clamp(bike_index + 1, 0, bike_model_list.size()-1)
-		#change_bike(bike_index)
-	pass
+
+func load_fish_from_configs():
+	if not MenuManager.player_driver_data:
+		MenuManager.player_driver_data = DriverData.new()
+		MenuManager.player_driver_data.driver_type = DriverData.DriverType.PLAYER
+	
+	var fish = MenuManager.player_driver_data.fish_type
+	var bike = MenuManager.player_driver_data.bike_type
+	%SliderFish.value = fish
+	change_fish(fish)
+	%SliderBike.value = bike
+	change_bike(bike)
+
 
 func change_fish(index:int):
-	var model_packed = fish_model_list[index]
+	MenuManager.player_driver_data.fish_type = index
+	var model_packed = MenuManager.player_driver_data.get_model_fish()
 	kart_animation_component.set_model_fish(model_packed)
 
 func change_bike(index:int):
-	var model_packed = bike_model_list[index]
+	MenuManager.player_driver_data.bike_type = index
+	var model_packed = MenuManager.player_driver_data.get_model_bike()
 	kart_animation_component.set_model_bike(model_packed)
 
 
@@ -64,3 +46,9 @@ func _on_slider_fish_value_changed(value):
 
 func _on_slider_bike_value_changed(value):
 	change_bike(value)
+
+
+func _on_button_pressed(type):
+	match type:
+		"next":
+			get_tree().change_scene_to_file("res://scenes/menus/track_select.tscn")

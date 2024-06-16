@@ -6,6 +6,23 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_cqtjs"]
 radius = 0.8
 
+[sub_resource type="Animation" id="Animation_8tolu"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.8, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.8, 0)
+
 [sub_resource type="Animation" id="Animation_b1umi"]
 resource_name = "bob"
 length = 1.8
@@ -24,23 +41,6 @@ tracks/1/path = NodePath("CollisionShape3D")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.9, 1, 0, 0.8, 0, 1.8, 1, 0, 0.4, 0)
-
-[sub_resource type="Animation" id="Animation_8tolu"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGBox3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.8, 0)
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.8, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mljjs"]
 _data = {
