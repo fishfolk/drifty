@@ -2,6 +2,7 @@ class_name KartTrackProgressComponent
 extends Node
 
 signal lap_changed(new_lap)
+signal finished_race()
 
 @onready var kart : SimpleRaycastCar = get_parent()
 
@@ -15,6 +16,7 @@ var update_timer := 0.0
 
 
 func _ready():
+	finished_race.connect(RaceManager._on_kart_finished_race.bind(kart))
 	name = "KartTrackProgressComponent"
 
 
@@ -53,7 +55,11 @@ func _detect_lap_changes(old_offset, new_offset):
 	if old_offset > length-finishline_threshold and new_offset < finishline_threshold:
 		if not invalid_lap:
 			current_lap += 1
+			#_on_lap_changed(current_lap)
 			lap_changed.emit(current_lap)
+			if current_lap > RaceManager.current_race.lap_count:
+				#_on_race_finished()
+				finished_race.emit()
 		else:
 			invalid_lap = false # no lap change
 		return
@@ -63,5 +69,6 @@ func _detect_lap_changes(old_offset, new_offset):
 	if old_offset < new_offset and old_offset + length*skip_threshold < new_offset:
 		invalid_lap = true
 		return
+
 
 

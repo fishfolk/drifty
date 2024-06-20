@@ -198,7 +198,7 @@ func _physics_process(delta):
 
 # TODO: tie with custom input node to detect both player, AI and set inputs.
 func _update_input(delta):
-	if can_input:
+	if input and can_input:
 		input.query_input(delta)
 		
 		input_throttle = input.throttle
@@ -320,10 +320,9 @@ func spin_out():
 func set_input_node(input_node:KartInput):
 	remove_child(input)
 	input = input_node
-	add_child(input, true)
-	input_node_changed.emit(input_node)
-
-
+	if input: #not input is null
+		add_child(input, true)
+		input_node_changed.emit(input_node)
 
 
 func _on_contact_area_area_entered(area):

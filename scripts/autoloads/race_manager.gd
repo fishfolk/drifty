@@ -38,9 +38,13 @@ var race_path : RacePath3D
 ## in the future, make driver and kart different objects
 var driver_karts : Array[SimpleRaycastCar] = []
 
+## racers that finished the race, in finish order.
+var podium_karts : Array[SimpleRaycastCar] = []
+
 
 func setup_race(race_data:RaceData):
 	driver_karts = []
+	podium_karts = []
 	current_race = race_data
 	for value in race_setup_checks.values():
 		value = false
@@ -48,10 +52,19 @@ func setup_race(race_data:RaceData):
 
 
 func get_kart_rank(kart:SimpleRaycastCar) -> int:
-	if driver_karts == []:
-		#print_debug("No karts to rank!")
-		return 1
-	return driver_karts.find(kart) + 1
+	if podium_karts != []:
+		var result = podium_karts.find(kart)
+		if result != -1:
+			return result + 1
+	
+	if driver_karts != []:
+		var result = driver_karts.find(kart)
+		if result != -1:
+			return result + 1
+		#print_debug("Cant find kart in driver list!")
+	
+	#print_debug("No karts to rank!")
+	return 1
 
 
 func rank_karts():
@@ -86,3 +99,11 @@ func rank_karts_by_position(array_to_sort:Array[SimpleRaycastCar]) -> Array[Simp
 func _physics_process(delta):
 	if driver_karts != []: 
 		rank_karts()
+
+
+func _on_kart_finished_race(kart:SimpleRaycastCar):
+	if kart in podium_karts: return
+	
+	podium_karts.push_back(kart)
+	# deactivate drive input
+	kart.can_input = false

@@ -197,6 +197,11 @@ func _update_drag(dt):
 		sideways_velocity = car.linear_velocity * global_transform.basis.x
 		if sideways_velocity.length() < 0.5:
 			car.linear_velocity -= global_transform.basis.x*sideways_velocity
+	
+	#### handbrake from disabled input ####
+	if not car.can_input:
+		sideways_velocity = car.linear_velocity * global_transform.basis.x
+		car.linear_velocity -= global_transform.basis.x*sideways_velocity
 
 
 func _update_particles(dt) -> void:

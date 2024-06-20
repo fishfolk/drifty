@@ -77,7 +77,7 @@ func set_model_bike(model_packed:PackedScene):
 func _physics_process(delta):
 	if timer_emote > 0: timer_emote -= delta
 	
-	if kart.input.emote and timer_emote <= 0:
+	if kart.input and kart.input.emote and timer_emote <= 0:
 		animate_emote()
 	
 	_update_blendtrees(delta)
