@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c7njcw7xw6a82"]
+
+[ext_resource type="Script" path="res://scripts/items/item_torpedo.gd" id="1_a37t5"]
+[ext_resource type="Script" path="res://scripts/items/data/item_data.gd" id="2_lcx1m"]
+[ext_resource type="Texture2D" uid="uid://f1xe212c47qq" path="res://images/ui/item_torpedo.png" id="3_qos8u"]
+
+[resource]
+script = ExtResource("2_lcx1m")
+name = "Torpedo"
+texture = ExtResource("3_qos8u")
+item_script = ExtResource("1_a37t5")

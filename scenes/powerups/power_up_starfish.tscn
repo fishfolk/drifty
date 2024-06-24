@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://lcj0xrld41hp"]
+
+[ext_resource type="Script" path="res://scenes/powerups/power_up_starfish.gd" id="1_kx51t"]
+[ext_resource type="PackedScene" uid="uid://cr3xsmu0h3h7d" path="res://scenes/powerups/models/Starbomb.gltf" id="2_afoeu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dcce6"]
+radius = 0.304971
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y62px"]
+height = 0.225452
+radius = 0.449634
+
+[sub_resource type="Animation" id="Animation_1t0hm"]
+resource_name = "default"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Starbomb:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Starbomb:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 3.17865e-08, 0, 1), Quaternion(0, -0.707107, 0, 0.707107), Quaternion(0, 1, 0, 1.49012e-08), Quaternion(0, 0.707107, 0, 0.707107), Quaternion(0, 3.17865e-08, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ov5t7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Starbomb:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.38419e-07, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Starbomb:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 3.17865e-08, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jmd8o"]
+_data = {
+"RESET": SubResource("Animation_ov5t7"),
+"default": SubResource("Animation_1t0hm")
+}
+
+[node name="PowerUpStarfish" type="CharacterBody3D"]
+collision_layer = 0
+floor_constant_speed = true
+script = ExtResource("1_kx51t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_dcce6")
+
+[node name="ContactArea" type="Area3D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContactArea"]
+shape = SubResource("CylinderShape3D_y62px")
+
+[node name="FloorRayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.01, 0)
+
+[node name="Starbomb" parent="." instance=ExtResource("2_afoeu")]
+transform = Transform3D(0.5, 0, 3.17865e-08, 0, 0.5, 0, -3.17865e-08, 0, 0.5, 0, 0, 0)
+rotation_edit_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jmd8o")
+}
+autoplay = "default"
+
+[node name="CantHitParentTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true

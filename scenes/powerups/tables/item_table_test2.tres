@@ -1,10 +1,8 @@
-[gd_resource type="Resource" script_class="MultipleItemTable" load_steps=5 format=3 uid="uid://bxwp70r4r68dk"]
+[gd_resource type="Resource" script_class="MultipleItemTable" load_steps=3 format=3 uid="uid://bxwp70r4r68dk"]
 
-[ext_resource type="Resource" uid="uid://b8rfooyffdg4f" path="res://scenes/powerups/item_data/nitrous_oxide.tres" id="1_jvq88"]
+[ext_resource type="Resource" uid="uid://c7njcw7xw6a82" path="res://scenes/powerups/item_data/torpedo.tres" id="1_m8jwp"]
 [ext_resource type="Script" path="res://scripts/items/tables/multiple_item_table.gd" id="2_tfy1y"]
-[ext_resource type="Resource" uid="uid://bgpbrmbydshpd" path="res://scenes/powerups/item_data/starfish_launcher.tres" id="2_vo3qt"]
-[ext_resource type="Resource" uid="uid://bft5efj7vrnlq" path="res://scenes/powerups/item_data/sea_mine.tres" id="3_y58e6"]
 
 [resource]
 script = ExtResource("2_tfy1y")
-items = Array[Resource("res://scripts/items/data/item_data.gd")]([ExtResource("1_jvq88"), ExtResource("2_vo3qt"), ExtResource("3_y58e6")])
+items = Array[Resource("res://scripts/items/data/item_data.gd")]([ExtResource("1_m8jwp")])

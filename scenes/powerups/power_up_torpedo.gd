@@ -3,6 +3,8 @@ extends PowerUp
 @export var accel := 90.0
 @export var max_speed := 30.0
 
+@export var model : Node3D
+
 #unused
 #@export var max_ricochets := 0
 #var ricochet_counter = 0
@@ -38,7 +40,8 @@ func do_movement(delta) -> KinematicCollision3D:
 	
 	move_and_slide()
 	
-	#print(velocity.length())
+	if velocity != Vector3.ZERO:
+		model.look_at(model.global_position + velocity)
 	
 	var collision_info = move_and_collide(velocity*delta, true) #test only!
 	if collision_info:

@@ -8,5 +8,4 @@
 script = ExtResource("1_eucsv")
 name = "Nitrous Oxide"
 texture = ExtResource("1_p5y0t")
-item_class_name = "ItemNitrousOxide"
 item_script = ExtResource("1_oeb5t")

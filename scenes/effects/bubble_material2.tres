@@ -12,7 +12,7 @@ noise = SubResource("FastNoiseLite_4pxc8")
 [resource]
 render_priority = 0
 shader = ExtResource("1_ujhey")
-shader_parameter/smoothness = 0.2
+shader_parameter/smoothness = 0.0
 shader_parameter/fresnel_amount = 1.0
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_m37m0")
 shader_parameter/color = ExtResource("2_wc534")

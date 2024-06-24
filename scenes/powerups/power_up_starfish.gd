@@ -5,6 +5,8 @@ extends PowerUp
 @export var max_ricochets := 5
 var ricochet_counter = 0
 
+var lifetime := 0.0
+
 func _ready():
 	super()
 	_debug_start_random_direction()
@@ -16,6 +18,7 @@ func _debug_start_random_direction():
 
 ## special movement: don't bounce on floor, but ricochet horizontally
 func do_movement(delta) -> KinematicCollision3D:
+	lifetime += delta
 	velocity *= 0.98 # drag
 	
 	if get_horizontal_velocity().length_squared() < max_speed * max_speed:
@@ -42,6 +45,11 @@ func get_heading_direction() -> Vector3:
 	return Vector3(velocity.x, 0, velocity.z).normalized()
 
 func on_touched(kart_balance_component: KartBalanceComponent):
+	#ignore first hit
+	if kart_balance_component.car == parent_kart:
+		if not $CantHitParentTimer.is_stopped(): 
+			return
+	
 	kart_balance_component.balance = 0 #-= 50
 	
 	var car = kart_balance_component.car

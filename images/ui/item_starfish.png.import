@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b388osa8cnwft"
-path.s3tc="res://.godot/imported/item_sea_mine.png-acbf7887ee3dcf47961a76f52e815b79.s3tc.ctex"
+uid="uid://du446peekv0nb"
+path.s3tc="res://.godot/imported/item_starfish.png-42302617cf56343ddec4cf610566ad56.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://images/ui/item_sea_mine.png"
-dest_files=["res://.godot/imported/item_sea_mine.png-acbf7887ee3dcf47961a76f52e815b79.s3tc.ctex"]
+source_file="res://images/ui/item_starfish.png"
+dest_files=["res://.godot/imported/item_starfish.png-42302617cf56343ddec4cf610566ad56.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://bitfhdqx6vgg7"]
+
+[ext_resource type="Script" path="res://scenes/powerups/power_up_sea_mine.gd" id="1_eweuh"]
+[ext_resource type="PackedScene" uid="uid://ort1iv646cd6" path="res://scenes/powerups/models/Bomba.gltf" id="2_tkjrk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j5kdv"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_77tev"]
+radius = 0.170384
+height = 1.03381
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0yql5"]
+radius = 0.469909
+
+[node name="PowerUpSeaMine" type="CharacterBody3D"]
+collision_layer = 0
+script = ExtResource("1_eweuh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0500989, 0)
+shape = SubResource("BoxShape3D_j5kdv")
+
+[node name="ContactArea" type="Area3D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContactArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.400803, 0)
+shape = SubResource("CapsuleShape3D_77tev")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ContactArea"]
+transform = Transform3D(0.999828, 2.65039e-18, 2.38419e-07, 2.63311e-16, 0.999828, -1.11572e-09, -2.38378e-07, 1.11552e-09, 1, 8.95555e-11, 0.73, 8.11037e-10)
+shape = SubResource("SphereShape3D_0yql5")
+
+[node name="FloorRayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.01, 0)
+hit_from_inside = true
+
+[node name="Bomba" parent="." instance=ExtResource("2_tkjrk")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.73, 0)
+
+[node name="Skeleton3D" parent="Bomba/Bomb" index="0"]
+bones/3/rotation = Quaternion(-2.06795e-25, 1.19209e-07, 5.16988e-26, 1)
+bones/4/rotation = Quaternion(-2.06795e-25, 0, 0, 1)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Bomba/Bomb/Skeleton3D" index="0"]
+transform = Transform3D(1, -1.03398e-25, 2.38419e-07, 2.63357e-16, 1, -1.11572e-09, -2.38419e-07, 1.11572e-09, 1, 2.23889e-10, 1.5827, 1.13502e-09)
+bone_name = "Bone.004"
+bone_idx = 4
+use_external_skeleton = true
+external_skeleton = NodePath("..")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Bomba/Bomb/Skeleton3D/BoneAttachment3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+remote_path = NodePath("../../../../../ContactArea/CollisionShape3D2")
+update_scale = false
+
+[node name="AnimationPlayer" parent="Bomba" index="1"]
+autoplay = "Animation"
+
+[editable path="Bomba"]

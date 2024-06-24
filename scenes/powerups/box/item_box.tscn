@@ -1,7 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://btul6nps53rua"]
+[gd_scene load_steps=11 format=3 uid="uid://btul6nps53rua"]
 
 [ext_resource type="Script" path="res://scenes/powerups/box/item_box.gd" id="1_yt6th"]
-[ext_resource type="Resource" uid="uid://cp2y1byrhiprn" path="res://scenes/powerups/tables/item_table_test1.tres" id="2_bnwvc"]
+[ext_resource type="Resource" uid="uid://jw5dfwvaf5r1" path="res://scenes/powerups/tables/same_weight_all_items.tres" id="2_8wv7q"]
+[ext_resource type="Material" uid="uid://b4ie3y3f0rw0o" path="res://scenes/effects/bubble_material2.tres" id="3_eo881"]
+[ext_resource type="Texture2D" uid="uid://i7arndyrsllc" path="res://images/ui/item_question_mark.png" id="4_kirff"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tbm7"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("4_kirff")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_tbmoy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cqtjs"]
 radius = 0.8
@@ -52,10 +64,18 @@ _data = {
 collision_layer = 4096
 collision_mask = 0
 script = ExtResource("1_yt6th")
-table = ExtResource("2_bnwvc")
+table = ExtResource("2_8wv7q")
 
 [node name="CSGBox3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+material_override = ExtResource("3_eo881")
+radial_segments = 20
+rings = 10
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D"]
+material_override = SubResource("StandardMaterial3D_3tbm7")
+mesh = SubResource("QuadMesh_tbmoy")
+skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

@@ -508,7 +508,6 @@ animation = &"Attak_Idle"
 animation = &"Idle_Tentacle_001"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gtpvu"]
-graph_offset = Vector2(-506.861, 95.3239)
 "nodes/ Tentacle1/node" = SubResource("AnimationNodeAnimation_2f117")
 "nodes/ Tentacle1/position" = Vector2(-160, 220)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_lgo1t")
@@ -564,41 +563,41 @@ environment = SubResource("Environment_ucts1")
 [node name="pista" parent="." instance=ExtResource("1_hsnfv")]
 
 [node name="Skeleton3D" parent="pista/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.38464, -0.523839, 0.477119, 0.59161)
+bones/0/rotation = Quaternion(-0.381321, -0.519941, 0.481647, 0.593525)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(-0.010064, 0.00589291, 0.113152, 0.993509)
-bones/2/rotation = Quaternion(-0.0905607, 0.0234263, 0.369711, 0.924426)
-bones/3/rotation = Quaternion(-0.239754, -0.108399, 0.0570386, 0.963075)
+bones/1/rotation = Quaternion(-0.0106553, 0.0062636, 0.115887, 0.993185)
+bones/2/rotation = Quaternion(-0.0962531, 0.0249203, 0.376029, 0.921258)
+bones/3/rotation = Quaternion(-0.257134, -0.123091, 0.049522, 0.957224)
 bones/4/rotation = Quaternion(1.0799e-08, -0.707112, -1.78899e-08, 0.707102)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(1.07673, -9.74599, -43.6719)
+bones/5/position = Vector3(1.03348, -9.95029, -43.3669)
 bones/5/rotation = Quaternion(1.2846e-08, -0.707112, -1.78487e-08, 0.707102)
 
 [node name="Skeleton3D" parent="pista/Armature_001" index="0"]
-bones/0/rotation = Quaternion(-0.384664, -0.52383, 0.477092, 0.591625)
+bones/0/rotation = Quaternion(-0.381345, -0.519932, 0.48162, 0.593539)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(-0.010064, 0.00589291, 0.113152, 0.993509)
-bones/2/rotation = Quaternion(-0.0905607, 0.0234263, 0.369711, 0.924426)
-bones/3/rotation = Quaternion(-0.239754, -0.108399, 0.0570386, 0.963075)
+bones/1/rotation = Quaternion(-0.0106553, 0.0062636, 0.115887, 0.993185)
+bones/2/rotation = Quaternion(-0.0962531, 0.0249203, 0.376029, 0.921258)
+bones/3/rotation = Quaternion(-0.257134, -0.123091, 0.049522, 0.957224)
 bones/4/rotation = Quaternion(1.64635e-08, -0.707112, 1.97562e-09, 0.707102)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(1.07673, -9.74599, -43.6719)
+bones/5/position = Vector3(1.03348, -9.95029, -43.3669)
 bones/5/rotation = Quaternion(2.30489e-08, -0.707112, 6.58539e-10, 0.707102)
 
 [node name="Skeleton3D" parent="pista/Armature_002" index="0"]
 bones/0/position = Vector3(4.76837e-07, -0.294633, -0.21587)
-bones/0/rotation = Quaternion(0.716489, -6.87748e-05, -0.000167865, 0.697598)
-bones/1/position = Vector3(-4.04277e-07, 1.41349, -0.61678)
-bones/1/rotation = Quaternion(0.69542, -0.000168492, 6.78729e-05, 0.718604)
+bones/0/rotation = Quaternion(0.716445, -0.000134214, -0.000327589, 0.697644)
+bones/1/position = Vector3(-3.15016e-07, 1.55051, -0.447737)
+bones/1/rotation = Quaternion(0.695374, -0.000328406, 0.000132849, 0.718648)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.716583, -6.86918e-05, -0.000167951, 0.697502)
-bones/3/rotation = Quaternion(-0.0227311, 1.44537e-14, -3.01843e-16, 0.999742)
+bones/2/rotation = Quaternion(-0.716628, -0.000134131, -0.000327675, 0.697456)
+bones/3/rotation = Quaternion(-0.0227311, 1.44537e-14, -7.8063e-17, 0.999742)
 bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.527133, -5.06927e-07, -7.0659e-07, 0.849783)
-bones/5/rotation = Quaternion(0.391439, -4.95564e-12, -7.0129e-12, 0.920204)
-bones/6/rotation = Quaternion(0.453176, 2.91909e-09, 1.07622e-08, 0.891421)
-bones/7/rotation = Quaternion(-0.331254, -0.000728589, -0.0515625, 0.942132)
-bones/8/rotation = Quaternion(0.229743, -0.00886973, -0.00298279, 0.973207)
+bones/4/rotation = Quaternion(-0.365089, -5.64734e-07, -6.9372e-07, 0.930973)
+bones/5/rotation = Quaternion(0.330054, -2.75672e-11, -4.52916e-11, 0.943962)
+bones/6/rotation = Quaternion(0.356616, 2.33647e-09, 8.1617e-09, 0.934251)
+bones/7/rotation = Quaternion(-0.400126, 0.00289976, -0.146137, 0.904729)
+bones/8/rotation = Quaternion(0.170961, -0.0248543, -0.0109832, 0.984903)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="pista/Pista_percurso_Curv" index="0"]
 
