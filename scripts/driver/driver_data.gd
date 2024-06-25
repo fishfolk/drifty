@@ -10,23 +10,24 @@ enum DriverType { PLAYER, SIMPLE_AI }
 @export var bike_type : int = 0
 
 static var fish_model_list = [
-	load("res://scenes/vehicles/models/Pilotos/Piloto 3 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 2 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 1 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 4 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 5 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 6 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 7 .glb"),
-	load("res://scenes/vehicles/models/Pilotos/Piloto 8 .glb"),
+	load("res://scenes/vehicles/models/Fish/Fish_Clowny.gltf"),
+	load("res://scenes/vehicles/models/Fish/Fish_Pescy.gltf"),
+	load("res://scenes/vehicles/models/Fish/Fish_Sharky.gltf"),
+	load("res://scenes/vehicles/models/Fish/Fish_Sluggy.gltf"),
+	load("res://scenes/vehicles/models/Fish/Fish_Orcy.gltf"),
+	load("res://scenes/vehicles/models/Fish/Fish_Puffy.gltf"),
+	load("res://scenes/vehicles/models/Fish/Fish_Axy.gltf"),
+	load("res://scenes/vehicles/models/Fish/Bird_Gully.gltf"),
 ]
 
 static var bike_model_list = [
-	load("res://scenes/vehicles/models/Motos/moto 1 .glb"),
-	load("res://scenes/vehicles/models/Motos/moto 2 .glb"),
-	load("res://scenes/vehicles/models/Motos/moto 3 .glb"),
-	load("res://scenes/vehicles/models/Motos/moto 4 .glb"),
-	load("res://scenes/vehicles/models/Motos/moto 5 .glb"),
-	load("res://scenes/vehicles/models/Motos/moto 6 .glb"),
+	load("res://scenes/vehicles/models/Bike/Fishi_Sword.gltf"),
+	load("res://scenes/vehicles/models/Bike/Fishi_Exhaust.gltf"),
+	load("res://scenes/vehicles/models/Bike/kraken.gltf"),
+	load("res://scenes/vehicles/models/Bike/Octopus.gltf"),
+	load("res://scenes/vehicles/models/Bike/Seahorse.gltf"),
+	load("res://scenes/vehicles/models/Bike/Shark.gltf"),
+
 ]
 
 func get_model_fish() -> PackedScene:

@@ -130,7 +130,7 @@ func _setup_navigation():
 
 func _setup_references():
 	kart = get_parent()
-	track_progress_component = kart.get_node("KartTrackProgressComponent")
+	track_progress_component = kart.get_node_or_null("KartTrackProgressComponent")
 
 
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0lup2uamoiks"
-path.s3tc="res://.godot/imported/fish_txt.png-96b3af70dfacf48ec15c28aa2e39051b.s3tc.ctex"
+uid="uid://jsvu2d7l3sei"
+path.s3tc="res://.godot/imported/fish_sluggy_txt.png-587b32125a42bb48e31d9d64f088096d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/vehicles/models/golden_fish/Texture/fish_txt.png"
-dest_files=["res://.godot/imported/fish_txt.png-96b3af70dfacf48ec15c28aa2e39051b.s3tc.ctex"]
+source_file="res://scenes/vehicles/models/Fish/fish_sluggy_txt.png"
+dest_files=["res://.godot/imported/fish_sluggy_txt.png-587b32125a42bb48e31d9d64f088096d.s3tc.ctex"]
 
 [params]
 
