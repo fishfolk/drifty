@@ -31,7 +31,8 @@ func _debug_start_random_direction():
 
 ## special movement: don't bounce on floor, but ricochet horizontally
 func do_movement(delta) -> KinematicCollision3D:
-	velocity = velocity.move_toward(Vector3.ZERO, 60*delta)
+	#TODO: make it fall faster
+	velocity = velocity.move_toward(Vector3(0, velocity.y, 0), 60*delta)
 	#velocity *= 0.9 # drag
 	# length squared to decrease processor load?
 	# heading direction is probably more expensive anyway...
@@ -74,6 +75,11 @@ func get_heading_direction() -> Vector3:
 
 
 func on_touched(kart_balance_component: KartBalanceComponent):
+	#ignore first selfhit
+	if kart_balance_component.car == parent_kart:
+		if not $CantHitParentTimer.is_stopped(): 
+			return
+	
 	kart_balance_component.balance = 0 #-= 50
 	
 	var car = kart_balance_component.car
@@ -82,8 +88,7 @@ func on_touched(kart_balance_component: KartBalanceComponent):
 	queue_free()  # put destroy func with animations here
 
 
-func _on_kart_detection_area_body_entered(body):
-	print("body entered!")
+func _on_kart_detection_area_body_entered(body):	
 	if target: return
 	if body is SimpleRaycastCar:
 		if body != parent_kart:

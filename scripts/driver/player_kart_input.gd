@@ -2,14 +2,20 @@ class_name PlayerKartInput
 extends KartInput
 ##
 
+@export var player_index : int = 0
+
 var kart_hud_packed = preload("res://scenes/vehicles/hud/hud_kart.tscn")
 var kart_hud = null
 
-@export var player_index : int = 0
+@onready var track_progress_component : KartTrackProgressComponent = get_parent().get_node_or_null("KartTrackProgressComponent")
+
+
 
 
 func _ready():
 	_setup_hud()
+	if track_progress_component:
+		track_progress_component.finished_race.connect(_on_race_finished)
 
 
 func _update_input(delta) -> void:
@@ -30,3 +36,8 @@ func _setup_hud():
 	kart_hud.kart = car
 	add_child(kart_hud)
 
+
+func _on_race_finished():
+	var finish_cam = car.get_node_or_null("RaceFinishCamera")
+	if finish_cam:
+		finish_cam.make_current()

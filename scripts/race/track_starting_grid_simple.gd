@@ -45,7 +45,7 @@ func spawn_cars() -> void:
 		## test race types
 		if RaceManager.current_race.race_type == RaceData.RACE_TYPE.NORMAL:
 			var progress_component = KartTrackProgressComponent.new()
-			car_instance.add_child(progress_component, true)
+			car_instance.add_child(progress_component)
 		
 		# set driver types
 		if driver_data.driver_type == DriverData.DriverType.SIMPLE_AI:

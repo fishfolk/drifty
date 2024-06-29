@@ -563,41 +563,41 @@ environment = SubResource("Environment_ucts1")
 [node name="pista" parent="." instance=ExtResource("1_hsnfv")]
 
 [node name="Skeleton3D" parent="pista/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.381321, -0.519941, 0.481647, 0.593525)
+bones/0/rotation = Quaternion(-0.456379, -0.55401, 0.442744, 0.537372)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(-0.0106553, 0.0062636, 0.115887, 0.993185)
-bones/2/rotation = Quaternion(-0.0962531, 0.0249203, 0.376029, 0.921258)
-bones/3/rotation = Quaternion(-0.257134, -0.123091, 0.049522, 0.957224)
+bones/1/rotation = Quaternion(-8.18788e-07, -3.71808e-08, 0.0817453, 0.996653)
+bones/2/rotation = Quaternion(-3.35025e-06, -4.59458e-08, 0.306036, 0.95202)
+bones/3/rotation = Quaternion(-2.24267e-06, 4.12428e-09, 0.200521, 0.979689)
 bones/4/rotation = Quaternion(1.0799e-08, -0.707112, -1.78899e-08, 0.707102)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(1.03348, -9.95029, -43.3669)
+bones/5/position = Vector3(1.36427, -11.2362, -44.7939)
 bones/5/rotation = Quaternion(1.2846e-08, -0.707112, -1.78487e-08, 0.707102)
 
 [node name="Skeleton3D" parent="pista/Armature_001" index="0"]
-bones/0/rotation = Quaternion(-0.381345, -0.519932, 0.48162, 0.593539)
+bones/0/rotation = Quaternion(-0.456404, -0.553998, 0.442718, 0.537385)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(-0.0106553, 0.0062636, 0.115887, 0.993185)
-bones/2/rotation = Quaternion(-0.0962531, 0.0249203, 0.376029, 0.921258)
-bones/3/rotation = Quaternion(-0.257134, -0.123091, 0.049522, 0.957224)
+bones/1/rotation = Quaternion(-8.18166e-07, -3.65931e-08, 0.0817453, 0.996653)
+bones/2/rotation = Quaternion(-3.34979e-06, -4.64804e-08, 0.306036, 0.95202)
+bones/3/rotation = Quaternion(-2.24448e-06, 5.01666e-09, 0.200521, 0.979689)
 bones/4/rotation = Quaternion(1.64635e-08, -0.707112, 1.97562e-09, 0.707102)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(1.03348, -9.95029, -43.3669)
+bones/5/position = Vector3(1.36427, -11.2362, -44.7939)
 bones/5/rotation = Quaternion(2.30489e-08, -0.707112, 6.58539e-10, 0.707102)
 
 [node name="Skeleton3D" parent="pista/Armature_002" index="0"]
 bones/0/position = Vector3(4.76837e-07, -0.294633, -0.21587)
-bones/0/rotation = Quaternion(0.716445, -0.000134214, -0.000327589, 0.697644)
-bones/1/position = Vector3(-3.15016e-07, 1.55051, -0.447737)
-bones/1/rotation = Quaternion(0.695374, -0.000328406, 0.000132849, 0.718648)
+bones/0/rotation = Quaternion(0.716536, 0, 0, 0.69755)
+bones/1/position = Vector3(-4.76837e-07, 1.34128, -0.687239)
+bones/1/rotation = Quaternion(0.695468, -4.28293e-07, -4.14531e-07, 0.718557)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.716628, -0.000134131, -0.000327675, 0.697456)
-bones/3/rotation = Quaternion(-0.0227311, 1.44537e-14, -7.8063e-17, 0.999742)
+bones/2/rotation = Quaternion(-0.716536, 8.31544e-08, -8.54178e-08, 0.69755)
+bones/3/rotation = Quaternion(-0.0227311, 1.44537e-14, -3.01843e-16, 0.999742)
 bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.365089, -5.64734e-07, -6.9372e-07, 0.930973)
-bones/5/rotation = Quaternion(0.330054, -2.75672e-11, -4.52916e-11, 0.943962)
-bones/6/rotation = Quaternion(0.356616, 2.33647e-09, 8.1617e-09, 0.934251)
-bones/7/rotation = Quaternion(-0.400126, 0.00289976, -0.146137, 0.904729)
-bones/8/rotation = Quaternion(0.170961, -0.0248543, -0.0109832, 0.984903)
+bones/4/rotation = Quaternion(-0.593798, -1.57911e-06, 2.51824e-07, 0.804614)
+bones/5/rotation = Quaternion(0.411281, 1.42123e-12, 1.91585e-12, 0.911509)
+bones/6/rotation = Quaternion(0.490252, 1.41908e-08, 3.00722e-08, 0.871581)
+bones/7/rotation = Quaternion(-0.29347, -1.63681e-08, 4.61914e-07, 0.955968)
+bones/8/rotation = Quaternion(0.260669, -2.30176e-07, -1.24297e-07, 0.965428)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="pista/Pista_percurso_Curv" index="0"]
 
@@ -823,5 +823,89 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.32, -0.15471, 175.805)
 
 [node name="ItemBox7" parent="item_boxes" instance=ExtResource("6_der8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.427, -0.311404, 173.023)
+
+[node name="ItemBox8" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3148, 28.9061, -56.9166)
+
+[node name="ItemBox9" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1568, 28.9061, -59.5266)
+
+[node name="ItemBox10" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1788, 28.9061, -61.9566)
+
+[node name="ItemBox11" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0738, 28.9061, -64.5326)
+
+[node name="ItemBox12" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9118, 28.9061, -67.0506)
+
+[node name="ItemBox13" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6808, 28.9061, -69.6216)
+
+[node name="ItemBox14" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5738, 28.9061, -72.4036)
+
+[node name="ItemBox15" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3148, 45.8704, -26.9734)
+
+[node name="ItemBox16" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1568, 45.8704, -29.5834)
+
+[node name="ItemBox17" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1788, 45.8704, -32.0134)
+
+[node name="ItemBox18" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0738, 45.8704, -34.5894)
+
+[node name="ItemBox19" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9118, 45.8704, -37.1074)
+
+[node name="ItemBox20" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6808, 45.8704, -39.6784)
+
+[node name="ItemBox21" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5738, 45.8704, -42.4604)
+
+[node name="ItemBox22" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.991747, 0, -0.128207, 0, 1, 0, 0.128207, 0, 0.991747, -119.31, 39.7463, -30.168)
+
+[node name="ItemBox23" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.991747, 0, -0.128207, 0, 1, 0, 0.128207, 0, 0.991747, -119.133, 39.7463, -32.7767)
+
+[node name="ItemBox24" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.991747, 0, -0.128207, 0, 1, 0, 0.128207, 0, 0.991747, -118.799, 39.7463, -35.1839)
+
+[node name="ItemBox25" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.991747, 0, -0.128207, 0, 1, 0, 0.128207, 0, 0.991747, -118.573, 39.7463, -37.7521)
+
+[node name="ItemBox26" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.991747, 0, -0.128207, 0, 1, 0, 0.128207, 0, 0.991747, -118.411, 39.7463, -40.2701)
+
+[node name="ItemBox27" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.991747, 0, -0.128207, 0, 1, 0, 0.128207, 0, 0.991747, -118.31, 39.7463, -42.8495)
+
+[node name="ItemBox28" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.991747, 0, -0.128207, 0, 1, 0, 0.128207, 0, 0.991747, -118.06, 39.7463, -45.6222)
+
+[node name="ItemBox29" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.0168589, -0.0457291, -0.998812, 0.00077175, 0.998954, -0.0457226, 0.999858, 0, 0.0168765, 92.2132, 5.85583, 56.0868)
+
+[node name="ItemBox30" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.0168589, -0.0457291, -0.998812, 0.00077175, 0.998954, -0.0457226, 0.999858, 0, 0.0168765, 94.8175, 5.97505, 55.8848)
+
+[node name="ItemBox31" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.0168589, -0.0457291, -0.998812, 0.00077175, 0.998954, -0.0457226, 0.999858, 0, 0.0168765, 97.2449, 6.08617, 55.8658)
+
+[node name="ItemBox32" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.0168589, -0.0457291, -0.998812, 0.00077175, 0.998954, -0.0457226, 0.999858, 0, 0.0168765, 99.8161, 6.20387, 55.7173)
+
+[node name="ItemBox33" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.0168589, -0.0457291, -0.998812, 0.00077175, 0.998954, -0.0457226, 0.999858, 0, 0.0168765, 102.328, 6.31888, 55.5129)
+
+[node name="ItemBox34" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.0168589, -0.0457291, -0.998812, 0.00077175, 0.998954, -0.0457226, 0.999858, 0, 0.0168765, 104.892, 6.43625, 55.2385)
+
+[node name="ItemBox35" parent="item_boxes" instance=ExtResource("6_der8e")]
+transform = Transform3D(0.0168589, -0.0457291, -0.998812, 0.00077175, 0.998954, -0.0457226, 0.999858, 0, 0.0168765, 107.669, 6.56337, 55.0846)
 
 [editable path="pista"]

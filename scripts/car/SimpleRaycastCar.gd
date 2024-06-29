@@ -3,6 +3,8 @@ extends RigidBody3D
 
 signal input_node_changed(new_input_node:KartInput)
 signal area_entered(area:Area3D)
+signal boost_initiated()
+signal boost_finished()
 
 @export_group("Stats")
 @export var engine_power : float = 7
@@ -61,7 +63,10 @@ func _process(_delta):
 func _physics_process(delta):
 	if spun_out_timer > 0: spun_out_timer -= delta
 	
-	if boost_timer > 0: boost_timer -= delta
+	if boost_timer > 0: 
+		boost_timer -= delta
+		if boost_timer <= 0:
+			boost_finished.emit()
 	else: #reset_boost()
 		boost_extra_speed = lerpf(boost_extra_speed, 0, delta*1)
 	
@@ -262,6 +267,7 @@ func boost(duration:float, speed_increase:float = 7) -> void:
 	boost_timer = max(boost_timer, duration)
 	# add extra impulse for fun :)
 	apply_central_impulse(-global_transform.basis.z * mass * 10)
+	boost_initiated.emit()
 
 #func reset_boost():
 #	boost_extra_speed = 0

@@ -45,7 +45,7 @@ func get_heading_direction() -> Vector3:
 	return Vector3(velocity.x, 0, velocity.z).normalized()
 
 func on_touched(kart_balance_component: KartBalanceComponent):
-	#ignore first hit
+	#ignore first selfhit
 	if kart_balance_component.car == parent_kart:
 		if not $CantHitParentTimer.is_stopped(): 
 			return

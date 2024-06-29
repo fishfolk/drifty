@@ -14,10 +14,12 @@ var invalid_lap : bool = true
 const update_frequency := 0.01
 var update_timer := 0.0
 
+func _init():
+	name = "KartTrackProgressComponent"
+
 
 func _ready():
 	finished_race.connect(RaceManager._on_kart_finished_race.bind(kart))
-	name = "KartTrackProgressComponent"
 
 
 func _physics_process(delta):
@@ -69,6 +71,4 @@ func _detect_lap_changes(old_offset, new_offset):
 	if old_offset < new_offset and old_offset + length*skip_threshold < new_offset:
 		invalid_lap = true
 		return
-
-
 

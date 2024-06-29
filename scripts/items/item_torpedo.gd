@@ -16,6 +16,6 @@ func use_item(item_component:KartItemUseComponent) -> void:
 	powerup.parent_kart = car
 	powerup.global_position = spawn_position
 	powerup.velocity = car.linear_velocity
-	powerup.velocity -= car.global_basis.z * 10
+	powerup.velocity += -car.global_basis.z * 20
 	#powerup.velocity.y = 5
 	queue_free()

@@ -12,6 +12,9 @@ extends KartInput
 ## Default is 1.0
 @export var handicap_boost_rate : float = 1.0
 
+@export var random_item_use_interval : float = 15.0
+var item_use_timer : float = 0.0
+
 enum AIChaseMode {
 	NODE3D, PATH3D
 }
@@ -42,6 +45,7 @@ var safe_track_halfwidth := 10.0
 
 var kart : SimpleRaycastCar = null
 var track_progress_component : KartTrackProgressComponent = null
+var item_use_component : KartItemUseComponent = null
 
 func set_target_position(target_position):
 	aiming_position = target_position
@@ -93,6 +97,11 @@ func refresh_navigation_target():
 		set_target_position(target_position)
 
 
+func try_use_item():
+	#do nothing
+	item_use_timer = randf_range(0.5, 1.5) * random_item_use_interval
+
+
 func _ready():
 	_setup_references()
 	_setup_navigation()
@@ -105,6 +114,10 @@ func _physics_process(delta):
 	if nav_refresh_timer <= 0:
 		refresh_navigation_target()
 		nav_refresh_timer = nav_refresh_interval
+	
+	item_use_timer -= delta
+	if item_use_timer <= 0:
+		try_use_item()
 	
 	#if chase_mode == AIChaseMode.NODE3D and chase_target:
 	#	nav_agent.target_position = chase_target.global_position
@@ -131,7 +144,7 @@ func _setup_navigation():
 func _setup_references():
 	kart = get_parent()
 	track_progress_component = kart.get_node_or_null("KartTrackProgressComponent")
-
+	item_use_component = kart.get_node_or_null("KartItemUseComponent")
 
 
 func _follow_nav_path(delta):
