@@ -2,11 +2,13 @@
 A fishy arcade racer, inspired by games like Mario Kart, Wipeout, Road Rash and 1Xtreme.
 This repository contains a prototype of the game idea.
 
+
+
 ## Table of Contents
 
 - [Features](#features)
-- [Screenshots](#screenshots)
 - [How to Play](#how-to-play)
+- [Screenshots](#screenshots)
 
 ## Features
 - Fast-paced racing gameplay
@@ -15,14 +17,8 @@ This repository contains a prototype of the game idea.
 - Satisfying kart controls
 - Smart AI Drivers
 
-## Screenshots
-![image](https://github.com/fishfolk/drifty/assets/74799857/a2ceb355-58f6-4592-b395-d742f0c50d3c)
-![image](https://github.com/fishfolk/drifty/assets/74799857/22483150-d84b-4c87-a523-cc9cf3db6f13)
-![image](https://github.com/fishfolk/drifty/assets/74799857/611dbe61-ccd2-4d40-92b9-b62c6a710d34)
-
 
 ## How to Play
-
 - **Controls:**
   - Accelerate: `Up Arrow`
   - Brake: `Down Arrow`
@@ -33,6 +29,19 @@ This repository contains a prototype of the game idea.
   - Pause: `Escape`
 - **Objective:**
   - Complete two laps against the AI drivers.
+
+## Screenshots
+Youtube Video:
+
+[![Youtube Video](https://img.youtube.com/vi/4L5Vv1py0po/0.jpg)](https://www.youtube.com/watch?v=4L5Vv1py0po)
+
+Pictures:
+
+<img src="https://github.com/fishfolk/drifty/assets/74799857/a2ceb355-58f6-4592-b395-d742f0c50d3c" width="600" height="350"/>
+<img src="https://github.com/fishfolk/drifty/assets/74799857/22483150-d84b-4c87-a523-cc9cf3db6f13" width="600" height="350"/>
+<img src="https://github.com/fishfolk/drifty/assets/74799857/611dbe61-ccd2-4d40-92b9-b62c6a710d34" width="600" height="350"/>
+
+
 
 
 
