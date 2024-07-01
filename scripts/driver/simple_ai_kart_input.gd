@@ -99,7 +99,15 @@ func refresh_navigation_target():
 
 func try_use_item():
 	#do nothing
+	if randf() < 0.5:
+		melee_left = true
+	else:
+		melee_right = true
 	item_use_timer = randf_range(0.5, 1.5) * random_item_use_interval
+	
+	await get_tree().create_timer(0.2).timeout
+	melee_left = false
+	melee_right = false
 
 
 func _ready():

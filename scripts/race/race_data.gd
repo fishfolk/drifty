@@ -7,7 +7,7 @@ enum RACE_TYPE { NULL=0, NORMAL, TIME_ATTACK, }
 #@export var track_name : String = ""
 
 @export var race_type : RACE_TYPE = RACE_TYPE.NORMAL
-@export var lap_count : int = 1
+@export var lap_count : int = 2
 
 ## starting grid goes here
 @export var drivers : Array = []
