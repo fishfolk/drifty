@@ -29,4 +29,4 @@ func _on_btn_restart_pressed():
 
 
 func _on_btn_exit_pressed():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scenes/menus/character_select.tscn")
