@@ -100,7 +100,8 @@ func _physics_process(delta):
 	if timer_emote > 0: 
 		timer_emote -= delta
 		if timer_emote <= 0:
-			bike_anim_tree.set("parameters/hit_oneshot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT)
+			
+			fish_anim_tree.set("parameters/emote_oneshot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT)
 	
 	if kart.input and kart.input.emote and timer_emote <= 0:
 		animate_emote()
