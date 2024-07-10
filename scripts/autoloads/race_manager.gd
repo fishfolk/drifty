@@ -42,12 +42,17 @@ var driver_karts : Array[SimpleRaycastCar] = []
 var podium_karts : Array[SimpleRaycastCar] = []
 
 
-func setup_race(race_data:RaceData):
+func clear_race():
 	driver_karts = []
 	podium_karts = []
-	current_race = race_data
+	current_race = null
 	for value in race_setup_checks.values():
 		value = false
+
+
+func setup_race(race_data:RaceData):
+	clear_race()
+	current_race = race_data
 	get_tree().change_scene_to_file(current_race.track_file)
 
 

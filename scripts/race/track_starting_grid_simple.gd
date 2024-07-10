@@ -25,6 +25,7 @@ func spawn_cars() -> void:
 		#var car_instance : SimpleRaycastCar = karts_list[current_position].instantiate()
 		var car_instance : SimpleRaycastCar = kart_packed.instantiate()
 		car_instance.global_transform = markers[current_position].global_transform
+		car_instance.can_input = false
 		
 		# change this in the future to add to viewports for multiplayer
 		get_tree().current_scene.add_child.call_deferred(car_instance)
@@ -61,6 +62,11 @@ func spawn_cars() -> void:
 			car_instance.get_node("ChaseCamRoot").set_current(true)
 		
 		print("spawned and added to rank", car_instance)
+	
+	# waiting for start time
+	await get_tree().create_timer(1.0).timeout
+	for kart in RaceManager.driver_karts:
+		kart.can_input = true
 
 
 

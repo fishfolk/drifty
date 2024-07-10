@@ -13,6 +13,7 @@ func _ready():
 	
 	load_fish_from_configs()
 	
+	await get_tree().create_timer(.1).timeout
 	%SliderFish.grab_focus()
 
 
